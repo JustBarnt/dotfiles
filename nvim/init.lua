@@ -1,5 +1,4 @@
-require "jb.globals"
-
+require 'core.options'
 if vim.g.neovide then
     local alpha = function()
         return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
@@ -28,8 +27,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Turn off builtin plugins I do not use
-require "jb.disable_builtin"
-
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {
@@ -52,6 +49,16 @@ require("lazy").setup("custom.plugins", {
     ui = {
         icons = {
             cmd = "",
+            config = "",
+            event = "",
+            ft = "",
+            init = "",
+            keys = "",
+            plugin = "",
+            runtime = "",
+            source = "",
+            start = "",
+            task = "",
         }
     }
 })
