@@ -2,6 +2,10 @@ vim.g.loaded.matchparen = 1
 
 local opt = vim.opt
 
+-- Spell Checking
+opt.spell = true
+opt.spelllang = "en_us"
+
 -- Cool floating window popup menu for completion on command line
 opt.pumblend = 17
 opt.wildmode = "longest:full"

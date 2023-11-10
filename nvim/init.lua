@@ -46,6 +46,21 @@ require("lazy").setup("custom.plugins", {
         path = "~/plugins",
         fallback = false,
     },
+    performance = {
+        cache = {
+            enabled = true,
+        },
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "rplugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        },
+    },
     ui = {
         icons = {
             cmd = "",
