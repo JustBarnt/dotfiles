@@ -1,0 +1,5 @@
+lowercaseKeywords: false
+connections:
+  - alias: CommSys
+    driver: mssql
+    dataSourceName: sa:admin@localhost/?database=CommSys&TrustServerCertificate=true
