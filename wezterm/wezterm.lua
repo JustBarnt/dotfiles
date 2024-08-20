@@ -11,25 +11,33 @@ require("keys").setup(config)
 config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
 
+local function file_exists(file)
+  local f = io.open(file, "rb")
+  if f then
+    f:close()
+  end
+  return f ~= nil
+end
+
+local eldritch_wallpaper = file_exists(picture_path .. "Eldritch1920x1080.png") and "Eldritch1920x1080.png" or "eldritch.png"
+
 config.background = {
-  -- {
-  --   source = {
-  --     Color = "#212337",
-  --   },
-  --   opacity = 1,
-  -- },
-  -- {
-  --   source = {
-  --     File = picture_path .. "eldritch.png",
-  --   },
-  --   opacity = 0.1,
-  -- },
-  -- {
-  --   source = {
-  --     Color = "#212337",
-  --   },
-  --   opacity = 1,
-  -- },
+  {
+    source = {
+      Color = "#212337",
+      -- Color = "#def678",
+    },
+    height = "100%",
+    width = "100%",
+  },
+  {
+    source = {
+      File = picture_path .. eldritch_wallpaper,
+    },
+    width = "Cover",
+    horizontal_align = "Center",
+    opacity = 0.05,
+  },
 }
 
 -- Default Shell / Theme
@@ -74,6 +82,6 @@ config.command_palette_fg_color = "#394b70"
 config.command_palette_fg_color = "#828bb8"
 
 -- UI Settings
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE|TITLE"
 
 return config
