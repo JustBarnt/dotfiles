@@ -2,16 +2,20 @@ local wezterm = require("wezterm") --[[@as Wezterm]]
 local action = wezterm.action
 local config = wezterm.config_builder()
 local picture_path = "C:\\Users\\bwilliams\\Pictures\\"
+local utils = require("utils.utils")
 
+-- Other modules for wezterm
 require("tabs").setup(config)
 require("mouse").setup(config)
 require("links").setup(config)
 require("keys").setup(config)
 
+-- Performance and configuration
 config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
 
 local function file_exists(file)
+  -- Theme / Background
   local f = io.open(file, "rb")
   if f then
     f:close()
@@ -40,7 +44,15 @@ config.background = {
   },
 }
 
--- Default Shell / Theme
+-- Watch for colorscheme changes
+config.color_scheme_dirs = { wezterm.home_dir .. "/colors/Eldritch" }
+config.color_scheme = "Eldritch"
+wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
+
+config.underline_thickness = 3
+config.underline_position = -6
+
+-- Default "Item" Options
 config.default_prog = { "nu.exe" }
 
 if wezterm.target_triple:find("windows") then
@@ -55,14 +67,6 @@ if wezterm.target_triple:find("windows") then
   end)
 end
 
--- Watch for colorscheme changes
-config.color_scheme_dirs = { wezterm.home_dir .. "/colors/Eldritch" }
-config.color_scheme = "Eldritch"
-wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
-
-config.underline_thickness = 3
-config.underline_position = -6
-
 -- Font Settings
 config.font_size = 11.25
 ---@diagnostic disable-next-line: assign-type-mismatch, missing-fields
@@ -70,18 +74,16 @@ config.font = wezterm.font({ family = "MonoLisaCustom Nerd Font", scale = 1, wei
 config.bold_brightens_ansi_colors = "BrightAndBold"
 
 -- Cursor
-config.cursor_blink_ease_in = "EaseIn"
-config.cursor_blink_ease_out = "EaseOut"
-config.default_cursor_style = "BlinkingBar"
-config.window_padding = { left = 0, right = 0, top = 0, bottom = 2 }
 config.scrollback_lines = 10000
 
 --- Command Pallete
 config.command_palette_font_size = 13
-config.command_palette_fg_color = "#394b70"
-config.command_palette_fg_color = "#828bb8"
+config.command_palette_rows = 15
+config.command_palette_fg_color = "#ebfafa"
+config.command_palette_bg_color = "#323449"
 
 -- UI Settings
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 2 }
 config.window_decorations = "RESIZE|TITLE"
 
 return config
