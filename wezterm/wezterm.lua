@@ -10,20 +10,12 @@ require("mouse").setup(config)
 require("links").setup(config)
 require("keys").setup(config)
 
--- Performance and configuration
-config.webgpu_power_preference = "HighPerformance"
+-- Base
 config.automatically_reload_config = true
+config.default_prog = { "nu.exe" }
+config.default_cwd = utils.checkDir("D:/CommSys") and "D:/CommSys" or "D:/Github"
 
-local function file_exists(file)
-  -- Theme / Background
-  local f = io.open(file, "rb")
-  if f then
-    f:close()
-  end
-  return f ~= nil
-end
-
-local eldritch_wallpaper = file_exists(picture_path .. "Eldritch1920x1080.png") and "Eldritch1920x1080.png" or "eldritch.png"
+local eldritch_wallpaper = utils.file_exists(picture_path .. "Eldritch1920x1080.png") and "Eldritch1920x1080.png" or "eldritch.png"
 
 config.background = {
   {
@@ -52,9 +44,6 @@ wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.co
 config.underline_thickness = 3
 config.underline_position = -6
 
--- Default "Item" Options
-config.default_prog = { "nu.exe" }
-
 if wezterm.target_triple:find("windows") then
   wezterm.on("gui-startup", function(cmd)
     local screen = wezterm.gui.screens().active
@@ -69,9 +58,11 @@ end
 
 -- Font Settings
 config.font_size = 11.25
+config.freetype_load_target = "HorizontalLcd"
 ---@diagnostic disable-next-line: assign-type-mismatch, missing-fields
 config.font = wezterm.font({ family = "MonoLisaCustom Nerd Font", scale = 1, weight = "Medium" })
 config.bold_brightens_ansi_colors = "BrightAndBold"
+config.line_height = 1.1
 
 -- Cursor
 config.scrollback_lines = 10000
@@ -84,6 +75,7 @@ config.command_palette_bg_color = "#323449"
 
 -- UI Settings
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 2 }
-config.window_decorations = "RESIZE|TITLE"
+config.integrated_title_buttons = { "Maximize", "Close" }
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 return config
