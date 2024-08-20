@@ -49,7 +49,7 @@ function M.setup(config)
       key = "u",
       action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
     },
-    { mods = M.mod, key = "?", action = act.ShowLauncher },
+    { mods = M.mod, key = "?", action = act.ShowLauncherArgs({ title = "Available Shell", flags = "LAUNCH_MENU_ITEMS|TABS|FUZZY" }) },
     -- { mods = M.mod, key = "v", action = act.ShowDebugOverlay },
     { mods = M.mod, key = "m", action = act.TogglePaneZoomState },
     { mods = M.mod, key = "p", action = act.ActivateCommandPalette },
