@@ -86,9 +86,8 @@ end
 config.font_size = 11.25
 config.freetype_load_target = "HorizontalLcd"
 ---@diagnostic disable-next-line: assign-type-mismatch, missing-fields
-config.font = wezterm.font_with_fallback({
+config.font = wezterm.font({
   { family = "MonoLisaCustom Nerd Font", scale = 1, weight = "Medium" },
-  { family = "FiraCode Mono Nerd Font Mono", scale = 1, weight = "Regular", is_fallback = true },
 })
 config.bold_brightens_ansi_colors = "BrightAndBold"
 config.line_height = 1.1
