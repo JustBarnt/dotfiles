@@ -94,7 +94,6 @@ config.command_palette_bg_color = "#323449"
 
 -- UI Settings
 config.window_padding = { left = 4, right = 4, top = 4, bottom = 4 }
-config.integrated_title_buttons = { "Maximize", "Close" }
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- Hyperlink configs
