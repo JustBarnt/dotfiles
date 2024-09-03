@@ -10,6 +10,7 @@ require("tabs").setup(config)
 require("mouse").setup(config)
 require("links").setup(config)
 require("keys").setup(config)
+require("font").setup(config)
 
 -- Base
 config.automatically_reload_config = true
@@ -82,14 +83,6 @@ if wezterm.target_triple:find("windows") then
   end)
 end
 
--- Font Settings
-config.font_size = 11.25
-config.freetype_load_target = "HorizontalLcd"
----@diagnostic disable-next-line: assign-type-mismatch, missing-fields
-config.font = wezterm.font({ family = "MonoLisaCustom Nerd Font", scale = 1, weight = "Medium" })
-config.bold_brightens_ansi_colors = "BrightAndBold"
-config.line_height = 1.1
-
 -- Cursor
 config.scrollback_lines = 10000
 
@@ -105,10 +98,10 @@ config.integrated_title_buttons = { "Maximize", "Close" }
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- Hyperlink configs
-config.hyperlink_rules = wezterm.default_hyperlink_rules()
-table.insert(config.hyperlink_rules, {
-  regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
-  format = "https://github.com/$1/$3",
-})
+-- config.hyperlink_rules = wezterm.default_hyperlink_rules()
+-- table.insert(config.hyperlink_rules, {
+--   regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+--   format = "https://github.com/$1/$3",
+-- })
 
 return config
