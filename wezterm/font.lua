@@ -32,7 +32,6 @@ function M.setup(config)
   config.font_size = 12
   config.line_height = 1.1
   config.freetype_load_target = "HorizontalLcd"
-  ---@diagnostic disable: assign-type-mismatch
   config.font = term_font
   config.bold_brightens_ansi_colors = "BrightAndBold"
   config.font_rules = {
