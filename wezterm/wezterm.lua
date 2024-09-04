@@ -94,7 +94,8 @@ config.command_palette_bg_color = "#323449"
 
 -- UI Settings
 config.window_padding = { left = 4, right = 4, top = 4, bottom = 4 }
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "RESIZE|TITLE"
 
 -- Hyperlink configs
 -- config.hyperlink_rules = wezterm.default_hyperlink_rules()
