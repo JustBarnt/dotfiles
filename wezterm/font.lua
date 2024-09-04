@@ -1,11 +1,9 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
 local M = {}
+---@diagnostic disable: missing-fields
 local term_font = wezterm.font({
   family = "MonoLisa",
-  assume_emoji_presentation = false,
   scale = 1,
-  is_fallback = false,
-  is_synthetic = false,
   harfbuzz_features = {
     "calt=1",
     "liga=1",
@@ -42,10 +40,7 @@ function M.setup(config)
         family = "MonoLisa",
         weight = "Bold",
         style = "Oblique",
-        assume_emoji_presentation = false,
         scale = 1,
-        is_fallback = false,
-        is_synthetic = false,
         harfbuzz_features = {
           "calt=1",
           "liga=1",
@@ -74,10 +69,7 @@ function M.setup(config)
         family = "MonoLisa",
         weight = "DemiBold",
         style = "Oblique",
-        assume_emoji_presentation = false,
         scale = 1,
-        is_fallback = false,
-        is_synthetic = false,
         harfbuzz_features = {
           "calt=1",
           "liga=1",
@@ -105,10 +97,7 @@ function M.setup(config)
       font = wezterm.font({
         family = "MonoLisa",
         style = "Oblique",
-        assume_emoji_presentation = false,
         scale = 1,
-        is_fallback = false,
-        is_synthetic = false,
         harfbuzz_features = {
           "calt=1",
           "liga=1",
