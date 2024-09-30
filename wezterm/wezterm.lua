@@ -1,7 +1,5 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
-local action = wezterm.action
 local config = wezterm.config_builder()
-local picture_path = "C:\\Users\\bwilliams\\Pictures\\"
 local utils = require("utils.utils")
 local home = os.getenv("HOME") and os.getenv("HOME") or os.getenv("HOMEPATH")
 
@@ -21,29 +19,8 @@ config.launch_menu = {
   { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
 }
 
-local eldritch_wallpaper = utils.file_exists(picture_path .. "Eldritch1920x1080.png") and "Eldritch1920x1080.png" or "eldritch.png"
-
-config.background = {
-  {
-    source = {
-      Color = "#212337",
-      -- Color = "#def678",
-    },
-    height = "100%",
-    width = "100%",
-  },
-  {
-    source = {
-      File = picture_path .. eldritch_wallpaper,
-    },
-    width = "Cover",
-    horizontal_align = "Center",
-    opacity = 0.05,
-  },
-}
-
 -- Watch for colorscheme changes
-config.color_scheme_dirs = { wezterm.home_dir .. "/colors/Eldritch" }
+config.color_scheme_dirs = { wezterm.home_dir .. "/colors" }
 config.color_scheme = "Eldritch"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
