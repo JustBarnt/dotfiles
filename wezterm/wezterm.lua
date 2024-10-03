@@ -21,7 +21,7 @@ config.launch_menu = {
 
 -- Watch for colorscheme changes
 config.color_scheme_dirs = { wezterm.home_dir .. "/colors" }
-config.color_scheme = "Eldritch"
+config.color_scheme = "Tokyo Night Moon"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
 config.underline_thickness = 3
