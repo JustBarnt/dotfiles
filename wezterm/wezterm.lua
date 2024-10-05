@@ -3,13 +3,6 @@ local config = wezterm.config_builder()
 local utils = require("utils.utils")
 local home = os.getenv("HOME") and os.getenv("HOME") or os.getenv("HOMEPATH")
 
--- Other modules for wezterm
-require("tabs").setup(config)
-require("mouse").setup(config)
-require("links").setup(config)
-require("keys").setup(config)
-require("font").setup(config)
-
 -- Base
 config.automatically_reload_config = true
 config.default_prog = { "nu.exe" }
@@ -80,5 +73,24 @@ config.window_decorations = "RESIZE|TITLE"
 --   regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
 --   format = "https://github.com/$1/$3",
 -- })
+
+-- Other modules for wezterm
+require("tabs").setup(config)
+require("mouse").setup(config)
+require("links").setup(config)
+require("keys").setup(config)
+require("font").setup(config)
+
+wezterm.on("update-status", function(window, pane)
+  local dpi = window:get_dimensions().dpi
+  local font_scale = dpi / 96
+  local base_font_size = font_scale > 1 and 10 or 12
+
+  ---@diagnostic disable-next-line: missing-fields
+  window:set_config_overrides({
+    font_size = math.ceil(base_font_size * font_scale),
+    line_height = math.floor(font_scale),
+  })
+end)
 
 return config

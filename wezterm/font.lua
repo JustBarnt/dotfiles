@@ -25,7 +25,7 @@ local term_font = wezterm.font({
   },
 })
 
----@class config Config
+---@class config: Config
 function M.setup(config)
   config.font_size = 12
   config.line_height = 1.1

@@ -35,7 +35,6 @@ function M.title(tab, max_width)
 
   if M.icons[process] then
     title = M.icons[process] .. " " .. (other or "")
-    wezterm.log_info("Process Name: " .. process)
   end
 
   local is_zoomed = false
