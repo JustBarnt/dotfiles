@@ -21,6 +21,8 @@ $time\n  \
 [󱞪](fg:iris)
 """
 
+command_timeout = 5000
+
 palette = "rose-pine"
 
 [palettes.rose-pine]
@@ -66,8 +68,8 @@ format = '[](fg:overlay)[$all_status$ahead_behind]($style)[](fg:overlay)'
 disabled = false
 format = "[](fg:overlay)[ $time  ]($style)[](fg:overlay)"
 style = "bg:overlay fg:rose"
-time_format = "%I:%M"
-use_12hr = false
+# time_format = "%I:%M"
+# use_12hr = false
 
 [username]
 disabled = false
