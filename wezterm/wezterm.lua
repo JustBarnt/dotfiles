@@ -1,4 +1,5 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
+local rose_pine = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 local config = wezterm.config_builder()
 local home = os.getenv("HOME") and os.getenv("HOME") or os.getenv("HOMEPATH")
 
@@ -19,8 +20,8 @@ config.launch_menu = {
   { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
 }
 
--- Watch for colorscheme changes
-config.color_scheme = "Dracula (Official)"
+config.colors = rose_pine.colors()
+config.window_frame = rose_pine.window_frame()
 
 config.underline_thickness = 3
 config.underline_position = -6
@@ -81,7 +82,7 @@ table.insert(config.hyperlink_rules, {
 wezterm.on("update-status", function(window, pane)
   local dpi = window:get_dimensions().dpi
   local font_scale = dpi / 96
-  local base_font_size = font_scale > 1 and 10 or 12
+  local base_font_size = font_scale > 1 and 10 or 11.25
 
   ---@diagnostic disable-next-line: missing-fields
   window:set_config_overrides({
