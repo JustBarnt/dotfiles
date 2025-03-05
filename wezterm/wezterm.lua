@@ -14,11 +14,16 @@ config.status_update_interval = 5000
 -- Base
 config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
 config.default_prog = { "nu.exe" }
 config.launch_menu = {
   { label = "Wezterm Config", args = { "nvim", home .. "/.config/wezterm/" } },
   { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
 }
+
+config.max_fps = 120
+config.animation_fps = 60
 
 config.colors = rose_pine.colors()
 config.window_frame = rose_pine.window_frame()
@@ -27,26 +32,51 @@ config.underline_thickness = 3
 config.underline_position = -6
 
 if wezterm.target_triple:find("windows") then
-  -- table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
+  table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
   -- Find installed visual studio version(s) and add their compilation
   -- environment command prompts to the menu
-  -- for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/20*", "C:/Program Files")) do
-  --   local year = vsvers:gsub("Microsoft Visual Studio/", "")
-  --   local archs = { "amd64", "x86" }
-  --
-  --   for _, arch in ipairs(archs) do
-  --     table.insert(config.launch_menu, {
-  --       label = (arch == "amd64" and "x64" or "x86") .. " Native Tools Developer Command Prompt " .. year,
-  --       args = {
-  --         "cmd.exe",
-  --         "/k",
-  --         "C:/Program Files/" .. vsvers .. "/Professional/Common7/Tools/VsDevCmd.bat",
-  --         "-arch=" .. arch,
-  --       },
-  --     })
-  --   end
-  -- end
+  for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/20*", "C:/Program Files")) do
+    -- Remove 'Microsoft Visual Studio/' from the matched path so we
+    -- only get '2019' or '2022' or similar
+    local year = vsvers:gsub("Microsoft Visual Studio/", "")
+
+    -- The architectures you want to support
+    local archs = { "amd64", "x86" }
+
+    for _, arch in ipairs(archs) do
+      -- 1) CMD-based Developer Command Prompt
+      table.insert(config.launch_menu, {
+        label = string.format("%s Native Tools Developer Command Prompt %s", (arch == "amd64" and "x64" or "x86"), year),
+        args = {
+          "cmd.exe",
+          "/k",
+          -- Adjust edition below if you're using Community, Enterprise, etc.
+          "C:/Program Files/"
+            .. vsvers
+            .. "/Professional/Common7/Tools/VsDevCmd.bat",
+          "-arch=" .. arch,
+        },
+      })
+
+      -- 2) PowerShell-based Developer Command Prompt
+      table.insert(config.launch_menu, {
+        label = string.format("%s Native Tools Developer PowerShell %s", (arch == "amd64" and "x64" or "x86"), year),
+        args = {
+          "powershell.exe",
+          "-NoExit",
+          "-Command",
+          -- We use Invoke-Expression so that VsDevCmd.bat modifies the
+          -- current PowerShell session environment.
+          "Invoke-Expression '. \"C:/Program Files/"
+            .. vsvers
+            .. '/Professional/Common7/Tools/VsDevCmd.bat" -arch='
+            .. arch
+            .. "'",
+        },
+      })
+    end
+  end
 
   wezterm.on("gui-startup", function(cmd)
     local screen = wezterm.gui.screens().active
@@ -73,22 +103,9 @@ config.window_padding = { left = 4, right = 4, top = 4, bottom = 4 }
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "RESIZE|TITLE"
 
-config.hyperlink_rules = wezterm.default_hyperlink_rules()
-table.insert(config.hyperlink_rules, {
-  regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
-  format = "https://github.com/$1/$3",
-})
-
-wezterm.on("update-status", function(window, pane)
-  local dpi = window:get_dimensions().dpi
-  local font_scale = dpi / 96
-  local base_font_size = font_scale > 1 and 10 or 11.25
-
-  ---@diagnostic disable-next-line: missing-fields
-  window:set_config_overrides({
-    font_size = math.ceil(base_font_size * font_scale),
-    line_height = math.floor(font_scale),
-  })
-end)
-
+-- config.hyperlink_rules = wezterm.default_hyperlink_rules()
+-- table.insert(config.hyperlink_rules, {
+--   regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+--   format = "https://github.com/$1/$3",
+-- })
 return config

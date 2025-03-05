@@ -1,0 +1,47 @@
+[[database]]
+Name = 'Clips2'
+URL = 'sqlserver://sa:admin@CommSys-PC58/Clips2'
+Provider = 'sqlserver'
+Username = ''
+Password = ''
+Hostname = ''
+Port = ''
+DBName = 'Clips2'
+URLParams = ''
+Commands = []
+
+[[database]]
+Name = 'Clips1'
+URL = 'sqlserver://sa:admin@CommSys-PC58/Clips1'
+Provider = 'sqlserver'
+Username = ''
+Password = ''
+Hostname = ''
+Port = ''
+DBName = 'Clips1'
+URLParams = ''
+Commands = []
+
+[[database]]
+Name = "CommSys"
+URL = 'sqlserver://sa:admin@CommSys-PC58/CommSys'
+Provider = 'sqlserver'
+Username = ''
+Password = ''
+Hostname = ''
+Port = ''
+DBName = 'CommSys'
+URLParams = ''
+Commands = []
+
+[[database]]
+Name = "Asinc"
+URL = 'sqlserver://sa:admin@CommSys-PC58/Asinc'
+Provider = 'sqlserver'
+Username = ''
+Password = ''
+Hostname = ''
+Port = ''
+DBName = 'Asinc'
+URLParams = ''
+Commands = []
