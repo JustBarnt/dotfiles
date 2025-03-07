@@ -27,6 +27,8 @@ config.animation_fps = 60
 config.color_scheme_dirs = { 'colors' }
 config.color_scheme = "tokyonight"
 
+config.underline_thickness = "1cell"
+
 if wezterm.target_triple:find("windows") then
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
