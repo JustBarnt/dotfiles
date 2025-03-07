@@ -1,5 +1,4 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
-local rose_pine = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 local config = wezterm.config_builder()
 local home = os.getenv("HOME") and os.getenv("HOME") or os.getenv("HOMEPATH")
 
@@ -25,10 +24,8 @@ config.launch_menu = {
 config.max_fps = 120
 config.animation_fps = 60
 
-config.colors = rose_pine.colors()
-config.window_frame = rose_pine.window_frame()
-
-config.underline_thickness = "1cell"
+config.color_scheme_dirs = { 'colors' }
+config.color_scheme = "tokyonight"
 
 if wezterm.target_triple:find("windows") then
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
