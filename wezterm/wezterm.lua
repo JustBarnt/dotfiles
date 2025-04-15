@@ -24,11 +24,11 @@ config.launch_menu = {
 config.max_fps = 120
 config.animation_fps = 60
 
-config.color_scheme_dirs = { 'colors' }
-config.color_scheme = "tokyonight"
+config.color_scheme_dirs = { "colors" }
+config.color_scheme = "onedark"
 
 config.underline_thickness = "0.1cell"
-config.cursor_thickness = "1cell"
+config.cursor_thickness = "0.1cell"
 
 if wezterm.target_triple:find("windows") then
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
