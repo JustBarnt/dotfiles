@@ -1,18 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# format = """
-# $time$username$directory$git_branch$git_status $fill $c$golang$nodejs$nim$rust$python
-# [󱞪](fg:red)
-# """
-
-
 format = """
-$time\
-$username\
-$directory\
-$git_branch\
-$nodejs\
-$character
+[┌─](bold red)$time$username$directory$c$golang$nodejs$nim$rust$python $fill $git_status$git_branch
+[└─](bold red)
 """
 
 add_newline = false
@@ -23,71 +13,74 @@ palette = "onedark"
 [palettes.onedark]
 overlay = '#141724'
 red = '#e06c75'
-red_darker = '#7d1921'
-yellow = '#e5c07b'
-blue = '#61afef'
+red_2 = "#cc5d68"
+red_3 = "#b84f5a"
+red_4 = "#a4424d"
 
+# Left Prompt
 [time]
 disabled = false
-format = "[█](fg:red)[$time ]($style)[](fg:red_darker bg:red)"
+format = "[ $time  ]($style)[](fg:red bg:red_2)"
 style = "bg:red fg:overlay"
 
 [username]
 disabled = false
-format = "(fg:red)[  $user ]($style)[](fg:red)"
+format = "[  $user ]($style)[](fg:red_2 bg:red_3)"
 show_always = true
-style_root = "bg:red fg:overlay"
-style_user = "bg:red fg:overlay"
+style_user = "bg:red_2 fg:overlay"
 
 [directory]
-format = "[](fg:red)[ $path ]($style)[](fg:red)"
-style = "bg:red fg:overlay"
+format = "[ $path ]($style)"
+style = "bg:red_3 fg:overlay"
 
 [fill]
-style = "fg:red"
+style = "fg:overlay"
 symbol = " "
 
+# Right Prompt
+
+[git_status]
+format = '[ $all_status $ahead_behind ]($style)'
+up_to_date = "[󰞑](bg:red_2 fg:overlay)"
+stashed = "[󰋻](bg:red_2 fg:overlay)"
+modified = '[](bg:red_2 fg:overlay)'
+ahead = '  ${count}(bg:red_2 fg:overlay)'
+behind = '  ${count}(bg:red_2 fg:overlay)'
+style = "bg:red_2 fg:overlay"
+
 [git_branch]
-format = "[](fg:red)[ $symbol $branch ]($style)[](fg:red)"
+format = "[](fg:red bg:red_2)[ $symbol $branch ]($style)"
 style = "bg:red fg:overlay"
 symbol = ""
 
-[git_status]
-style = "bg:red fg:overlay"
-up_to_date = ""
-untracked = '[  ](bold bg:red fg:overlay)'
-ahead = '  ${count}(bold bg:red fg:overlay)'
-behind = '  ${count}(bold bg:redfg:overlay)'
-format = '[](fg:red)[$all_status$ahead_behind]($style)[](fg:red)'
-
 # Languages
 
-# [c]
-# style = "bg:red fg:overlay"
-# format = "[](fg:red)[$symbol$version]($style)[](fg:red) "
-# disabled = false
-# symbol = " "
-#
-# [golang]
-# style = "bg:red fg:overlay"
-# format = "[](fg:red)[$symbol$version]($style)[](fg:red) "
-# disabled = false
-# symbol = " "
-#
-# [nodejs]
-# style = "bg:red fg:overlay"
-# format = "[](fg:red)[$symbol$version]($style)[](fg:red) "
-# disabled = false
-# symbol = "󰎙 "
-#
-# [rust]
-# style = "bg:red fg:overlay"
-# format = "[](fg:red)[$symbol$version]($style)[](fg:red) "
-# disabled = false
-# symbol = ""
-#
-# [python]
-# style = "bg:red fg:overlay"
-# format = "[](fg:red)[$symbol$version]($style)[](fg:red) "
-# disabled = false
-# symbol = ' '
+[c]
+format = "[$symbol$version ]($style)"
+style = "bg:red_3 fg:overlay"
+disabled = false
+symbol = " "
+
+[golang]
+format = "[$symbol$version ]($style)"
+style = "bg:red_3 fg:overlay"
+disabled = false
+symbol = " "
+
+[nodejs]
+format = "[$symbol$version ]($style)"
+style = "bg:red_3 fg:overlay"
+disabled = false
+symbol = "󰎙 "
+
+[rust]
+format = "[$symbol$version ]($style)"
+style = "bg:red_3 fg:overlay"
+disabled = false
+symbol = " "
+
+[python]
+format = "[$symbol$version ]($style)"
+style = "bg:red_3 fg:overlay"
+disabled = false
+symbol = ' '
