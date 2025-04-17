@@ -1,12 +1,12 @@
 [colors]
 # Primary colors
-foreground = "#abb2bf"     # maps from [colors.primary].foreground
-background = "#1e222a"     # maps from [colors.primary].background
+foreground = "#abb2bf" # maps from [colors.primary].foreground
+background = "#1e222a" # maps from [colors.primary].background
 
 # Cursor colors (from [colors.cursor])
-cursor_fg = "#1e222a"      # text color (when the cursor is active)
-cursor_bg = "#abb2bf"      # cursor background (color of the block)
-cursor_border = "#abb2bf"  # using the same value for the border
+cursor_fg = "#1e222a"     # text color (when the cursor is active)
+cursor_bg = "#abb2bf"     # cursor background (color of the block)
+cursor_border = "#abb2bf" # using the same value for the border
 
 split = "#61afef"
 compose_cursor = "#d09629"
@@ -18,26 +18,26 @@ selection_bg = "#abb2bf"
 
 # ANSI colors from [colors.normal]
 ansi = [
-  "#1e222a",  # black
-  "#e06c75",  # red
-"#98c379",  # green
-  "#e5c07b",  # yellow
-  "#61afef",  # blue
-  "#c678dd",  # magenta
-  "#56b6c2",  # cyan
-  "#abb2bf"   # white
+  "#1e222a", # black
+  "#e06c75", # red
+  "#98c379", # green
+  "#e5c07b", # yellow
+  "#61afef", # blue
+  "#c678dd", # magenta
+  "#56b6c2", # cyan
+  "#abb2bf", # white
 ]
 
 # Bright variants from [colors.bright]
 brights = [
-  "#545862",  # bright black
-  "#e06c75",  # bright red
-  "#98c379",  # bright green
-  "#e5c07b",  # bright yellow
-  "#61afef",  # bright blue
-  "#c678dd",  # bright magenta
-  "#56b6c2",  # bright cyan
-  "#b6bdca"   # bright white
+  "#545862", # bright black
+  "#e06c75", # bright red
+  "#98c379", # bright green
+  "#e5c07b", # bright yellow
+  "#61afef", # bright blue
+  "#c678dd", # bright magenta
+  "#56b6c2", # bright cyan
+  "#b6bdca", # bright white
 ]
 
 [colors.tab_bar]

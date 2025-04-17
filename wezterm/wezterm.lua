@@ -25,7 +25,7 @@ config.max_fps = 120
 config.animation_fps = 60
 
 config.color_scheme_dirs = { "colors" }
-config.color_scheme = "onedark"
+config.color_scheme = "nordic"
 
 config.underline_thickness = "0.1cell"
 config.cursor_thickness = "0.1cell"

@@ -1,0 +1,64 @@
+# Nordic Colorscheme for Wezterm.
+# Based on https://github.com/AlexvZyl/nordic.nvim
+# Author: @kuntau
+[colors]
+foreground = "#D8DEE9"
+background = "#242933"
+
+cursor_bg = "#D8DEE9"
+cursor_border = "#D8DEE9"
+cursor_fg = "#242933"
+
+split = "#A97EA1"
+compose_cursor = "#E7C173"
+scrollbar_thumb = "#BBC3D4"
+
+selection_fg = "#D8DEE9"
+selection_bg = "#2E3440"
+
+ansi = [
+    "#191D24",
+    "#BF616A",
+    "#A3BE8C",
+    "#EBCB8B",
+    "#81A1C1",
+    "#B48EAD",
+    "#8FBCBB",
+    "#D8DEE9",
+]
+brights = [
+    "#3B4252",
+    "#D06F79",
+    "#B1D196",
+    "#F0D399",
+    "#88C0D0",
+    "#C895BF",
+    "#93CCDC",
+    "#E5E9F0",
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#3B4252"
+background = "#191D24"
+
+[colors.tab_bar.active_tab]
+fg_color = "#1E222A"
+bg_color = "#D79784"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#60728A"
+bg_color = "#2E3440"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#C0C8D8"
+bg_color = "#2E3440"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#81A1C1"
+bg_color = "#191D24"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#81A1C1"
+bg_color = "#191D24"
