@@ -1,1 +1,7 @@
 scoop/config.json
+.DS_STORE
+.idea
+nvim/
+nushell
+swiftpm
+

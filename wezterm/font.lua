@@ -34,7 +34,7 @@ local term_font = wezterm.font({
 
 ---@class config: Config
 function M.setup(config)
-  config.font_size = 12
+  config.font_size = 16
   config.line_height = 1.1
   config.freetype_load_target = "HorizontalLcd"
   config.font = term_font

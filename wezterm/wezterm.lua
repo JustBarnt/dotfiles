@@ -15,7 +15,6 @@ config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
-config.default_prog = { "nu.exe" }
 config.launch_menu = {
   { label = "Wezterm Config", args = { "nvim", home .. "/.config/wezterm/" } },
   { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
@@ -31,6 +30,7 @@ config.underline_thickness = "0.1cell"
 config.cursor_thickness = "0.1cell"
 
 if wezterm.target_triple:find("windows") then
+  config.default_prog = { "nu.exe" }
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
   -- Find installed visual studio version(s) and add their compilation
