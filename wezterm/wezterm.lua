@@ -20,14 +20,17 @@ config.launch_menu = {
   { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
 }
 
+config.font_size = 12
+
+if wezterm.target_triple:find("darwin") then
+  config.font_size = 16
+end
+
 config.max_fps = 120
 config.animation_fps = 60
 
 config.color_scheme_dirs = { "colors" }
 config.color_scheme = "nordic"
-
-config.underline_thickness = "0.1cell"
-config.cursor_thickness = "0.1cell"
 
 if wezterm.target_triple:find("windows") then
   config.default_prog = { "nu.exe" }
