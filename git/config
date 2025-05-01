@@ -1,0 +1,62 @@
+[user]
+  name = justbarnt
+  email = functnal@gmail.com
+[core]
+  excludesFile = ~/.config/.gitignore_global
+  editor = nvim
+  safecrlf = false
+  pager = delta
+  longpaths = true
+[merge]
+  tool = diffview
+[mergetool "neovim"]
+  cmd = nvim -d $LOCAL $REMOTE $BASE $MERGED
+[mergetool "diffview"]
+  cmd = nvim -c DiffviewOpen
+[mergetool]
+  prompt = false
+[diff]
+  tool = diffview
+[difftool]
+  prompt = false
+[difftool "diffview"]
+  cmd = nvim -d "$LOCAL" "$REMOTE" -c "DiffviewOpen"
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[init]
+  defaultBranch = main
+[commit]
+  template = ~/.config/git/gitmessage
+[push]
+  autoSetupRemote = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  minus-style                   = syntax "#3f2d3d"
+  minus-non-emph-style          = syntax "#3f2d3d"
+  minus-emph-style              = syntax "#763842"
+  minus-empty-line-marker-style = syntax "#3f2d3d"
+  line-numbers-minus-style      = "#914c54"
+  plus-style                    = syntax "#283b4d"
+  plus-non-emph-style           = syntax "#283b4d"
+  plus-emph-style               = syntax "#316172"
+  plus-empty-line-marker-style  = syntax "#283b4d"
+  line-numbers-plus-style       = "#449dab"
+  line-numbers-zero-style       = "#3b4261"
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[credential]
+  provider = generic
+  helper = manager
+[http "https://svnstore:3000"]
+  sslCAInfo = C:/Users/bwilliams/git-cert/devsupportvm01-ad-commsys-com-chain.pem
+[http]
+  sslbackend = schannel
+[include]
+  path = ~/.config/git/aliases
+[includeIf "hasconfig:remote.*.url:https://svnstore:3000/**"]
+  path = ~/.config/git/config-work

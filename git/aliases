@@ -1,0 +1,47 @@
+[alias]
+  co = checkout
+  br = branch
+  cm = commit -m
+  df = diff
+  st = status
+  lg = log
+
+  # Randoms
+  authorpersonal = "!git config user.name \"justbarnt\" && git config user.email \"functnal@gmail.com\" "
+ 
+  
+  # Improved Log Viewing
+  lol = log --oneline --graph --decorate --all
+  lg = log --graph --pretty=format:'%C(yellow)%h%C(reset) - %C(cyan)%d%C(reset) %s %C(dim white)(%cr) %C(green)<%an>%C(reset)' --abbrev-commit --date=relative
+  lga = log --graph --oneline --all --decorate
+
+  # Better Diff and Status
+  dfc = diff --cached
+  s = status -sb
+  tree = log --graph --decorate --all --oneline
+
+  # Add, Commit, and Push Faster
+  aa = add --all
+  ca = commit --amend
+  cane = commit --amend --no-edit
+  canera = commit --amend --reset-author --no-edit
+  ac = "!git add -A && git commit -m"
+  acp = "!git add -A && git commit -m 'update' && git push"
+  undo = reset --soft HEAD~1 last = log -1 HEAD
+
+  # Pull, Push, and Sync
+  pom = push origin main
+  fr = "!git fetch origin && git rebase"
+
+  # Branch Management
+  rename = branch -m
+
+  # Fix Mistakes
+  unstage = reset HEAD --
+  discard = checkout --
+
+  gcfg = config --global --edit
+  aliases = config --get-regexp ^alias/.
+  cmid = !git rev-parse HEAD | clip
+
+

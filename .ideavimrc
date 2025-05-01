@@ -1,0 +1,145 @@
+" register leader
+let mapleader = " "
+let maplocalleader = "\\"
+
+let g:WhichKey_FontSize = 14
+let g:WhichKey_PrefixStyle = "bold"
+let g:WhichKey_KeyStyle = "italic"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "true"
+
+let g:argtextobj_pairs="(:),[:],{:},<:>"
+let g:highlightedyank_highlight_duration = "200"
+let g:highlightedyank_highlight_color = "rgba(202, 158, 230, 155)"
+
+sethandler <C-j> a:vim"n-v:ide i:vim
+sethandler <C-k> n-v:ide i:vim
+sethandler <C-e> n-v:ide i:vim
+sethandler <C-n> n-v:ide i:vim
+sethandler <C-p> n-v:ide i:vim
+sethandler <C-y> a:vim 
+sethandler <C-r> a:vim
+
+" basic stuff
+set clipboard+=unnamedplus
+set history=1000
+set nohlsearch
+set ignorecase 
+set incsearch
+set smartcase
+set showcmd
+set showmode
+set scrolloff=5
+set showmode
+set notimeout
+set timeoutlen=2500
+set virtualedit=block
+
+
+" IdeaVim IntelliJ-based IDE Features
+" set colorcolumn=120
+set relativenumber
+
+" IdeaVim only"
+set ReplaceWithRegister
+set ideajoin
+set idearefactormode=visual
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'michaeljsmith/vim-indent-object'
+set surround
+set argtextobj
+set textobj-entire
+set functiontextobj
+set which-key
+
+map Q gq
+unmap grr
+
+nnoremap <silent> <A-k> :m .-2<CR>==
+nnoremap <silent> <A-j> :m .+1<CR>==
+xnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+
+" Window splits
+map <C-w>v <Action>(SplitVertically)
+map <C-w>s <Action>(SplitHorizontally)
+map <C-w>u <Action>(Unsplit)
+map <C-w>m <Action>(MoveEditorToOppositeTabGroup)
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nmap <leader>\ <action>(SplitVertically)
+nmap <leader>- <action>(SplitHorizontally)
+
+" Terminal
+nmap <leader>/ <action>(ActivateTerminalToolWindow)
+
+" Switching tabs
+nmap L <action>(NextTab)
+nmap H <action>(PreviousTab)
+nmap <leader>bd <action>(CloseContent)
+
+" Clean/Build/Rebuild
+nmap <leader>pb <action>(BuildWholeSolutionAction)
+nmap <leader>pr <action>(RebuildSolutionAction)
+nmap <leader>pc <action>(CleanSolutionAction)
+
+nmap <leader>pB <action>(BuildCurrentProject)
+nmap <leader>pR <action>(RebuildCurrentProject)
+nmap <leader>pC <action>(CleanCurrentProject)
+
+" Turn on VimFindActionIdAction"
+" nmap <leader> fa <action>(VimFindActionIdAction)
+" Goto X window
+map <leader>fa <action>(GotoAction)
+map <leader>ff <action>(GotoFile)
+map <leader>fl <action>(RecentLocations)
+map <leader>fp <action>(FindInPath)
+map <leader>fc <action>(GotoClass)
+map <leader>fs <action>(GotoSymbol)
+map <leader>fe <action>(SearchEverywhere)
+
+" Git
+map <leader>gc <action>(CheckinProject)
+map <leader>gp <action>(Vcs.Push)
+map <leader>gs <action>(Git.Fetch)<action>(Git.Pull)
+
+" Filter Todo
+nmap <leader>gt <action>(ActivateTODOToolWindow)
+
+" Coding
+nmap <leader>cf <action>(ReformatCode)
+nmap <leader>cr <action>(RenameElement)
+nmap <leader>sh <action>(LocalHistory.ShowHistory)
+nmap <leader>nf <action>(NewElement)
+
+nmap ]d <action>(GotoNextError)
+nmap [d <action>(GotoPreviousError)
+nmap K <action>(ShowHoverInfo)
+nmap gI <action>(ReSharperGotoImplementation)
+nmap gd <action>(GotoDeclaration)
+nmap gT <action>(GotoTypeDeclaration)
+nmap gr <action>(FindUsages)
+
+" AutoCompletion
+imap <C-y> <action>(EditorChooseLookupItem)
+imap <A-y> <action>(InsertInlineCompletionAction)
+
+" AutoCompletion Navigation
+nnoremap <silent> <C-k><Action>(EditorUp)
+nnoremap <silent> <C-j><Action>(EditorDown)
+
+" Debugger
+nmap <leader>dB <action>(Debugger.RemoveAllBreakpoints)
+nmap <leader>db <action>(ToggleLineBreakpoint)
+
+" source
+map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
+
+map s <Action>(flash.search)

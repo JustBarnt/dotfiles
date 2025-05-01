@@ -1,0 +1,42 @@
+let mapleader=" "
+let maplocalleader="\\"
+
+set vsvim_useeditordefaults
+set number
+set expandtab
+set ignorecase
+set incsearch
+set hlsearch
+set smartcase
+set virtualedit=block
+set backspace=indent,eol,start
+set clipboard=unnamed
+
+nnoremap <silent> K :vsc Edit.QuickInfo<CR>
+nnoremap <silent> <Leader>k :vsc Edit.PeekDefinition<CR>
+nnoremap <silent> <Esc> :nohlsearch<CR>
+nnoremap <silent> L :vsc Window.NextTab<CR>
+nnoremap <silent> H :vsc Window.PreviousTab<CR>
+nnoremap <silent> <leader>| :vsc Window.NewVerticalTabGroup<CR>
+nnoremap <silent> <leader>cr :vsc Refactor.Rename<CR>
+nnoremap <silent> <leader>ca :vsc View.QuickActionsForPosition<CR>
+nnoremap <silent> gcb :vsc Edit.ToggleBlockComment<CR>
+nnoremap <silent> gcc :vsc Edit.ToggleLineComment<CR>
+vnoremap <silent> gcc :vsc Edit.CommentSelection<CR>
+vnoremap <silent> gcu :vsc Edit.UncommentSelection<CR>
+nnoremap <silet> gr :vsc Edit.GoToReference<CR>
+nnoremap <silent> <leader>ff :vsc Edit.GoToAll<CR>
+nnoremap <silent> <leader>sf :vsc Edit.GoToRecentFile<CR>
+nnoremap <silent> <leader>st :vsc Edit.GoToType<CR>
+nnoremap <silent> <leader>sw :vsc Edit.GoToText<CR>
+nnoremap <silent> <leader>sm :vsc Edit.GoToMember<CR>
+nnoremap <silent> <leader>fr :vsc Edit.FindAllReferences<CR>
+nnoremap <silent> <leader>fs :vsc Edit.FindSymbol<CR>
+nnoremap <silent> <leader>fd :vsc Edit.FormatDocument<CR>
+vnoremap <silent> <leader>fvs :vsc Edit.FormatSelection<CR>
+nnoremap <silent> <leader>; :vsc Window.SolutionExplorerSearch<CR>
+nnoremap <silent> <leader>p :vsc Window.QuickLaunch<CR>
+nnoremap <silent> <localleader>bs :vsc Build.Build<CR>
+nnoremap <silent> <M-j> :vsc Edit.MoveSelectedLineDown<CR>
+nnoremap <silent> <M-k> :vsc Edit.MoveSelectedLineUp<CR>
+nnoremap <silent> <leader>sr :vsc Edit.Replace<CR>
