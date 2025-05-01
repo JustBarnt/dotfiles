@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- clean: ["~/.config"]
+- create: [~/dotfile-downloads]
+- link:
+  ~/.config/bat: bat
+  ~/.config/calcure: calcue
+- shell:
+- plugins:
