@@ -1,3 +1,13 @@
 [submodule "starship.yazi"]
 	path = yazi/plugins/starship.yazi
 	url = https://github.com/Rolv-Apneseth/starship.yazi
+[submodule "nvim"]
+	path = nvim
+	url = https://github.com/justbarnt/nvim
+[submodule "nushell"]
+	path = nushell
+	url = https://github.com/justbarnt/nushell-config
+
+[submodule "glazewm"]
+	path = glazewm
+	url = https://github.com/justbarnt/.glzr
