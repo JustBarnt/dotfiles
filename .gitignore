@@ -1,5 +1,39 @@
-scoop/config.json
-.DS_STORE
-.idea
-swiftpm
-simple-update-notifier/
+# Ignore everything
+*
+
+# Unignore specific files and directories
+!.gitconfig
+!.gitignore
+!.gitmodules
+!.harlequin.toml
+!git-cert/
+!hours.db
+
+# Unignore the directories to ensure their contents are visible
+!git-cert/**
+!/.glzr/
+!/.glzr/glazewm/
+!/.glzr/zebar/
+!/.glzr/glazewm/**
+!/.glzr/zebar/**
+!/.neorg/
+!/.neorg/work/
+!/.neorg/work/**
+!/AppData/Roaming/
+!/AppData/Roaming/Hyper/
+!/AppData/Roaming/Hyper/**
+!/AppData/Roaming/nushell/
+!/AppData/Roaming/nushell/**
+
+# Ignore everything else within AppData/Roaming
+/LocalLow/
+/Local/
+/AppData/Roaming/*
+!/AppData/Roaming/Hyper/
+/AppData/Roaming/Hyper/*
+!/AppData/Roaming/Hyper/.hyper.js
+!/AppData/Roaming/Hyper/config.json
+!/AppData/Roaming/nushell/
+/AppData/Roaming/nushell/*
+!/AppData/Roaming/nushell/**
+/AppData/Roaming/nushell/history.txt
