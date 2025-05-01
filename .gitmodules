@@ -11,3 +11,6 @@
 [submodule "glazewm"]
 	path = glazewm
 	url = https://github.com/justbarnt/.glzr
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
