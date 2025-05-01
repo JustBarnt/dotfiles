@@ -1,11 +1,58 @@
 - defaults:
     link:
-      create: true
       relink: true
-- clean: ["~/.config"]
+
+- clean: ['~']
+
 - create: [~/dotfile-downloads]
+
 - link:
-  ~/.config/bat: bat
-  ~/.config/calcure: calcue
-- shell:
-- plugins:
+    ~/.config/bat:
+      path: bat
+      force: true
+    ~/.config/ghostty:
+      path: ghostty
+      force: true
+      if: '["$(uname -s)" = "Darwin" ]'
+    ~/.config/git:
+      path: git
+      force: true
+    ~/.config/glazewm:
+      path: glazewm
+      force: true
+      if: '["$(uname -s)" = "Windows" ]'
+    ~/.config/karabiner:
+      path: karabiner
+      force: true
+      if: '["$(uname -s)" = "Darwin" ]'
+    ~/.config/lazygit:
+      path: lazygit
+      force: true
+    ~/.config/lazysql:
+      path: lazysql
+      force: true
+    ~/.config/nushell:
+      path: nushell
+      force: true
+    ~/.config/nvim:
+      path: nvim
+      force: true
+    ~/.config/sqls:
+      path: sqls
+      force: true
+    ~/.config/television:
+      path: television
+      force: true
+    ~/.config/wezterm:
+      path: wezterm
+      force: true
+    ~/.config/yazi:
+      path: yazi
+      force: true
+    ~/.config/.gitignore:
+    ~/.config/.gitignore_global:
+    ~/.config/.gitmodules:
+    ~/.config/.ideavimrc:
+    ~/.config/.vimrc:
+    ~/.config/.vsvimrc:
+    ~/.config/starship.toml:
