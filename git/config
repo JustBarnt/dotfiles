@@ -7,6 +7,11 @@
   safecrlf = false
   pager = delta
   longpaths = true
+  hooksPath = ~/.config/git/hooks/
+[submodule]
+  recurse = true
+[fetch]
+  recurseSubmodules = on-demand
 [merge]
   tool = diffview
 [mergetool "neovim"]
