@@ -14,6 +14,9 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "dotbot-conditional"]
-	path = dotbot-conditional
-	url = https://gitlab.com/gnfzdz/dotbot-conditional
+[submodule "dotbot-scoop"]
+	path = dotbot-scoop
+	url = https://github.com/JamJar00/dotbot-scoop
+[submodule "dotbot-brew"]
+	path = dotbot-brew
+	url = https://github.com/d12frosted/dotbot-brew
