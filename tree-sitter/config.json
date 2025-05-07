@@ -1,6 +1,6 @@
 {
   "parser-directories": [
-    "~/.local/share/nvim-data/lazy/nvim-treesitter/parser"
+    "~/.local/grammars/"
   ],
   "theme": {
     "operator": {
