@@ -1,11 +1,6 @@
 {
   "parser-directories": [
-    "C:\\Users\\bwilliams\\github",
-    "C:\\Users\\bwilliams\\src",
-    "C:\\Users\\bwilliams\\source",
-    "C:\\Users\\bwilliams\\projects",
-    "C:\\Users\\bwilliams\\dev",
-    "C:\\Users\\bwilliams\\git"
+    "~/.local/share/nvim-data/lazy/nvim-treesitter/parser"
   ],
   "theme": {
     "operator": {
