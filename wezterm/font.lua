@@ -1,9 +1,9 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
 local M = {}
 ---@diagnostic disable: missing-fields
-local term_font = wezterm.font({
+local term_font = wezterm.font_with_fallback({
+{
   family = "Monaspace Neon",
-  -- family = "FiraCode Nerd Font Mono",
   scale = 1,
   harfbuzz_features = {
     "calt=1",
@@ -30,6 +30,8 @@ local term_font = wezterm.font({
     "cv61=0",
     "cv62=0",
   },
+},
+{ family = "FireCode Nerd Font Mono" },
 })
 
 ---@class config: Config
