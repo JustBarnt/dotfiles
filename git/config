@@ -38,6 +38,7 @@
   diffFilter = delta --color-only
 [delta]
   navigate = true
+  side-by-side = true
   minus-style                   = syntax "#3f2d3d"
   minus-non-emph-style          = syntax "#3f2d3d"
   minus-emph-style              = syntax "#763842"
