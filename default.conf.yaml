@@ -5,47 +5,46 @@
 
 - clean: ["~", "~/.config"]
 
-- link:
-    ~/.config/bat:
-      path: bat
-      force: true
-    ~/.config/git:
-      path: git
-      force: true
-    ~/.config/ideavim:
-      path: ideavim
-      force: true
-    ~/.config/lazygit:
-      path: lazygit
-      force: true
-    ~/.config/lazysql:
-      path: lazysql
-      force: true
-    ~/.config/nushell:
-      path: nushell
-      force: true
-    ~/.config/nvim:
-      path: nvim
-      force: true
-    ~/.config/sqls:
-      path: sqls
-      force: true
-    ~/.config/television:
-      path: television
-      force: true
-    ~/.config/wezterm:
-      path: wezterm
-      force: true
-    ~/.config/yazi:
-      path: yazi
-      force: true
-    ~/.config/.gitignore: .gitignore
-    ~/.config/.gitignore_global: .gitignore_global
-    ~/.config/.gitmodules: .gitmodules
-    ~/.config/.vimrc: .vimrc
-    ~/.config/.vsvimrc: .vsvimrc
-    ~/.config/starship.toml: starship.toml
-
 - shell:
     - git submodule sync --recursive
     - git submodule update --init --recursive
+
+- link:
+    ~/.config/bat:
+      path: ./bat
+      force: true
+    ~/.config/git:
+      path: ./git
+      force: true
+    ~/.config/ideavim:
+      path: ./ideavim
+      force: true
+    ~/.config/lazygit:
+      path: ./lazygit
+      force: true
+    ~/.config/lazysql:
+      path: ./lazysql
+      force: true
+    ~/.config/nushell:
+      path: ./nushell
+      force: true
+    ~/.config/nvim:
+      path: ./nvim
+      force: true
+    ~/.config/sqls:
+      path: ./sqls
+      force: true
+    ~/.config/television:
+      path: ./television
+      force: true
+    ~/.config/wezterm:
+      path: ./wezterm
+      force: true
+    ~/.config/yazi:
+      path: ./yazi
+      force: true
+    ~/.config/.gitignore: ./git/gitignore
+    ~/.config/.gitignore_global: ./git/gitignore_global
+    ~/.config/.vimrc: ./vim/vimrc
+    ~/.config/.vsvimrc: ./vim/vsvimrc
+    ~/.config/starship.toml: ./starhip/starship.toml

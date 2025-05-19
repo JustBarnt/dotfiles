@@ -7,7 +7,7 @@
 
 - link:
     ~/.config/glazewm:
-      path: glazewm
+      path: ./glazewm
       force: true
 
 - shell:
