@@ -1,3 +1,5 @@
+[http]
+ sslbackend = schannel
 [user]
   name = bwilliams
   email = bwilliams@commsys.com

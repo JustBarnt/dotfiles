@@ -60,8 +60,6 @@
   helper = manager
 [http "https://svnstore:3000"]
   sslCAInfo = C:/Users/bwilliams/git-cert/devsupportvm01-ad-commsys-com-chain.pem
-; [http]
-  ; sslbackend = schannel
 [include]
   path = ~/.config/git/aliases
 [includeIf "hasconfig:remote.*.url:https://svnstore:3000/**"]
