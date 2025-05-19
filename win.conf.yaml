@@ -36,40 +36,41 @@
     - where scoop >nul 2>&1 && (echo Scoop found!) || (echo Scoop missing! Install... & powershell -c irm https://get.scoop.sh | iex)
 
 - scoop:
-  buckets:
-    - extras
-  apps:
-    - 7zip
-    - bat
-    - clangd
-    - cmake
-    - conan
-    - delta
-    - difftastic
-    - fastfetch
-    - fd
-    - fzf
-    - gh
-    - git
-    - glazewm
-    - jq
-    - lazygit
-    - less
-    - netcoredbg
-    - ninja
-    - nu
-    - openssl
-    - pipx
-    - pnpm
-    - python
-    - ripgrep
-    - rust
-    - rustup
-    - scc
-    - sd
-    - sqlite
-    - starship
-    - television
-    - wezterm
-    - zebar
-    - zoxide
+    buckets:
+      - extras
+      - versions
+    apps:
+      - 7zip
+      - bat
+      - clangd
+      - cmake
+      - conan
+      - delta
+      - difftastic
+      - fastfetch
+      - fd
+      - fzf
+      - gh
+      - git
+      - glazewm
+      - jq
+      - lazygit
+      - less
+      - netcoredbg
+      - ninja
+      - nu
+      - openssl
+      - pipx
+      - pnpm
+      - python
+      - ripgrep
+      - rust
+      - rustup
+      - scc
+      - sd
+      - sqlite
+      - starship
+      - television
+      - versions/wezterm-nightly
+      - zebar
+      - zoxide

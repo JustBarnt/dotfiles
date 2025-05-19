@@ -10,41 +10,41 @@
     - git submodule update --init --recursive
 
 - link:
-    ~/.config/bat:
+    D:/dotbot/bat:
       path: ./bat
       force: true
-    ~/.config/git:
+    D:/dotbot/git:
       path: ./git
       force: true
-    ~/.config/ideavim:
+    D:/dotbot/ideavim:
       path: ./ideavim
       force: true
-    ~/.config/lazygit:
+    D:/dotbot/lazygit:
       path: ./lazygit
       force: true
-    ~/.config/lazysql:
+    D:/dotbot/lazysql:
       path: ./lazysql
       force: true
-    ~/.config/nushell:
+    D:/dotbot/nushell:
       path: ./nushell
       force: true
-    ~/.config/nvim:
+    D:/dotbot/nvim:
       path: ./nvim
       force: true
-    ~/.config/sqls:
+    D:/dotbot/sqls:
       path: ./sqls
       force: true
-    ~/.config/television:
+    D:/dotbot/television:
       path: ./television
       force: true
-    ~/.config/wezterm:
+    D:/dotbot/wezterm:
       path: ./wezterm
       force: true
-    ~/.config/yazi:
+    D:/dotbot/yazi:
       path: ./yazi
       force: true
-    ~/.config/.gitignore: ./git/gitignore
-    ~/.config/.gitignore_global: ./git/gitignore_global
-    ~/.config/.vimrc: ./vim/vimrc
-    ~/.config/.vsvimrc: ./vim/vsvimrc
-    ~/.config/starship.toml: ./starhip/starship.toml
+    D:/dotbot/.gitignore: ./git/gitignore
+    D:/dotbot/.gitignore_global: ./git/gitignore_global
+    D:/dotbot/.vimrc: ./vim/vimrc
+    D:/dotbot/.vsvimrc: ./vim/vsvimrc
+    D:/dotbot/starship.toml: ./starship/starship.toml
