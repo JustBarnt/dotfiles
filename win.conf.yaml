@@ -3,35 +3,35 @@
       create: true
       relink: true
 
-- clean: ["~", "~/.config"]
+- clean: ["~/.config"]
 
 - link:
     ~/.config/glazewm:
       path: ./glazewm
       force: true
 
+- shell: powershell -c Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+- shell: 
+  - 
+    command: setx XDG_CACHE_HOME %USERPROFILE%\.cache
+    quiet: true
+    description: Setting XDG_CACHE_HOME
+- shell: 
+  - 
+    command: setx XDG_CONFIG_HOME %USERPROFILE%\.config
+    quite: true
+    description: Setting XDG_CONFIG_HOME
+- shell: 
+  - 
+    command: setx XDG_DATA_HOME %USERPROFILE%\.local\share
+    quite: true
+    description: Setting XDG_DATA_HOME
+
 - shell:
-    [
-      "powershell -c Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser",
-      "Setting Powershell ExecutionPolicy to RemoteSigned",
-    ]
-- shell:
-    ['setx XDG_CACHE_HOME  "%USERPROFILE%\.cache', "Settings XDG_CACHE_HOME..."]
-- shell:
-    [
-      'setx XDG_CONFIG_HOME "%USERPROFILE%\.config',
-      "Settings XDG_CONFIG_HOME...",
-    ]
-- shell:
-    [
-      'setx XDG_DATA_HOME   "%USERPROFILE%\.local\share',
-      "Settings XDG_DATA_HOME...",
-    ]
-- shell:
-    [
-      'setx XDG_STATE_HOME  "%USERPROFILE%\.local\state',
-      "Settings XDG_STATE_HOME...",
-    ]
+  - 
+    command: setx XDG_STATE_HOME  %USERPROFILE%\.local\state
+    quite: true
+    description: Setting XDG_STATE_HOME
 - shell:
     - where scoop >nul 2>&1 && (echo Scoop found!) || (echo Scoop missing! Install... & powershell -c irm https://get.scoop.sh | iex)
 

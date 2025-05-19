@@ -3,48 +3,48 @@
       create: true
       relink: true
 
-- clean: ["~", "~/.config"]
+- clean: ["~/.config"]
 
 - shell:
     - git submodule sync --recursive
     - git submodule update --init --recursive
 
 - link:
-    D:/dotbot/bat:
+    ~/.config/bat:
       path: ./bat
       force: true
-    D:/dotbot/git:
+    ~/.config/git:
       path: ./git
       force: true
-    D:/dotbot/ideavim:
+    ~/.config/ideavim:
       path: ./ideavim
       force: true
-    D:/dotbot/lazygit:
+    ~/.config/lazygit:
       path: ./lazygit
       force: true
-    D:/dotbot/lazysql:
+    ~/.config/lazysql:
       path: ./lazysql
       force: true
-    D:/dotbot/nushell:
+    ~/.config/nushell:
       path: ./nushell
       force: true
-    D:/dotbot/nvim:
+    ~/.config/nvim:
       path: ./nvim
       force: true
-    D:/dotbot/sqls:
+    ~/.config/sqls:
       path: ./sqls
       force: true
-    D:/dotbot/television:
+    ~/.config/television:
       path: ./television
       force: true
-    D:/dotbot/wezterm:
+    ~/.config/wezterm:
       path: ./wezterm
       force: true
-    D:/dotbot/yazi:
+    ~/.config/yazi:
       path: ./yazi
       force: true
-    D:/dotbot/.gitignore: ./git/gitignore
-    D:/dotbot/.gitignore_global: ./git/gitignore_global
-    D:/dotbot/.vimrc: ./vim/vimrc
-    D:/dotbot/.vsvimrc: ./vim/vsvimrc
-    D:/dotbot/starship.toml: ./starship/starship.toml
+    ~/.config/.gitignore: ./git/gitignore
+    ~/.config/.gitignore_global: ./git/gitignore_global
+    ~/.config/.vimrc: ./vim/vimrc
+    ~/.config/.vsvimrc: ./vim/vsvimrc
+    ~/.config/starship.toml: ./starship/starship.toml
