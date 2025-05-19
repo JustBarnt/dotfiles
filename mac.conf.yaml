@@ -3,7 +3,7 @@
     create: true
     relink: true
 
-- clean: ['~', '~/.config']
+- clean: ["~", "~/.config"]
 
 - link:
   ~/.config/ghostty:
@@ -14,31 +14,31 @@
     force: true
 
 - brew:
-  - cmake
-  - conan
-  - fmt
-  - fzf
-  - gcc
-  - go
-  - jq
-  - lazygit
-  - neovim
-  - ninja
-  - nushell
-  - pipx
-  - python@3.13
-  - ripgrep
-  - rust
-  - rustup
-  - sql
-  - starship
-  - television
-  - zsh-completion
+    - cmake
+    - conan
+    - fmt
+    - fzf
+    - gcc
+    - go
+    - jq
+    - lazygit
+    - neovim
+    - ninja
+    - nushell
+    - pipx
+    - python@3.13
+    - ripgrep
+    - rust
+    - rustup
+    - sql
+    - starship
+    - television
+    - zsh-completion
 
 - cask:
-  - aerospace
-  - dotnet-sdk
-  - ghostty
-  - git-credential-manager
-  - karabiner-elements
-  - wezterm@nightly
+    - aerospace
+    - dotnet-sdk
+    - ghostty
+    - git-credential-manager
+    - karabiner-elements
+    - wezterm@nightly
