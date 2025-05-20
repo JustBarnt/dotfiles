@@ -10,6 +10,9 @@
     - git submodule update --init --recursive
 
 - link:
+    ~/.config/atuin:
+      path: ./atuin/
+      force: true
     ~/.config/bat:
       path: ./bat
       force: true
