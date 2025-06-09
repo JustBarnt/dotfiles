@@ -4,7 +4,7 @@ local M = {}
 local term_font = wezterm.font_with_fallback({
   {
     family = "Monaspace Neon",
-    scale = 1.05,
+    scale = 1,
     harfbuzz_features = {
       "calt=1",
       "liga=1",
