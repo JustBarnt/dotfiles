@@ -12,15 +12,16 @@ let g:argtextobj_pairs="(:),[:],{:},<:>"
 let g:highlightedyank_highlight_duration = "200"
 let g:highlightedyank_highlight_color = "rgba(202, 158, 230, 155)"
 
-sethandler <C-j> a:vim"n-v:ide i:vim
-sethandler <C-k> n-v:ide i:vim
-sethandler <C-e> n-v:ide i:vim
-sethandler <C-n> n-v:ide i:vim
-sethandler <C-p> n-v:ide i:vim
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+sethandler <C-e> a:vim
+sethandler <C-n> a:vim
+sethandler <C-p> a:vim
 sethandler <C-y> a:vim 
 sethandler <C-r> a:vim
 
 " basic stuff
+set ideamarks
 set clipboard+=unnamedplus
 set history=1000
 set nohlsearch
@@ -34,17 +35,13 @@ set showmode
 set notimeout
 set timeoutlen=2500
 set virtualedit=block
-
-
-" IdeaVim IntelliJ-based IDE Features
-" set colorcolumn=120
+set colorcolumn=120
 set relativenumber
-
-" IdeaVim only"
 set ReplaceWithRegister
 set ideajoin
 set idearefactormode=visual
 
+"Plugins
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -58,10 +55,91 @@ set which-key
 map Q gq
 unmap grr
 
+function! SetMark()
+    let keycode = getchar()
+    let keystr = nr2char(keycode)
+    " Ideavim only supports upper case marks so
+    " ensure our pressed key is uppercase
+    let upper = toupper(keystr)
+    execute 'norm! m' . upper
+endfunction
+
+function! DelMark()
+    let keycode = getchar()
+    let keystr = nr2char(keycode)
+    " Ideavim only supports upper case marks so
+    " ensure our pressed key is uppercase
+    let upper = toupper(keystr)
+    execute 'delmark ' . keystr
+endfunction
+
+function! DelAllMarks()
+    execute 'delmarks!'
+endfunction
+
+function! JumpToMark()
+    let keycode = getchar()
+    let keystr = nr2char(keycode)
+    " Ideavim only supports upper case marks so
+    " ensure our pressed key is uppercase
+    let upper = toupper(keystr)
+    execute 'norm! `' . keystr
+endfunction
+
+nnoremap <leader>mm :call SetMark()<CR>
+
+
+nnoremap <leader>uL :call NumberToggle()<CR>
+
+nnoremap <leader>vt <Action>(VimFindActionIdAction)<CR>
+nnoremap <leader>va <Action>(VimActions)<CR>
+
+"marks
+nmap <leader>ms <Action>(ShowBookmarks)
+nmap <leader>mm :call SetMark()<cr>
+
+"move lines
 nnoremap <silent> <A-k> :m .-2<CR>==
 nnoremap <silent> <A-j> :m .+1<CR>==
 xnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+
+" find
+nmap <leader>fa <action>(GotoAction)
+nmap <leader>fb <action>(Switcher)
+nmap <leader>ff <action>(GotoFile)
+nmap <leader>fp <action>(FindInPath)
+nmap <leader>fc <action>(GotoClass)
+nmap <leader>fs <Action>(FileStructurePopup)
+nmap <leader>fS <Action>(ActivateStructureToolWindow)
+nmap <leader>fe <action>(SearchEverywhere)
+
+" Code jumps
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoSuperMethod)
+nmap gT <Action>(GotoTypeDeclaration)
+nmap gI <Action>(ReSharperGotoImplementation)
+nmap gri <Action>(GotoImplementation)
+nmap grr <Action>(FindUsages)
+nmap [[  <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" Editing
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>cf <Action>(ReformatCode)
+vmap <leader>cf <Action>(ReformatCode)
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>sh <Action>(LocalHistory.ShowHistory)
+nmap <leader>nf <Action>(NewElement)
+nmap K <action>(ShowHoverInfo)
+
+" Git
+nmap <leader>gt <Action>(ActivateCommitToolWindow)
+nmap <leader>gr <Action>(Vcs.RollbackChangedLines)
+nmap <leader>gR <Action>(ChangesView.Revert)
+nmap <leader>gc <Action>(CheckinProject)
+nmap <leader>gp <Action>(Vcs.Push)
+nmap <leader>gs <Action>(Git.Fetch)<action>(Git.Pull)
 
 " Window splits
 map <C-w>v <Action>(SplitVertically)
@@ -74,7 +152,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
-nmap <leader>\ <action>(SplitVertically)
+"<Bar> is |
+nmap <leader><Bar> <action>(SplitVertically)
 nmap <leader>- <action>(SplitHorizontally)
 
 " Terminal
@@ -84,56 +163,36 @@ nmap <leader>/ <action>(ActivateTerminalToolWindow)
 nmap L <action>(NextTab)
 nmap H <action>(PreviousTab)
 nmap <leader>bd <action>(CloseContent)
+nmap <leader>bD <Action>(CloseAllEditorsButActive)
 
 " Clean/Build/Rebuild
 nmap <leader>pb <action>(BuildWholeSolutionAction)
 nmap <leader>pr <action>(RebuildSolutionAction)
 nmap <leader>pc <action>(CleanSolutionAction)
-
 nmap <leader>pB <action>(BuildCurrentProject)
 nmap <leader>pR <action>(RebuildCurrentProject)
 nmap <leader>pC <action>(CleanCurrentProject)
 
-" Turn on VimFindActionIdAction"
-" nmap <leader> fa <action>(VimFindActionIdAction)
-" Goto X window
-map <leader>fa <action>(GotoAction)
-map <leader>ff <action>(GotoFile)
-map <leader>fl <action>(RecentLocations)
-map <leader>fp <action>(FindInPath)
-map <leader>fc <action>(GotoClass)
-map <leader>fs <action>(GotoSymbol)
-map <leader>fe <action>(SearchEverywhere)
-
-" Git
-map <leader>gc <action>(CheckinProject)
-map <leader>gp <action>(Vcs.Push)
-map <leader>gs <action>(Git.Fetch)<action>(Git.Pull)
-
 " Filter Todo
 nmap <leader>gt <action>(ActivateTODOToolWindow)
 
-" Coding
-nmap <leader>cf <action>(ReformatCode)
-nmap <leader>cr <action>(RenameElement)
-nmap <leader>sh <action>(LocalHistory.ShowHistory)
-nmap <leader>nf <action>(NewElement)
-
+" Diagnostics
 nmap ]d <action>(GotoNextError)
 nmap [d <action>(GotoPreviousError)
-nmap K <action>(ShowHoverInfo)
-nmap gI <action>(ReSharperGotoImplementation)
-nmap gd <action>(GotoDeclaration)
-nmap gT <action>(GotoTypeDeclaration)
-nmap gr <action>(FindUsages)
 
 " AutoCompletion
 imap <C-y> <action>(EditorChooseLookupItemReplace)
 imap <A-y> <action>(InsertInlineCompletionAction)
 
 " Debugger
-nmap <leader>dB <action>(Debugger.RemoveAllBreakpoints)
-nmap <leader>db <action>(ToggleLineBreakpoint)
+nmap <leader>dc <Action>(Debug)
+nmap <leader>dq <Action>(Stop)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>do <Action>(StepOver)
+nmap <leader>di <Action>(StepInto)
+nmap <leader>dO <Action>(StepOut)
+nmap <leader>dE <Action>(EvaluateExpression)
+nmap <leader>dB <Action>(Debugger.RemoveAllBreakpoints)
 
 " source
 map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
