@@ -113,6 +113,7 @@ nmap <leader>fc <action>(GotoClass)
 nmap <leader>fs <Action>(FileStructurePopup)
 nmap <leader>fS <Action>(ActivateStructureToolWindow)
 nmap <leader>fe <action>(SearchEverywhere)
+nmap <leader>fnp <action>(RiderNuGetToggleToolWindowAction)
 
 " Code jumps
 nmap gd <Action>(GotoDeclaration)
