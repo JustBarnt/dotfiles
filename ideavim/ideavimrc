@@ -128,12 +128,8 @@ nmap gT <action>(GotoTypeDeclaration)
 nmap gr <action>(FindUsages)
 
 " AutoCompletion
-imap <C-y> <action>(EditorChooseLookupItem)
+imap <C-y> <action>(EditorChooseLookupItemReplace)
 imap <A-y> <action>(InsertInlineCompletionAction)
-
-" AutoCompletion Navigation
-nnoremap <silent> <C-k><Action>(EditorUp)
-nnoremap <silent> <C-j><Action>(EditorDown)
 
 " Debugger
 nmap <leader>dB <action>(Debugger.RemoveAllBreakpoints)
