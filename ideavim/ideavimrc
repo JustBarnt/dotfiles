@@ -14,7 +14,6 @@ let g:highlightedyank_highlight_color = "rgba(202, 158, 230, 155)"
 
 sethandler <C-j> a:vim
 sethandler <C-k> a:vim
-sethandler <C-e> a:vim
 sethandler <C-n> a:vim
 sethandler <C-p> a:vim
 sethandler <C-y> a:vim 
