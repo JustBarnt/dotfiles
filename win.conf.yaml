@@ -5,11 +5,6 @@
 
 - clean: ["~/.config"]
 
-- link:
-    ~/.config/glazewm:
-      path: ./glazewm
-      force: true
-
 - shell: powershell -c Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - shell: 
   - 

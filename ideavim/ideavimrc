@@ -16,7 +16,7 @@ sethandler <C-j> a:vim
 sethandler <C-k> a:vim
 sethandler <C-n> a:vim
 sethandler <C-p> a:vim
-sethandler <C-y> a:vim 
+sethandler <C-y> a:vim
 sethandler <C-r> a:vim
 
 " basic stuff
@@ -24,7 +24,7 @@ set ideamarks
 set clipboard+=unnamedplus
 set history=1000
 set nohlsearch
-set ignorecase 
+set ignorecase
 set incsearch
 set smartcase
 set showcmd
