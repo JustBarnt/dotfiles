@@ -12,7 +12,7 @@
 	Send "{LControl up}"
 
 	if (A_PriorKey == "CapsLock") {
-		if (A_TimeSincePriorHotkey < 200) {
+		if (A_TimeSincePriorHotkey < 1000) {
 			Suspend "1"
 			Send "{Esc}"
 			Suspend "0"
