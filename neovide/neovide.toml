@@ -14,8 +14,8 @@ edging = "antialias"
 
 
 [[font.normal]]
-family = "MonolisaCustom Nerd Font"
-
+# family = "MonoLisaCustom Nerd Font"
+family = "Monaspace Neon"
 
 [box-drawing]
 mode = "native"
