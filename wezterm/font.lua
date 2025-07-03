@@ -3,14 +3,14 @@ local M = {}
 ---@diagnostic disable: missing-fields
 local term_font = wezterm.font_with_fallback({
   {
-    family = "Monaspace Neon",
+    family = "MonoLisaCustom Nerd Font",
     scale = 1.005,
     harfbuzz_features = {
       "calt=1",
       "liga=1",
       "zero=1",
       "ss01=1",
-      "ss02=1",
+      "ss02=0",
       "ss03=1",
       "ss04=1",
       "ss05=1",
@@ -31,12 +31,11 @@ local term_font = wezterm.font_with_fallback({
       "cv62=0",
     },
   },
-  { family = "FireCode Nerd Font Mono" },
+  -- { family = "FireCode Nerd Font Mono" },
 })
 
 ---@class config: Config
 function M.setup(config)
-  config.line_height = 1.1
   config.freetype_load_target = "HorizontalLcd"
   config.font = term_font
   config.bold_brightens_ansi_colors = "BrightAndBold"
