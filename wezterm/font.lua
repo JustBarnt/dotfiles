@@ -3,7 +3,7 @@ local M = {}
 ---@diagnostic disable: missing-fields
 local term_font = wezterm.font_with_fallback({
   {
-    family = "MonoLisaCustom Nerd Font",
+    family = "MonoLisa Nerd Font",
     scale = 1.005,
     harfbuzz_features = {
       "calt=1",
