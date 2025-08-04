@@ -26,7 +26,6 @@ $git_state\
 $git_status\
 $hg_branch\
 $pijul_channel\
-$docker_context\
 $package\
 $c\
 $cpp\
