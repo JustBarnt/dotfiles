@@ -10,6 +10,9 @@ require("font").setup(config)
 
 config.status_update_interval = 5000
 
+config.enable_kitty_keyboard = true
+config.enable_kitty_graphics = true
+
 -- Base
 config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
@@ -20,20 +23,20 @@ config.launch_menu = {
   { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
 }
 
-config.font_size = 12
-
-if wezterm.target_triple:find("darwin") then
-  config.font_size = 16
-end
-
 config.max_fps = 120
 config.animation_fps = 60
 
 config.color_scheme_dirs = { "colors" }
 config.color_scheme = "nordic"
 
+if wezterm.target_triple:find("darwin") then
+  config.dpi = 144
+end
+
 if wezterm.target_triple:find("windows") then
   config.default_prog = { "nu.exe" }
+  config.win32_system_backdrop = "Mica"
+
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
   -- Find installed visual studio version(s) and add their compilation

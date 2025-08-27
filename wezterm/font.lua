@@ -3,8 +3,12 @@ local M = {}
 ---@diagnostic disable: missing-fields
 local term_font = wezterm.font_with_fallback({
   {
+    family = "Lotion",
+    weight = "DemiBold",
+  },
+  {
     family = "MonoLisa Nerd Font",
-    scale = 1.005,
+    scale = 0.825,
     harfbuzz_features = {
       "calt=1",
       "liga=1",
@@ -36,7 +40,14 @@ local term_font = wezterm.font_with_fallback({
 
 ---@class config: Config
 function M.setup(config)
-  config.freetype_load_target = "HorizontalLcd"
+  config.font_size = 14
+
+  if wezterm.target_triple:find("darwin") then
+    config.font_size = 16
+  end
+
+  config.freetype_load_target = "Light"
+  config.freetype_load_flags = "NO_HINTING|FORCE_AUTOHINT"
   config.font = term_font
   config.bold_brightens_ansi_colors = "BrightAndBold"
 end
