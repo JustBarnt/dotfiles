@@ -1,6 +1,5 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
 local config = wezterm.config_builder()
-local home = os.getenv("HOME") and os.getenv("HOME") or os.getenv("HOMEPATH")
 
 require("tabs").setup(config)
 require("mouse").setup(config)
@@ -15,22 +14,24 @@ config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
-config.launch_menu = {
-  { label = "Wezterm Config", args = { "nvim", home .. "/.config/wezterm/" } },
-  { label = "Dev Drive", args = { "yazi", "D:/CommSys" } },
-}
-
-config.max_fps = 120
-config.animation_fps = 60
 
 config.color_scheme = "tokyonight_night"
+
+config.colors = {
+  indexed = { [241] = "#65bcff" },
+}
+
+config.underline_thickness = 3
+config.cursor_thickness = 4
+config.underline_position = -6
 
 if wezterm.target_triple:find("darwin") then
   config.dpi = 144
 end
 
 if wezterm.target_triple:find("windows") then
-  local pc_name = wezterm.hostname();
+  local pc_name = wezterm.hostname()
+  config.window_decorations = "RESIZE|TITLE"
   config.default_prog = { "nu.exe" }
 
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
@@ -40,13 +41,25 @@ if wezterm.target_triple:find("windows") then
 
     -- CMD Prompt
     local cmd_str = "cmd.exe /k %s -arch=%s"
-    table.insert(config.launch_menu, { label = "x64 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") }})
-    table.insert(config.launch_menu, { label = "x86 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") }})
+    table.insert(
+      config.launch_menu,
+      { label = "x64 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") } }
+    )
+    table.insert(
+      config.launch_menu,
+      { label = "x86 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") } }
+    )
 
-    -- PWSH 
+    -- PWSH
     local pwsh_str = "powershell.exe -NoExit -Command -Invoke-Expression '. %s -arch=%s'"
-    table.insert(config.launch_menu, { label = "x64 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x64") }})
-    table.insert(config.launch_menu, { label = "x86 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x86") }})
+    table.insert(
+      config.launch_menu,
+      { label = "x64 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x64") } }
+    )
+    table.insert(
+      config.launch_menu,
+      { label = "x86 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x86") } }
+    )
   end
 
   wezterm.on("gui-startup", function(cmd)
@@ -64,22 +77,16 @@ else
 end
 
 -- Cursor
+config.default_cursor_style = "BlinkingBar"
+config.force_reverse_video_cursor = true
 config.scrollback_lines = 10000
 
 --- Command Pallete
 config.command_palette_font_size = 13
 config.command_palette_rows = 15
-config.command_palette_fg_color = "#ebfafa"
-config.command_palette_bg_color = "#323449"
+config.command_palette_bg_color = "#394b70"
+config.command_palette_fg_color = "#828bb8"
 
 -- UI Settings
-config.window_padding = { left = 4, right = 4, top = 0, bottom = 0 }
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.window_decorations = "RESIZE|TITLE"
-
--- config.hyperlink_rules = wezterm.default_hyperlink_rules()
--- table.insert(config.hyperlink_rules, {
---   regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
---   format = "https://github.com/$1/$3",
--- })
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 return config
