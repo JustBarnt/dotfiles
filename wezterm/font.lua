@@ -5,6 +5,7 @@ local term_font = wezterm.font_with_fallback({
   {
     family = "Lotion",
     weight = "DemiBold",
+    scale = 1.05,
   },
   {
     family = "MonoLisa Nerd Font",

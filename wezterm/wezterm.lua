@@ -10,8 +10,8 @@ require("font").setup(config)
 
 config.status_update_interval = 5000
 
-config.enable_kitty_keyboard = true
-config.enable_kitty_graphics = true
+-- config.enable_kitty_keyboard = true
+-- config.enable_kitty_graphics = true
 
 -- Base
 config.webgpu_power_preference = "HighPerformance"
@@ -35,7 +35,6 @@ end
 
 if wezterm.target_triple:find("windows") then
   config.default_prog = { "nu.exe" }
-  config.win32_system_backdrop = "Mica"
 
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
@@ -104,7 +103,7 @@ config.command_palette_fg_color = "#ebfafa"
 config.command_palette_bg_color = "#323449"
 
 -- UI Settings
-config.window_padding = { left = 4, right = 4, top = 4, bottom = 4 }
+config.window_padding = { left = 4, right = 4, top = 0, bottom = 0 }
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "RESIZE|TITLE"
 
