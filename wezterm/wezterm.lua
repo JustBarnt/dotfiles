@@ -26,8 +26,7 @@ config.launch_menu = {
 config.max_fps = 120
 config.animation_fps = 60
 
-config.color_scheme_dirs = { "colors" }
-config.color_scheme = "nordic"
+config.color_scheme = "tokyonight_night"
 
 if wezterm.target_triple:find("darwin") then
   config.dpi = 144
