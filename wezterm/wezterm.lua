@@ -10,9 +10,6 @@ require("font").setup(config)
 
 config.status_update_interval = 5000
 
--- config.enable_kitty_keyboard = true
--- config.enable_kitty_graphics = true
-
 -- Base
 config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
@@ -33,52 +30,23 @@ if wezterm.target_triple:find("darwin") then
 end
 
 if wezterm.target_triple:find("windows") then
+  local pc_name = wezterm.hostname();
   config.default_prog = { "nu.exe" }
 
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
-  -- Find installed visual studio version(s) and add their compilation
-  -- environment command prompts to the menu
-  for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/20*", "C:/Program Files")) do
-    -- Remove 'Microsoft Visual Studio/' from the matched path so we
-    -- only get '2019' or '2022' or similar
-    local year = vsvers:gsub("Microsoft Visual Studio/", "")
+  if pc_name == "commsys-PC58" then
+    local cmd_args_path = "C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/Tools/VsDevCmd.bat"
 
-    -- The architectures you want to support
-    local archs = { "amd64", "x86" }
+    -- CMD Prompt
+    local cmd_str = "cmd.exe /k %s -arch=%s"
+    table.insert(config.launch_menu, { label = "x64 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") }})
+    table.insert(config.launch_menu, { label = "x86 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") }})
 
-    for _, arch in ipairs(archs) do
-      -- 1) CMD-based Developer Command Prompt
-      table.insert(config.launch_menu, {
-        label = string.format("%s Native Tools Developer Command Prompt %s", (arch == "amd64" and "x64" or "x86"), year),
-        args = {
-          "cmd.exe",
-          "/k",
-          -- Adjust edition below if you're using Community, Enterprise, etc.
-          "C:/Program Files/"
-            .. vsvers
-            .. "/Professional/Common7/Tools/VsDevCmd.bat",
-          "-arch=" .. arch,
-        },
-      })
-
-      -- 2) PowerShell-based Developer Command Prompt
-      table.insert(config.launch_menu, {
-        label = string.format("%s Native Tools Developer PowerShell %s", (arch == "amd64" and "x64" or "x86"), year),
-        args = {
-          "powershell.exe",
-          "-NoExit",
-          "-Command",
-          -- We use Invoke-Expression so that VsDevCmd.bat modifies the
-          -- current PowerShell session environment.
-          "Invoke-Expression '. \"C:/Program Files/"
-            .. vsvers
-            .. '/Professional/Common7/Tools/VsDevCmd.bat" -arch='
-            .. arch
-            .. "'",
-        },
-      })
-    end
+    -- PWSH 
+    local pwsh_str = "powershell.exe -NoExit -Command -Invoke-Expression '. %s -arch=%s'"
+    table.insert(config.launch_menu, { label = "x64 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x64") }})
+    table.insert(config.launch_menu, { label = "x86 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x86") }})
   end
 
   wezterm.on("gui-startup", function(cmd)
@@ -90,6 +58,9 @@ if wezterm.target_triple:find("windows") then
     gui:set_inner_size(width, height)
     gui:set_position((screen.width - width) / 2, (screen.height - height) / 2)
   end)
+else
+  config.term = "wezterm"
+  config.window_decorations = "NONE"
 end
 
 -- Cursor
