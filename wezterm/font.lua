@@ -27,7 +27,7 @@ function M.setup(config)
     {
       italic = true,
       intensity = "Normal",
-      font = wezterm.font({ family = "Maple Mono NF", style = "Italic" }),
+      font = wezterm.font({ family = "Maple Mono NF", style = "Italic", weight = "Bold" }),
     },
   }
 end

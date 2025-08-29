@@ -33,7 +33,7 @@ if wezterm.target_triple:find("windows") then
   local pc_name = wezterm.hostname()
   config.window_decorations = "RESIZE|TITLE"
   config.default_prog = { "nu.exe" }
-
+--[[
   table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
   if pc_name == "commsys-PC58" then
@@ -61,6 +61,7 @@ if wezterm.target_triple:find("windows") then
       { label = "x86 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x86") } }
     )
   end
+  --]]
 
   wezterm.on("gui-startup", function(cmd)
     local screen = wezterm.gui.screens().active
