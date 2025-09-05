@@ -30,56 +30,18 @@ $package\
 $c\
 $cpp\
 $cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
 $dotnet\
 $elixir\
-$elm\
-$erlang\
-$fennel\
 $golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
 $lua\
 $nodejs\
-$ocaml\
-$opa\
-$perl\
 $php\
-$pulumi\
-$purescript\
 $python\
-$raku\
-$rlang\
-$red\
-$ruby\
 $rust\
-$scala\
-$solidity\
 $swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
 $buf\
-$conda\
-$pixi\
-$meson\
 $spack\
 $memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$crystal\
 $custom\
 $status\
 $os\
@@ -200,18 +162,27 @@ staged = "[▪┤[$count](bold white)│](italic bright-cyan)"
 renamed = "[◎◦](italic bright-blue)"
 deleted = "[✕](italic red)"
 
-[deno]
-format = " [deno](italic) [∫ $version](green bold)"
-version_format = "${raw}"
-
 [lua]
 format = " [lua](italic) [${symbol}${version}]($style)"
 version_format = "${raw}"
-symbol = "⨀ "
+symbol = " "
 style = "bold bright-yellow"
 
+[dotnet]
+format = " [.NET](italic) [${symbol}${version}]($style)"
+version_format = "${raw}"
+symbol = "󰪮 "
+style = "bold bright-yellow"
+
+[php]
+format = " [PHP](italic) [${symbol}${version}]($style)"
+version_format = "${raw}"
+symbol = " "
+style = "bold bright-yellow"
+
+
 [nodejs]
-format = " [node](italic) [◫ ($version)](bold bright-green)"
+format = " [node](italic) [ ($version)](bold bright-green)"
 version_format = "${raw}"
 detect_files = ["package-lock.json", "yarn.lock"]
 detect_folders = ["node_modules"]
@@ -219,19 +190,13 @@ detect_extensions = []
 
 [python]
 format = " [py](italic) [${symbol}${version}]($style)"
-symbol = "[⌉](bold bright-blue)⌊ "
+symbol = " "
 version_format = "${raw}"
 style = "bold bright-yellow"
 
-[ruby]
-format = " [rb](italic) [${symbol}${version}]($style)"
-symbol = "◆ "
-version_format = "${raw}"
-style = "bold red"
-
 [rust]
 format = " [rs](italic) [$symbol$version]($style)"
-symbol = "⊃ "
+symbol = " "
 version_format = "${raw}"
 style = "bold red"
 
@@ -243,67 +208,33 @@ style = "dimmed yellow italic bold"
 
 [swift]
 format = " [sw](italic) [${symbol}${version}]($style)"
-symbol = "◁ "
+symbol = " "
 style = "bold bright-red"
 version_format = "${raw}"
-
-[aws]
-disabled = true
-format = " [aws](italic) [$symbol $profile $region]($style)"
-style = "bold blue"
-symbol = "▲ "
 
 [buf]
 symbol = "■ "
 format = " [buf](italic) [$symbol $version $buf_version]($style)"
 
 [c]
-symbol = "ℂ "
+symbol = " "
 format = " [$symbol($version(-$name))]($style)"
 
 [cpp]
-symbol = "ℂ "
+symbol = " "
 format = " [$symbol($version(-$name))]($style)"
 
-[conda]
-symbol = "◯ "
-format = " conda [$symbol$environment]($style)"
-
-[pixi]
-symbol = "■ "
-format = " pixi [$symbol$version ($environment )]($style)"
-
-[dart]
-symbol = "◁◅ "
-format = " dart [$symbol($version )]($style)"
-
 [docker_context]
-symbol = "◧ "
+symbol = " "
 format = " docker [$symbol$context]($style)"
 
 [elixir]
-symbol = "△ "
+symbol = " "
 format = " exs [$symbol $version OTP $otp_version ]($style)"
 
-[elm]
-symbol = "◩ "
-format = " elm [$symbol($version )]($style)"
-
 [golang]
-symbol = "∩ "
+symbol = "󰟓 "
 format = " go [$symbol($version )]($style)"
-
-[haskell]
-symbol = "❯λ "
-format = " hs [$symbol($version )]($style)"
-
-[java]
-symbol = "∪ "
-format = " java [${symbol}(${version} )]($style)"
-
-[julia]
-symbol = "◎ "
-format = " jl [$symbol($version )]($style)"
 
 [memory_usage]
 symbol = "▪▫▪ "
