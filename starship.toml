@@ -18,6 +18,7 @@ right_format = """
 $singularity\
 $kubernetes\
 $directory\
+${custom.configsymbol}\
 $vcsh\
 $fossil_branch\
 $git_branch\
@@ -47,6 +48,12 @@ $status\
 $os\
 $battery\
 $time"""
+
+[custom.configsymbol]
+shell= ["nu", "-c"]
+symbol = "   "
+when = 'if ($env.PWD == ([$env.HOME ".config"] | path join)) { exit 0 } else { exit 1 }'
+format = "$symbol"
 
 [fill]
 symbol = ' '
@@ -179,7 +186,6 @@ format = " [PHP](italic) [${symbol}${version}]($style)"
 version_format = "${raw}"
 symbol = " "
 style = "bold bright-yellow"
-
 
 [nodejs]
 format = " [node](italic) [ ($version)](bold bright-green)"
