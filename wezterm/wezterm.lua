@@ -15,6 +15,8 @@ config.automatically_reload_config = true
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 
+config.enable_kitty_graphics = true;
+
 config.color_scheme = "tokyonight_night"
 
 config.colors = {
