@@ -91,5 +91,5 @@ config.command_palette_bg_color = "#394b70"
 config.command_palette_fg_color = "#828bb8"
 
 -- UI Settings
-config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+config.window_padding = { left = 4, right = 4, top = 0, bottom = 0 }
 return config
