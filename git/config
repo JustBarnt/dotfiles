@@ -2,6 +2,8 @@
   name = justbarnt
   email = functnal@gmail.com
 [core]
+  fsmonitor = true # Uses filesystem to detect changes instead of scanning all files
+  splitIndex = true # Splits index into a base file + changes to avoid constantly re-writing the `.git/index` file
   excludesFile = ~/.config/.gitignore_global
   editor = nvim
   safecrlf = false
