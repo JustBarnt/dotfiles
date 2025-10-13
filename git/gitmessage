@@ -1,3 +1,11 @@
-#<type>(<scope>): <short, imperative summary>
-#[optional longer description]
-#[optional footer(s), e.g. “BREAKING CHANGE: …” or issue references]
+#Commits should follow Conventional Commits as closely as possbile
+# https://www.conventionalcommits.org/en/v1.0.0/
+#<type>[optional scope]: <description>
+#Types: fix, feat, build, chore, ci, docs, refactor, perf, test, style
+#       Use a `!` when breaking changes are made to bring attention
+#Scope: Scope is something that can be included after the type to notify what was
+#       changed. Example: `feat(parser): parse nested arrays`
+#[optional body]
+#
+#[optional footer]
+#Footer examples: BREAKING CHANGES: <description>
