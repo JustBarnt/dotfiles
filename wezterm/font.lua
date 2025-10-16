@@ -14,7 +14,7 @@ function M.setup(config)
   config.font = wezterm.font({ family = "Maple Mono NF" })
   config.font = wezterm.font_with_fallback({
     { family = "JetBrainsMono Nerd Font", weight = "Medium" },
-    { family = "Maple Mono NF", is_fallback = true }
+    { family = "Maple Mono NF" }
   })
   config.bold_brightens_ansi_colors = "BrightAndBold"
   end
