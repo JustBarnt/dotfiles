@@ -54,40 +54,6 @@ set which-key
 map Q gq
 unmap grr
 
-function! SetMark()
-    let keycode = getchar()
-    let keystr = nr2char(keycode)
-    " Ideavim only supports upper case marks so
-    " ensure our pressed key is uppercase
-    let upper = toupper(keystr)
-    execute 'norm! m' . upper
-endfunction
-
-function! DelMark()
-    let keycode = getchar()
-    let keystr = nr2char(keycode)
-    " Ideavim only supports upper case marks so
-    " ensure our pressed key is uppercase
-    let upper = toupper(keystr)
-    execute 'delmark ' . keystr
-endfunction
-
-function! DelAllMarks()
-    execute 'delmarks!'
-endfunction
-
-function! JumpToMark()
-    let keycode = getchar()
-    let keystr = nr2char(keycode)
-    " Ideavim only supports upper case marks so
-    " ensure our pressed key is uppercase
-    let upper = toupper(keystr)
-    execute 'norm! `' . keystr
-endfunction
-
-nnoremap <leader>mm :call SetMark()<CR>
-
-
 nnoremap <leader>uL :call NumberToggle()<CR>
 
 nnoremap <leader>vt <Action>(VimFindActionIdAction)<CR>
@@ -95,7 +61,6 @@ nnoremap <leader>va <Action>(VimActions)<CR>
 
 "marks
 nmap <leader>ms <Action>(ShowBookmarks)
-nmap <leader>mm :call SetMark()<cr>
 
 "move lines
 nnoremap <silent> <A-k> :m .-2<CR>==
