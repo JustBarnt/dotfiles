@@ -7,7 +7,6 @@
   excludesFile = ~/.config/.gitignore_global
   editor = nvim
   safecrlf = false
-  pager = delta
   longpaths = true
   hooksPath = ~/.config/git/hooks/
 [submodule]
@@ -38,22 +37,8 @@
   template = ~/.config/git/gitmessage
 [push]
   autoSetupRemote = true
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true
-  side-by-side = true
-  minus-style                   = syntax "#3f2d3d"
-  minus-non-emph-style          = syntax "#3f2d3d"
-  minus-emph-style              = syntax "#763842"
-  minus-empty-line-marker-style = syntax "#3f2d3d"
-  line-numbers-minus-style      = "#914c54"
-  plus-style                    = syntax "#283b4d"
-  plus-non-emph-style           = syntax "#283b4d"
-  plus-emph-style               = syntax "#316172"
-  plus-empty-line-marker-style  = syntax "#283b4d"
-  line-numbers-plus-style       = "#449dab"
-  line-numbers-zero-style       = "#3b4261"
+[include]
+  path = ~/.config/git/delta-config
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
