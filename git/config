@@ -23,9 +23,11 @@
 [mergetool]
   prompt = false
 [diff]
-  tool = diffview
+  tool = rider
 [difftool]
   prompt = false
+[difftool "rider"]
+  cmd = rider diff "$LOCAL" "$REMOTE"
 [difftool "diffview"]
   cmd = nvim -d "$LOCAL" "$REMOTE" -c "DiffviewOpen"
 [difftool "difftastic"]
