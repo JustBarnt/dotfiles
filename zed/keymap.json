@@ -1,0 +1,111 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  /*
+   * Workspace Mappings
+   */
+   {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Workspace && left_dock",
+    "bindings": {
+      "escape": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Workspace && right_dock",
+    "bindings": {
+      "escape": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Workspace && bottom_dock",
+    "bindings": {
+      "escape": "workspace::ToggleBottomDock"
+    }
+  },
+  /*
+   * Editor Vim Bindings
+   */
+  {
+    // These commands will work in Normal and Visual mode
+    // VimControl equates to: vim_mode is normal|visual|operator
+    "context": "VimControl && !menu",
+    "bindings": {
+      "left": "vim::WrappingLeft",
+      "right": "vim::WrappingRight",
+      "h": "vim::WrappingLeft",
+      "l": "vim::WrappingRight",
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "w": "vim::NextSubwordStart",
+      "b": "vim::PreviousSubwordStart",
+      "e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // User Neovims yank behavior: AKA yank to the end of line.
+      "shift-y": ["workspace::SendKeystrokes", "y $"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space c f": "editor::FormatSelections"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space e": "project_panel::ToggleFocus",
+      "space b d": ["pane::CloseActiveItem", { "close_pinned": false }],
+      "space b D": "pane::CloseAllItems",
+      "space c f": "editor::Format",
+      "shift-q": "pane::CloseActiveItem",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "shift-h": "vim::GoToPreviousTab",
+      "shift-l": "vim::GoToTab",
+      "space f r": "buffer_search::DeployReplace"
+    }
+  },
+  /*
+   * Keymaps that work without an editor existing
+   */
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space f f": "file_finder::Toggle"
+    }
+  }
+]
