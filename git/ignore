@@ -1,0 +1,14 @@
+.idea/
+.vs/
+.vscode/
+.svn/
+
+node_modules/**
+Vendor/
+_Dist/
+
+.DS_STORE
+
+Thumb.db
+
+*.user
