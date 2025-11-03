@@ -12,9 +12,11 @@ edging = "antialias"
   "-cv11", "+cv30", "+cv31", "-cv32", "-cv60", "-cv61", "-cv62",
 ]
 
+"JetBrainsMono Nerd Font" = [ "+calt", "+liga", "+clig" ]
+
 
 [[font.normal]]
-family = "Maple Mono NF"
+family = "JetBrainsMono Nerd Font"
 # family = "Monaspace Neon"
 
 # [box-drawing]

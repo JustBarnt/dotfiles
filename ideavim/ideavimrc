@@ -61,9 +61,6 @@ nnoremap <leader>va <Action>(VimActions)<CR>
 
 "marks GotoBookmarkA
 nmap <leader>ms <Action>(ShowBookmarks)
-
-"nmap <leader>ma <Action>(GotoBookmarkA)
-
 for letter in split('abcdefghijklmnopqrstuvwxyz', '\zs')
   execute 'nnoremap m' . letter . ' :action GotoBookmark' . toupper(letter) . '<CR>'
 endfor
@@ -73,6 +70,9 @@ nnoremap <silent> <A-k> :m .-2<CR>==
 nnoremap <silent> <A-j> :m .+1<CR>==
 xnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+
+" search
+nmap g/ <Action>(com.mituuz.fuzzier.FuzzierVCS)
 
 " find
 nmap <leader>fa <action>(GotoAction)
@@ -96,6 +96,7 @@ nmap [[  <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 
 " Editing
+nmap <leader>ci <Action>(RunInspection)
 nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader>cf <Action>(ReformatCode)
 vmap <leader>cf <Action>(ReformatCode)
@@ -126,9 +127,6 @@ nnoremap <C-j> <C-w>j
 "<Bar> is |
 nmap <leader><Bar> <action>(SplitVertically)
 nmap <leader>- <action>(SplitHorizontally)
-
-" Terminal
-nmap <leader>/ <action>(ActivateTerminalToolWindow)
 
 " Switching tabs
 nmap L <action>(NextTab)
