@@ -13,25 +13,23 @@
   recurse = true
 [fetch]
   recurseSubmodules = on-demand
-[merge]
-  tool = diffview
-[mergetool "neovim"]
-  cmd = nvim -d $LOCAL $REMOTE $BASE $MERGED
-[mergetool "diffview"]
-  cmd = nvim -c DiffviewOpen
-[mergetool]
-  prompt = false
 [diff]
-  tool = rider
+  tool = nvimdiff
 [difftool]
   prompt = false
-[difftool "rider"]
-  cmd = rider diff "$LOCAL" "$REMOTE"
-[difftool "diffview"]
-  cmd = nvim -d "$LOCAL" "$REMOTE" -c "DiffviewOpen"
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
+[difftool "nvimdiff"]
+  layout = LOCAL,BASE@
+[merge]
+  tool = intellij
+[mergetool]
+  prompt = false
+  keepBackup = false
+[mergetool "nvimdiff"]
+  layout = LOCAL,BASE@,REMOTE
+[mergetool "intellij"]
+  cmd = 'idea' merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [init]
+  tool = rider
   defaultBranch = main
 [commit]
   template = ~/.config/git/gitmessage
