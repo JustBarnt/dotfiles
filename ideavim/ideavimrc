@@ -72,7 +72,7 @@ xnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
 
 " search
-nmap g/ <Action>(com.mituuz.fuzzier.FuzzierVCS)
+nmap g/ <Action>(com.mituuz.fuzzier.FuzzyGrep)
 
 " find
 nmap <leader>fa <action>(GotoAction)
