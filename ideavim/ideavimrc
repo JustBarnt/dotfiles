@@ -19,6 +19,16 @@ sethandler <C-p> a:vim
 sethandler <C-y> a:vim
 sethandler <C-r> a:vim
 
+let g:zen_active = 0
+function! ZenModeWithNumbers()
+    :action ToggleZenMode
+    let g:zen_active = !g:zen_active
+
+    if g:zen_active
+        :action EditorGutterToggleGlobalLineNumbers
+    endif
+endfunction
+
 " basic stuff
 set ideamarks
 set clipboard+=unnamedplus
@@ -35,6 +45,7 @@ set notimeout
 set timeoutlen=2500
 set virtualedit=block
 set colorcolumn=120
+set nu
 set relativenumber
 set ReplaceWithRegister
 set ideajoin
@@ -53,8 +64,6 @@ set which-key
 
 map Q gq
 unmap grr
-
-nnoremap <leader>uL :call NumberToggle()<CR>
 
 nnoremap <leader>vt <Action>(VimFindActionIdAction)<CR>
 nnoremap <leader>va <Action>(VimActions)<CR>
@@ -83,7 +92,10 @@ nmap <leader>fc <action>(GotoClass)
 nmap <leader>fs <Action>(FileStructurePopup)
 nmap <leader>fS <Action>(ActivateStructureToolWindow)
 nmap <leader>fe <action>(SearchEverywhere)
-nmap <leader>fnp <action>(RiderNuGetToggleToolWindowAction)
+
+if &ide =~? 'rider'
+    nmap <leader>fnp <action>(RiderNuGetToggleToolWindowAction)
+endif
 
 " Code jumps
 nmap gd <Action>(GotoDeclaration)
@@ -105,9 +117,9 @@ nmap <leader>sh <Action>(LocalHistory.ShowHistory)
 nmap <leader>nf <Action>(NewElement)
 nmap K <action>(ShowHoverInfo)
 
-" Zenmode
-
-nmap <leader>tz <Action>(ToggleZenMode)
+" General
+nmap <leader>z :call ZenModeWithNumbers()<CR>
+nmap <C-e> <Action>(ActivateProjectToolWindow)
 
 " Git
 nmap <leader>gt <Action>(ActivateCommitToolWindow)
