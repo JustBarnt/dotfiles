@@ -105,6 +105,10 @@ nmap <leader>sh <Action>(LocalHistory.ShowHistory)
 nmap <leader>nf <Action>(NewElement)
 nmap K <action>(ShowHoverInfo)
 
+" Zenmode
+
+nmap <leader>tz <Action>(ToggleZenMode)
+
 " Git
 nmap <leader>gt <Action>(ActivateCommitToolWindow)
 nmap <leader>gr <Action>(Vcs.RollbackChangedLines)
