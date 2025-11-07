@@ -1,0 +1,370 @@
+" ═══════════════════════════════════════════════════════════════════════════
+" Keymap handlers
+" ═══════════════════════════════════════════════════════════════════════════
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+sethandler <C-n> a:vim
+sethandler <C-p> a:vim
+sethandler <C-y> a:vim
+sethandler <C-r> a:vim
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Plugins
+" ═══════════════════════════════════════════════════════════════════════════
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'michaeljsmith/vim-indent-object'
+
+let g:WhichKey_FontSize = 14
+let g:WhichKey_PrefixStyle = "bold"
+let g:WhichKey_KeyStyle = "italic"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "true"
+
+let g:argtextobj_pairs="(:),[:],{:},<:>"
+let g:highlightedyank_highlight_duration = "200"
+let g:highlightedyank_highlight_color = "rgba(202, 158, 230, 155)"
+" ═══════════════════════════════════════════════════════════════════════════
+" Settings
+" ═══════════════════════════════════════════════════════════════════════════
+" JetBrains Specific Vim Integrations
+set ideamarks
+set ideajoin
+set idearefactormode=visual
+set clipboard+=unnamedplus
+
+" Base settings
+let mapleader = " "
+let maplocalleader = "\\"
+
+set history=1000
+set nohlsearch
+set ignorecase
+set incsearch
+set smartcase
+set showcmd
+set showmode
+set scrolloff=5
+set notimeout
+set timeoutlen=2500
+set virtualedit=block
+set nu
+set relativenumber
+
+" Enable plugins
+set ReplaceWithRegister
+set surround
+set argtextobj
+set textobj-entire
+set functiontextobj
+set which-key
+set NERDTree
+
+map Q gq
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Which-Key Configuration
+" ═══════════════════════════════════════════════════════════════════════════
+" Basic File Operations
+let g:WhichKeyDesc_file = "<leader>w Save all files"
+let g:WhichKeyDesc_quit = "<leader>q Close editor"
+let g:WhichKeyDesc_history = "<leader>sh Show local history"
+
+" Split Window Management
+let g:WhichKeyDesc_split = "<leader>s +split"
+let g:WhichKeyDesc_split_vertical = "<leader>| Split vertically"
+let g:WhichKeyDesc_split_horizontal = "<leader>- Split horizontally"
+let g:WhichKeyDesc_split_close = "<leader>sx Close split"
+let g:WhichKeyDesc_split_exchange = "<leader>se Exchange split orientation"
+let g:WhichKeyDesc_split_stretch_top = "<leader>+ Stretch split to top"
+let g:WhichKeyDesc_split_stretch_bottom = "<leader>- Stretch split to bottom"
+let g:WhichKeyDesc_split_stretch_right = "<leader>> Stretch split to right"
+let g:WhichKeyDesc_split_stretch_left = "<leader>< Stretch split to left"
+
+" Tab Management
+let g:WhichKeyDesc_tab = "<leader>t +tab"
+let g:WhichKeyDesc_tab_zenmode = "<leader>zm Toggle Zen mode"
+let g:WhichKeyDesc_tab_new = "<leader>te New element"
+let g:WhichKeyDesc_tab_delete = "<leader>td Close tab"
+let g:WhichKeyDesc_tab_delete_all = "<leader>tD Close all tabs except active"
+let g:WhichKeyDesc_tab_terminal = "<leader>tt Toggle terminal"
+
+" File Explorer
+let g:WhichKeyDesc_explorer = "<leader>e +explorer"
+let g:WhichKeyDesc_explorer_toggle = "<leader>ee Toggle project explorer"
+
+" Fuzzy Finding & Search
+let g:WhichKeyDesc_find = "<leader>f +find"
+let g:WhichKeyDesc_find_files = "<leader>ff Find files"
+let g:WhichKeyDesc_find_in_path = "<leader>fp Find in path"
+let g:WhichKeyDesc_find_recent = "<leader>fr Recent files"
+let g:WhichKeyDesc_find_actions = "<leader>fa Find actions"
+let g:WhichKeyDesc_find_structure = "<leader>fs File structure"
+let g:WhichKeyDesc_find_todos = "<leader>ft TODO list"
+let g:WhichKeyDesc_find_nuget = "<leader>fnp NuGet packages (Rider)"
+
+" Search
+let g:WhichKeyDesc_search = "<leader>/ Search in file"
+let g:WhichKeyDesc_search_problems = "<leader>sp Show problems"
+
+" LSP-style Navigation
+let g:WhichKeyDesc_goto_declaration = "gd Go to declaration"
+let g:WhichKeyDesc_goto_type_declaration = "gD Go to type declaration"
+let g:WhichKeyDesc_goto_type_declaration2 = "gT Go to type declaration"
+let g:WhichKeyDesc_goto_implementation = "gi Go to implementation"
+let g:WhichKeyDesc_goto_implementation_rider = "gI Go to implementation (Rider)"
+let g:WhichKeyDesc_goto_symbol = "gs Go to symbol"
+let g:WhichKeyDesc_goto_references = "gr Find references"
+let g:WhichKeyDesc_show_hover = "K Show hover info"
+let g:WhichKeyDesc_method_up = "[[ Previous method"
+let g:WhichKeyDesc_method_down = "]] Next method"
+let g:WhichKeyDesc_prev_diagnostic = "[d Previous diagnostic"
+let g:WhichKeyDesc_next_diagnostic = "]d Next diagnostic"
+
+" Code Actions
+let g:WhichKeyDesc_code = "<leader>c +code"
+let g:WhichKeyDesc_code_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_code_inspections = "<leader>ci Run inspections"
+let g:WhichKeyDesc_code_actions = "<leader>ca Show code actions"
+let g:WhichKeyDesc_code_format = "<leader>cf Format code"
+
+" Run/Debug
+let g:WhichKeyDesc_run = "<leader>r +run"
+let g:WhichKeyDesc_run_run = "<leader>rr Run"
+let g:WhichKeyDesc_run_debug = "<leader>rd Debug"
+let g:WhichKeyDesc_run_stop = "<leader>rs Stop"
+let g:WhichKeyDesc_remove = "<leader>rm Remove file"
+
+" Build
+let g:WhichKeyDesc_build = "<leader>b +build"
+let g:WhichKeyDesc_build_menu = "<leader>b Build menu"
+let g:WhichKeyDesc_build_solution = "<leader>bb Build solution (Rider)"
+let g:WhichKeyDesc_build_rebuild = "<leader>br Rebuild (Rider/CLion)"
+let g:WhichKeyDesc_build_clean = "<leader>bc Clean (Rider/CLion)"
+let g:WhichKeyDesc_build_project = "<leader>bB Build current project (Rider)"
+let g:WhichKeyDesc_build_rebuild_project = "<leader>bR Rebuild current project (Rider)"
+let g:WhichKeyDesc_build_clean_project = "<leader>bC Clean current project (Rider)"
+let g:WhichKeyDesc_build_profile = "<leader>bcp Build profile (CLion)"
+
+" Breakpoints
+let g:WhichKeyDesc_breakpoint = "<leader>bp Toggle breakpoint"
+let g:WhichKeyDesc_breakpoint_remove_all = "<leader>bP Remove all breakpoints"
+
+" Database
+let g:WhichKeyDesc_database = "<leader>db Toggle database tool window"
+
+" Git
+let g:WhichKeyDesc_git = "<leader>l +git"
+let g:WhichKeyDesc_git_lazygit = "<leader>lg Toggle Git tool window"
+
+" File Operations (vim-eunuch style)
+let g:WhichKeyDesc_mkdir = "<leader>md Create directory"
+
+" Flash Navigation
+let g:WhichKeyDesc_flash_search = "s Flash search"
+let g:WhichKeyDesc_flash_find = "f Flash find forward"
+let g:WhichKeyDesc_flash_find_backward = "F Flash find backward"
+let g:WhichKeyDesc_flash_till = "t Flash till forward"
+let g:WhichKeyDesc_flash_till_backward = "T Flash till backward"
+let g:WhichKeyDesc_flash_repeat = "; Repeat flash search"
+let g:WhichKeyDesc_flash_repeat_backward = ", Repeat flash search backward"
+let g:WhichKeyDesc_flash_treesitter = "S Flash treesitter selection"
+let g:WhichKeyDesc_flash_remote = "r Flash remote operation"
+
+" Tab Navigation
+let g:WhichKeyDesc_tab_next = "L Next tab"
+let g:WhichKeyDesc_tab_prev = "H Previous tab"
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Basic File Operations
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>w <Action>(SaveAll)
+nmap <leader>q <Action>(CloseEditor)
+nmap <leader>sh <Action>(LocalHistory.ShowHistory)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Split Window Management
+" ═══════════════════════════════════════════════════════════════════════════
+" Create splits
+nmap <leader><Bar> <action>(SplitVertically)
+nmap <leader>- <action>(SplitHorizontally)
+nmap <leader>sx <Action>(Unsplit)
+nmap <leader>se <Action>(ChangeSplitOrientation)
+
+" Navigate splits
+nmap <C-h> <Action>(MoveFocusLeft)
+nmap <C-j> <Action>(MoveFocusDown)
+nmap <C-k> <Action>(MoveFocusUp)
+nmap <C-l> <Action>(MoveFocusRight)
+
+" Resize splits
+nmap <leader>+ <Action>(StretchSplitToTop)
+nmap <leader>- <Action>(StretchSplitToBottom)
+nmap <leader>> <Action>(StretchSplitToRight)
+nmap <leader>< <Action>(StretchSplitToLeft)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Tab Management
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>zm <Action>(ToggleZenMode)
+nmap <leader>te <Action>(NewElement)
+nmap <leader>td <Action>(CloseContent)
+nmap <leader>tD <Action>(CloseAllEditorsButActive)
+nmap L <Action>(NextTab)
+nmap H <Action>(PreviousTab)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" File Explorer (Project Tool Window)
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>ee <Action>(ActivateProjectToolWindow)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Fuzzy Finding & Search (Telescope-style)
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fp <Action>(FindInPath)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fa <Action>(GotoAction)
+nmap <leader>fs <Action>(FileStructurePopup)
+nmap <leader>ft <Action>(ActivateTODOToolWindow)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" LSP-style Navigation
+" ═══════════════════════════════════════════════════════════════════════════
+" Core navigation
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gT <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gs <Action>(GotoSymbol)
+nmap gr <Action>(FindUsages)
+nmap K <Action>(ShowHoverInfo)
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+imap <C-y> <Action>(EditorChooseLookupItemReplace)
+imap <A-y> <Action>(InsertInlineCompletionActions)
+
+if &ide =~? 'rider'
+    nmap gI <Action>(ReSharperGotoImplementation)
+    nmap <leader>fnp <Action>(RiderNuGetToggleToolWindowAction)
+endif
+
+" Diagnostics
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+nmap <leader>sp <Action>(ActivateProblemsViewToolWindow)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Code Actions
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>ci <Action>(RunInspection)
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>cf <Action>(ReformatCode)
+vmap <leader>cf <Action>(ReformatCode)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Editing
+" ═══════════════════════════════════════════════════════════════════════════
+nnoremap <silent> <A-k> <Action>(MoveLineUp)
+nnoremap <silent> <A-j> <Action>(MoveLineDown)
+xnoremap <silent> <A-k> <Action>(MoveLineUp)
+xnoremap <silent> <A-j> <Action>(MoveLineDown)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Search & Find
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>/ <Action>(Find)
+nmap g/ <Action>(com.mituuz.fuzzier.FuzzyGrep)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Git Integration
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <leader>lg <Action>(ActivateVersionControlToolWindow)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Terminal Integration
+" ═══════════════════════════════════════════════════════════════════════════
+nmap <C-\> <Action>(ActivateTerminalToolWindow)
+imap <C-\> <Esc><Action>(ActivateTerminalToolWindow)
+
+" Alternative terminal mapping
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+imap <leader>tt <Esc><Action>(ActivateTerminalToolWindow)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" Additional IDE Features
+" ═══════════════════════════════════════════════════════════════════════════
+" Run configurations
+nmap <leader>rr <Action>(Run)
+nmap <leader>rd <Action>(Debug)
+nmap <leader>rs <Action>(Stop)
+
+" Build/Clean/Rebuild Project
+if &ide =~? 'rider'
+    nmap <leader>b  <Action>(build)
+    nmap <leader>bb <Action>(BuildSolutionAction)
+    nmap <leader>br <Action>(RebuildSolutionAction)
+    nmap <leader>bc <Action>(CleanSolutionAction)
+    nmap <leader>bB <Action>(BuildCurrentProject)
+    nmap <leader>bR <Action>(RebuildCurrentProject)
+    nmap <leader>bC <Action>(CleanCurrentProject)
+elseif &ide =~? 'intellij idea'
+    nmap <leader>b  <Action>(BuildMenu)
+elseif &ide =~? 'clion'
+    nmap <leader>b  <Action>(Build)
+    nmap <leader>bc <Action>(CMake.CleanBuildDirsAndReload)
+    nmap <leader>br <Action>(Rebuild)
+    nmap <leader>bcp <Action>(BuildProfile)
+endif
+
+" Database
+nmap <leader>db <Action>(ActivateDatabaseToolWindow)
+
+" Debugging
+nmap <leader>bp <Action>(ToggleLineBreakpoint)
+nmap <leader>bP <Action>(Debugger.RemoveAllBreakPoints)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" vim-eunuch style File Operations
+" ═══════════════════════════════════════════════════════════════════════════
+" File removal
+nmap <leader>rm <Action>(SafeDelete)
+
+" File rename (enhanced)
+nmap <leader>rn <Action>(RenameFile)
+
+" Create directory (closest equivalent)
+nmap <leader>md <Action>(NewDir)
+
+" ═══════════════════════════════════════════════════════════════════════════
+" vim-flash
+" ═══════════════════════════════════════════════════════════════════════════
+" Search for string in visible area and jump
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+" enhance vim f (find for char in characters to the right of the current cursor)
+nmap f <Action>(flash.find)
+xmap f <Action>(flash.find)
+" enhance vim F (find for char in characters to the left of the current cursor)
+nmap F <Action>(flash.find_backward)
+xmap F <Action>(flash.find_backward)
+" enhance vim t (till for char in characters to the right of the current cursor)
+nmap t <Action>(flash.till)
+xmap t <Action>(flash.till)
+" enhance vim T (till for char in characters to the left of the current cursor)
+nmap T <Action>(flash.till_backward)
+xmap T <Action>(flash.till_backward)
+" enhance vim ; (Repeat the last f/F/t/T search)
+nmap ; <Action>(flash.repeat)
+xmap ; <Action>(flash.repeat)
+" enhance vim , (Repeat the last f/F/t/T search backward)
+nmap , <Action>(flash.repeat_backward)
+xmap , <Action>(flash.repeat_backward)
+" syntax node expansion (flash.nvim treesitter equivalent)
+nmap S <Action>(flash.treesitter)
+xmap S <Action>(flash.treesitter)
+" remote operator (after pressing an operator like d, use r to pick target line remotely)
+omap r <Action>(flash.remote)
