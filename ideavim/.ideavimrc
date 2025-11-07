@@ -85,6 +85,7 @@ let g:WhichKeyDesc_split_stretch_left = "<leader>< Stretch split to left"
 " Tab Management
 let g:WhichKeyDesc_tab = "<leader>t +tab"
 let g:WhichKeyDesc_tab_zenmode = "<leader>zm Toggle Zen mode"
+let g:WhichKeyDesc_tab_disctractionmode = "<leader>dm Toggle Distraction Free mode"
 let g:WhichKeyDesc_tab_new = "<leader>te New element"
 let g:WhichKeyDesc_tab_delete = "<leader>td Close tab"
 let g:WhichKeyDesc_tab_delete_all = "<leader>tD Close all tabs except active"
@@ -208,6 +209,7 @@ nmap <leader>< <Action>(StretchSplitToLeft)
 " Tab Management
 " ═══════════════════════════════════════════════════════════════════════════
 nmap <leader>zm <Action>(ToggleZenMode)
+nmap <leader>dm <Action>(ToggleDistractionFreeMode)
 nmap <leader>te <Action>(NewElement)
 nmap <leader>td <Action>(CloseContent)
 nmap <leader>tD <Action>(CloseAllEditorsButActive)
