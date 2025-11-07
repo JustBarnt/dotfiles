@@ -268,10 +268,10 @@ vmap <leader>cf <Action>(ReformatCode)
 " ═══════════════════════════════════════════════════════════════════════════
 " Editing
 " ═══════════════════════════════════════════════════════════════════════════
-nnoremap <silent> <A-k> <Action>(MoveLineUp)
-nnoremap <silent> <A-j> <Action>(MoveLineDown)
-xnoremap <silent> <A-k> <Action>(MoveLineUp)
-xnoremap <silent> <A-j> <Action>(MoveLineDown)
+nnoremap <silent> <A-k> :m .-2<CR>==
+nnoremap <silent> <A-j> :m .+1<CR>==
+xnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
 
 " ═══════════════════════════════════════════════════════════════════════════
 " Search & Find
