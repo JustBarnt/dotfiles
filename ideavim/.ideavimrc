@@ -47,7 +47,7 @@ set showcmd
 set showmode
 set scrolloff=5
 set notimeout
-set timeoutlen=2500
+"set timeoutlen=2500
 set virtualedit=block
 set nu
 set relativenumber
@@ -288,11 +288,11 @@ nmap <leader>lg <Action>(ActivateVersionControlToolWindow)
 " Terminal Integration
 " ═══════════════════════════════════════════════════════════════════════════
 nmap <C-\> <Action>(ActivateTerminalToolWindow)
-imap <C-\> <Esc><Action>(ActivateTerminalToolWindow)
+"imap <C-\> <Esc><Action>(ActivateTerminalToolWindow)
 
 " Alternative terminal mapping
 nmap <leader>tt <Action>(ActivateTerminalToolWindow)
-imap <leader>tt <Esc><Action>(ActivateTerminalToolWindow)
+"imap <leader>tt <Esc><Action>(ActivateTerminalToolWindow)
 
 " ═══════════════════════════════════════════════════════════════════════════
 " Additional IDE Features
