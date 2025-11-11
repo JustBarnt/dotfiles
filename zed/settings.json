@@ -1,7 +1,7 @@
 {
   /* Theme */
   "theme": {
-    "dark": "One Dark",
+    "dark": "Zed Dark",
     "light": "One Light",
     "mode": "dark"
   },
@@ -331,13 +331,17 @@
     "**/.idea/"
   ],
   "file_types": {
-    "PHP": ["php", "ctp"]
+    "PHP": ["php", "ctp"],
+    "XML": ["icls", "xml"]
   },
   "format_on_save": "off",
   "icon_theme": "Zed (Default)",
   "languages": {
     "PHP": {
-      "language_servers": ["!phptools", "intelephense", "!phpactor", "..."]
+      "language_servers": ["!phptools", "intelephense", "!phpactor", "..."],
+    },
+    "XML": {
+      "soft_wrap": "none"
     }
   },
   "line_indicator_format": "long",

@@ -1,4 +1,3 @@
-
 // Zed keymap
 //
 // For information on binding keys, see the Zed
@@ -73,6 +72,12 @@
     }
   },
   {
+    "context": "ProjectPanel && !editing",
+    "bindings": {
+      "a": "project_panel::NewFile"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
@@ -90,9 +95,9 @@
   {
     // This doesn't work I will pretty much have to create a context
     // for every kind of panel I use
-    "context": "Workspace && right_dock",
+    "context": "Workspace && (right_dock && !editing)",
     "bindings": {
-      "escape": "workspace::ToggleRightDock"
+      "q": "workspace::ToggleRightDock"
     }
   },
   {
@@ -102,5 +107,3 @@
     }
   }
 ]
-
-
