@@ -342,6 +342,16 @@
     },
     "XML": {
       "soft_wrap": "none"
+    },
+    "Lua": {
+      "format_on_save": "off",
+      "formatter": {
+        "external": {
+          "command": "stylua",
+          "arguments": ["-"]
+        }
+      },
+      "tab_size": 2
     }
   },
   "line_indicator_format": "long",
