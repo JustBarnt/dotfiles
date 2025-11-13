@@ -313,6 +313,7 @@ if &ide =~? 'rider'
     nmap <leader>bB <Action>(BuildCurrentProject)
     nmap <leader>bR <Action>(RebuildCurrentProject)
     nmap <leader>bC <Action>(CleanCurrentProject)
+    nmap <leader>cc <Action>(ActiveConfiguration)
 elseif &ide =~? 'intellij idea'
     nmap <leader>b  <Action>(BuildMenu)
 elseif &ide =~? 'clion'
