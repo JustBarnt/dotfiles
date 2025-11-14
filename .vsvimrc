@@ -20,6 +20,7 @@ nnoremap <silent> H :vsc Window.PreviousTab<CR>
 nnoremap <silent> <leader>| :vsc Window.NewVerticalTabGroup<CR>
 nnoremap <silent> <leader>cr :vsc Refactor.Rename<CR>
 nnoremap <silent> <leader>ca :vsc View.QuickActionsForPosition<CR>
+nnoremap <silent> gd :vsc Edit.GoToDefinition<CR>
 nnoremap <silent> gcb :vsc Edit.ToggleBlockComment<CR>
 nnoremap <silent> gcc :vsc Edit.ToggleLineComment<CR>
 vnoremap <silent> gcc :vsc Edit.CommentSelection<CR>
