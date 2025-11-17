@@ -1,0 +1,44 @@
+[colors]
+foreground = "#abb2bf"
+background = "#282c34"
+cursor_bg = "#abb2bf"
+cursor_border = "#abb2bf"
+cursor_fg = "#1e222a"
+selection_bg = "#3e4451"
+selection_fg = "#abb2bf"
+split = "#31353d"
+compose_cursor = "#e5c07b"
+scrollbar_thumb = "#353b45"
+
+ansi = ["#1e222a", "#e06c75", "#98c379", "#e5c07b", "#61afef", "#c678dd", "#56b6c2", "#abb2bf"]
+brights = ["#545862", "#e06c75", "#98c379", "#d19a66", "#61afef", "#c678dd", "#56b6c2", "#c8ccd4"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#1b1f27"
+background = "#1e222a"
+
+[colors.tab_bar.active_tab]
+fg_color = "#1e222a"
+bg_color = "#de98fd"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#565c64"
+bg_color = "#282c34"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#c678dd"
+bg_color = "#282c34"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#c678dd"
+bg_color = "#1e222a"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#c678dd"
+bg_color = "#1e222a"
+
+[metadata]
+aliases = []
+author = "NvChad (original: one-dark)"
+name = "onedark"
