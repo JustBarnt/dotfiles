@@ -15,8 +15,10 @@
       "right": "vim::WrappingRight",
       "h": "vim::WrappingLeft",
       "l": "vim::WrappingRight",
+      "j": ["workspace::SendKeystrokes", "g j"],
+      "k": ["workspace::SendKeystrokes", "g k"],
       "alt-j": "editor::MoveLineDown",
-      "alt-k": "editor::MoveLineUp",
+      "alt-k": "editor::MoveLineUp"
     }
   },
   {
@@ -38,7 +40,7 @@
   {
     "context": "vim_mode == insert",
     "bindings": {
-      "j k": "vim::NormalBefore",
+      // "j k": "vim::NormalBefore",
       "ctrl-y": "editor::ConfirmCompletion"
     }
   },
