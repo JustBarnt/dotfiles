@@ -64,13 +64,15 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "shift-h": "vim::GoToPreviousTab",
       "shift-l": "vim::GoToTab",
-      "space f r": "buffer_search::DeployReplace"
+      "space f r": "buffer_search::DeployReplace",
+      "space f p": "projects::OpenRecent"
     }
   },
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
-      "space f f": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent"
     }
   },
   {
