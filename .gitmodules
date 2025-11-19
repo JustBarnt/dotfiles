@@ -10,7 +10,3 @@
 	path = nushell
 	url = https://github.com/justbarnt/nushell-config
 	branch = main
-[submodule "topiary"]
-    path = topiary
-    url = https://github.com/blindFS/topiary-nushell
-    branch = main
