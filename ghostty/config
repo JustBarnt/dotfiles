@@ -1,5 +1,5 @@
 # Fonts
-font-family = "MonoLisa Nerd Font"
+font-family = "JetBrains Mono Nerd Font"
 font-size = 15
 adjust-underline-position = 4
 
@@ -13,7 +13,7 @@ cursor-style = block
 cursor-invert-fg-bg = true
 
 # Theme
-theme = /Users/justbarnt/themes/tokyonight/extras/ghostty/tokyonight_night
+#theme = /Users/justbarnt/themes/tokyonight/extras/ghostty/tokyonight_night
 background-opacity = 0.95
 window-theme = auto
 background-blur = true
