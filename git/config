@@ -1,6 +1,9 @@
+[gpg]
+  format = ssh
 [user]
   name = justbarnt
   email = functnal@gmail.com
+  signingkey = ~/.ssh/id_ed25519.pub
 [core]
   ; fsmonitor = true # Uses filesystem to detect changes instead of scanning all files
   ; splitIndex = true # Splits index into a base file + changes to avoid constantly re-writing the `.git/index` file
@@ -33,6 +36,7 @@
   defaultBranch = main
 [commit]
   template = ~/.config/git/gitmessage
+  gpgsign = true
 [push]
   autoSetupRemote = true
 [include]
