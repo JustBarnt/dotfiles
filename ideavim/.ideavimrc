@@ -241,6 +241,7 @@ nmap gT <Action>(GotoTypeDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gs <Action>(GotoSymbol)
 nmap gr <Action>(FindUsages)
+nmap grn <Action>(RenameElement)
 nmap K <Action>(ShowHoverInfo)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
@@ -261,7 +262,6 @@ nmap <leader>sp <Action>(ActivateProblemsViewToolWindow)
 " ═══════════════════════════════════════════════════════════════════════════
 " Code Actions
 " ═══════════════════════════════════════════════════════════════════════════
-nmap <leader>rn <Action>(RenameElement)
 nmap <leader>ci <Action>(RunInspection)
 nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader>cf <Action>(ReformatCode)

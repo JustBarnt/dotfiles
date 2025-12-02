@@ -1,0 +1,43 @@
+$schema: https://raw.githubusercontent.com/PowerShell/DSC/main/schemas/2024/04/bundled/config/document.json
+
+metadata:
+  description: Complete developer setup
+  author: Brent Williams
+  version: 0.0.1
+
+resources:
+  - name: Install Git
+    type: Microsoft.WinGet/Package
+    properties:
+      id: Git.Git
+      source: winget
+
+  - name: Install Zed
+    type: Microsoft.WinGet/Package
+    properties:
+      id: ZedIndustries.Zed
+      source: winget
+
+  # - name: Install Neovim Nightly
+  #   type: Micrsoft.WinGet/Package
+  #   properties:
+  #     id: Neovim.Neovim.Nightly
+  #     source: winget
+
+  - name: Install Neovim
+    type: Microsoft.WinGet/Package
+    properties:
+      id: Neovim.Neovim
+      source: winget
+
+  - name: Install rustup
+    type: Microsoft.WinGet/Package
+    properties:
+      id: Rustlang.Rustup
+      source: winget
+
+  - name: Install Golang
+    type: Microsoft.WinGet/Package
+    properties:
+      id: GoLang.Go
+      source: winget
