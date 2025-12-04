@@ -1,7 +1,0 @@
-{
-  "autoupdate:channel": "latest",
-  "telemetry:enabled": false,
-  "term:fontsize": 16,
-  "term:fontfamily": "Maple Mono NF",
-  "term:theme": "rosepine"
-}

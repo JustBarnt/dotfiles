@@ -6,6 +6,18 @@ metadata:
   version: 0.0.1
 
 resources:
+  - name: Install HTTPie
+    type: Microsoft.WinGet/Package
+    properties:
+      id: HTTPie.HTTPie
+      source: winget
+
+  - name: Install Raycast
+    type: Microsoft.WinGet/Package
+    properties:
+      id: 9PFXXSHC64H3
+      source: msstore
+  
   - name: Install Git
     type: Microsoft.WinGet/Package
     properties:
@@ -29,13 +41,13 @@ resources:
     properties:
       id: Neovim.Neovim
       source: winget
-
+  
   - name: Install rustup
     type: Microsoft.WinGet/Package
     properties:
       id: Rustlang.Rustup
       source: winget
-
+  
   - name: Install Golang
     type: Microsoft.WinGet/Package
     properties:
