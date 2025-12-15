@@ -3,7 +3,7 @@ local M = {}
 
 ---@class config: Config
 function M.setup(config)
-  config.font_size = 13
+  config.font_size = 12
 
   if wezterm.target_triple:find("darwin") then
     config.font_size = 16
@@ -11,10 +11,9 @@ function M.setup(config)
 
   config.freetype_load_target = "Light"
   config.freetype_load_flags = "NO_HINTING|FORCE_AUTOHINT"
-  config.font = wezterm.font({ family = "Maple Mono NF" })
   config.font = wezterm.font_with_fallback({
-    { family = "JetBrainsMono Nerd Font", weight = "Medium" },
-    { family = "Maple Mono NF" }
+    { family = "MonoLisa", weight = "Medium" },
+    { family = "SymbolsNerdFontMono" }
   })
   config.bold_brightens_ansi_colors = "BrightAndBold"
   end
