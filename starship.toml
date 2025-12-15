@@ -1,249 +1,169 @@
 # version: 1.0.0
 "$schema" = 'https://starship.rs/config-schema.json'
 
+#Inserts a literal new line
 add_newline = true
-continuation_prompt = "[▸▹ ](dimmed white)"
+
+continuation_prompt = "[╰─](dimmed white)"
 
 command_timeout = 10000
 
-format = """($container$fill$git_metrics\n)$cmd_duration\
-$hostname\
-$localip\
+format = """
 $shell\
-$env_var\
-$jobs\
-$sudo\
 $username\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$cmd_duration
 $character"""
 
 right_format = """
-$singularity\
-$kubernetes\
-$directory\
-${custom.configsymbol}\
-$vcsh\
-$fossil_branch\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$hg_branch\
-$pijul_channel\
-$package\
 $c\
 $cpp\
 $cmake\
 $dotnet\
-$elixir\
 $golang\
 $lua\
 $nodejs\
 $php\
 $python\
 $rust\
-$swift\
-$buf\
-$spack\
-$memory_usage\
-$custom\
-$status\
-$os\
 $battery\
 $time"""
 
-[custom.configsymbol]
-shell= ["nu", "-c"]
-symbol = "   "
-when = 'if ($env.PWD == ([$env.HOME ".config"] | path join)) { exit 0 } else { exit 1 }'
-format = "$symbol"
 
+# Fills the prompt with the given character
 [fill]
 symbol = ' '
 
+[battery]
+format             = "[ $percentage $symbol]($style)"
+full_symbol        = "󰁹 "
+charging_symbol    = "󰂄 "
+discharging_symbol = "󰂃 "
+unknown_symbol     = "󰁽 "
+empty_symbol       = "󰂎 "
+
+[[battery.display]]
+threshold = 20
+style     = "italic bold #e06c75"
+
+[[battery.display]]
+threshold = 60
+style     = "italic dimmed #c678dd"
+
+[[battery.display]]
+threshold = 70
+style     = "italic dimmed #e5c07b"
+
 [character]
-format = "$symbol "
-success_symbol = "[◎](bold italic #e5c07b)"
-error_symbol = "[○](italic #c678dd)"
-vimcmd_symbol = "[■](italic dimmed #98c379)"
-# not supported in zsh
-vimcmd_replace_one_symbol = "◌"
-vimcmd_replace_symbol = "□"
-vimcmd_visual_symbol = "▼"
+format         = "$symbol "
+success_symbol = "[](bold green)"
+error_symbol   = "[](bold red)"
+
+[cmd_duration]
+format = " ran in [$duration]($style)"
+
+[directory]
+format      = "[$path]($style)[$read_only]($read_only_style) "
+home_symbol = "~"
+read_only   =" "
+
+[time]
+disabled = false
+format = " [$time]($style)"
+time_format = "%R"
+
+[username]
+style_user = "bold italic"
+style_root = "bold italic"
+format = "[ $user]($style) "
+disabled = false
+show_always = true
+aliases = { "bwilliams" = "justbarnt" }
 
 [shell]
 disabled = false
 
-[env_var.VIMSHELL]
-format = "[$env_value]($style)"
-style = '#98c379 italic'
-
-[sudo]
-format = "[$symbol]($style)"
-style = "bold italic #c678dd"
-symbol = "⋈┈"
-disabled = false
-
-[username]
-style_user = "#e5c07b bold italic"
-style_root = "#c678dd bold italic"
-format = "[⭘ $user]($style) "
-disabled = false
-show_always = false
-
-[directory]
-home_symbol = "⌂"
-truncation_length = 2
-truncation_symbol = "□ "
-read_only = " ◈"
-use_os_path_sep = true
-style = "italic #61afef"
-format = '[$path]($style)[$read_only]($read_only_style)'
-repo_root_style = 'bold #61afef'
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold #61afef)'
-
-[cmd_duration]
-format = "[◄ $duration ](italic #abb2bf)"
-
-[jobs]
-format = "[$symbol$number]($style) "
-style = "#abb2bf"
-symbol = "[▶](#61afef italic)"
-
-[localip]
-ssh_only = true
-format = " ◯[$localipv4](bold #c678dd)"
-disabled = false
-
-[time]
-disabled = false
-format = "[ $time]($style)"
-time_format = "%R"
-utc_time_offset = "local"
-style = "italic dimmed #6f737b"
-
-[battery]
-format = "[ $percentage $symbol]($style)"
-full_symbol = "█"
-charging_symbol = "[↑](italic bold #98c379)"
-discharging_symbol = "↓"
-unknown_symbol = "░"
-empty_symbol = "▃"
-
-[[battery.display]]
-threshold = 20
-style = "italic bold #e06c75"
-
-[[battery.display]]
-threshold = 60
-style = "italic dimmed #c678dd"
-
-[[battery.display]]
-threshold = 70
-style = "italic dimmed #e5c07b"
-
 [git_branch]
-format = " [$branch(:$remote_branch)]($style)"
-symbol = "[△](bold italic #61afef)"
-style = "italic #61afef"
-truncation_symbol = "⋯"
-truncation_length = 11
-ignore_branches = ["main", "master"]
-only_attached = true
-
-[git_metrics]
-format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
-added_style = 'italic dimmed #98c379'
-deleted_style = 'italic dimmed #e06c75'
-ignore_submodules = true
-disabled = false
+symbol = " "
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "bold purple"
+truncation_length = 20
+truncation_symbol = "…"
 
 [git_status]
-style = "bold italic #61afef"
-format = "([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))"
-conflicted = "[◪◦](italic #c678dd)"
-ahead = "[▴│[${count}](bold #abb2bf)│](italic #98c379)"
-behind = "[▿│[${count}](bold #abb2bf)│](italic #e06c75)"
-diverged = "[◇ ▴┤[${ahead_count}](regular #abb2bf)│▿┤[${behind_count}](regular #abb2bf)│](italic #c678dd)"
-untracked = "[◌◦](italic #e5c07b)"
-stashed = "[◃◈](italic #abb2bf)"
-modified = "[●◦](italic #e5c07b)"
-staged = "[▪┤[$count](bold #abb2bf)│](italic #56b6c2)"
-renamed = "[◎◦](italic #61afef)"
-deleted = "[✕](italic #e06c75)"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold red"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
 
-[lua]
-format = " [lua](italic) [${symbol}${version}]($style)"
-version_format = "${raw}"
-symbol = " "
-style = "bold #e5c07b"
-
-[dotnet]
-format = " [.NET](italic) [${symbol}${version}]($style)"
-version_format = "${raw}"
-symbol = "󰪮 "
-style = "bold #e5c07b"
-
-[php]
-format = " [PHP](italic) [${symbol}${version}]($style)"
-version_format = "${raw}"
-symbol = " "
-style = "bold #e5c07b"
-
-[nodejs]
-format = " [node](italic) [ ($version)](bold #98c379)"
-version_format = "${raw}"
-detect_files = ["package-lock.json", "yarn.lock"]
-detect_folders = ["node_modules"]
-detect_extensions = []
-
-[python]
-format = " [py](italic) [${symbol}${version}]($style)"
-symbol = " "
-version_format = "${raw}"
-style = "bold #e5c07b"
-
-[rust]
-format = " [rs](italic) [$symbol$version]($style)"
-symbol = " "
-version_format = "${raw}"
-style = "bold #e06c75"
-
-[package]
-format = " [pkg](italic dimmed) [$symbol$version]($style)"
-version_format = "${raw}"
-symbol = "◨ "
-style = "dimmed #e5c07b italic bold"
-
-[swift]
-format = " [sw](italic) [${symbol}${version}]($style)"
-symbol = " "
-style = "bold #e06c75"
-version_format = "${raw}"
-
-[buf]
-symbol = "■ "
-format = " [buf](italic) [$symbol $version $buf_version]($style)"
+[git_metrics]
+disabled = false
+added_style= "bold green"
+deleted_style = "bold red"
+only_nonzero_diffs = true
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 
 [c]
-symbol = " "
-format = " [$symbol($version(-$name))]($style)"
+symbol = " "
+format = "[$symbol($version(-$name) )]($style)"
+version_format = "${major}.${minor}"
+disabled = false
 
 [cpp]
-symbol = " "
-format = " [$symbol($version(-$name))]($style)"
+symbol = " "
+format = "[$symbol($version(-$name) )]($style)"
+version_format = "${major}.${minor}"
+disabled = false
 
-[docker_context]
-symbol = " "
-format = " docker [$symbol$context]($style)"
-
-[elixir]
-symbol = " "
-format = " exs [$symbol $version OTP $otp_version ]($style)"
+[cmake]
+symbol = " "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
+style = "bold blue"
 
 [golang]
-symbol = "󰟓 "
-format = " go [$symbol($version )]($style)"
+symbol = " "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
 
-[memory_usage]
-symbol = "▪▫▪ "
-format = " mem [${ram}( ${swap})]($style)"
+[lua]
+symbol = "󰢱 "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
+
+[nodejs]
+symbol = " "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
+
+[php]
+symbol = " "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
+
+[python]
+symbol = " "
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = "${major}.${minor}"
+pyenv_version_name = false
+
+[rust]
+symbol = " "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
+
+[dotnet]
+symbol = " "
+format = "[$symbol($version )]($style)"
+version_format = "${major}.${minor}"
