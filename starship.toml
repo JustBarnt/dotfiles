@@ -38,7 +38,7 @@ $time"""
 symbol = ' '
 
 [battery]
-format             = "[ $percentage $symbol]($style)"
+format             = "[$percentage $symbol]($style) "
 full_symbol        = "󰁹 "
 charging_symbol    = "󰂄 "
 discharging_symbol = "󰂃 "
@@ -63,7 +63,7 @@ success_symbol = "[](bold green)"
 error_symbol   = "[](bold red)"
 
 [cmd_duration]
-format = " ran in [$duration]($style)"
+format = "ran in [$duration]($style) "
 
 [directory]
 format      = "[$path]($style)[$read_only]($read_only_style) "
