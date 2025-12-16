@@ -4,7 +4,7 @@
 #Inserts a literal new line
 add_newline = true
 
-continuation_prompt = "[╰─](dimmed white)"
+continuation_prompt = "[├─ ](dimmed white)"
 
 command_timeout = 10000
 
