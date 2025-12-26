@@ -1,13 +1,5 @@
 # Install the following applications via winget
-# Powershell Core (AKA Powershell)
-# SQLServer Developer
-# SQL Server Managment Studio
-# ODBC Driver 17 and 18
-# Git
-# Node Version Manager (NVM)- Should also bootstrap with latest LTS Node Version
-# Notepad++
-# LLVM
-# .NET SDK (7-10?)
+# Powershell Core (AKA Powershell) - Added a check for powershell
 # PHP
 # PhpVersion Manager (Powershell Module)
 # TortoiseSVN
@@ -21,56 +13,84 @@
 [CmdletBinding(SupportsShouldProcess)]
 param(
   [Parameter]
-  [string] $CommSysDir = "CommSys",
+  [string] $DefaultDir = "CommSys",
 
-  # Install Rust Related Packages
-  [Parameter()]
+  # LANGUAGES
+
+  [Parameter(HelpMessage = "Install Rust and the Rust Toolchain")]
   [Switch] $Rust,
-  
-  # Install GoLang Related Packages
-  [Parameter()]
+  [Parameter(HelpMessage = "Install Golang")]
   [Switch] $GoLang,
-
-  # Install Python Related Packages
-  [Parameter()]
+  [Parameter(HelpMessage = "Install Python")]
   [Switch] $Python,
+  [Parameter(HelpMessage = "Install Node")]
+  [Switch] $Node,
+  [Parameter(HelpMessage = "Install C++ and C++ Tools")]
+  [Switch] $CPlusPlus,
 
-  # Install Zed Editor
-  [Parameter()]
-  [Switch] $Zed,
-
-  # Install VSCode Editor
-  [Parameter()]
-  [Switch] $VSCode,
-
-  # Install Neovim
-  [Parameter()]
-  [Switch] $Neovim
+  # EDITORS
+  
+  [Parameter(HelpMessage = "Install VSCode the text editor")]
+  [Switch] $VSCode
 )
+
+$OptionalApps = @{
+  # Editors
+  "VSCode"  = @{ Name = "Microsoft Visual Studio Code"; Id = "Microsoft.VisualStudioCode" };
+
+  # Languages
+  "CPlusPlus" = @(
+    @{ Name = "CMake"; Id = "Kitware.CMake" },
+    @{ Name = "LLVM"; Id = "LLVM.LLVM" },
+    @{ Name = "WinLibs GCC Toolchain"; Id = "BrechtSanders.WinLibs.POSIX.MSVCRT"}
+  );
+  "Go"        = @{ Name = "Go Programming Language"; Id = "Golang.Go" };
+  "Node"      = @(
+    @{ Name   = "Node Version Manager"; Id = "CoreyButler.NVMforWindows" },
+    @{ Name   = "pnpm"; Id = "pnpm.pnpm" }
+  );
+  "Python"    = @{ Name = "Python"; Id = "Python.Python.3.14" };
+  "Rust"      = @{ Name = "Rust Development Toolchain"; Id = "Rustlang.Rustup" };
+}
+
+function Install-WithWinget {
+  [CmdletBinding()] param ([string] $Id, [string] $Name)
+  try {
+    Write-Host "`nInstalling $($app.Name)..." -ForegroundColor Cyan
+    winget install --id $Id --accept-package-agreements --accept-source-agreements
+    if ($LASTEXITCODE -eq 0) {
+      Write-Host "✓ $($Name) installed successfully" -ForegroundColor Green
+    } else {
+      Write-Host "✗ $($Name) installation returned code $LASTEXITCODE" -ForegroundColor Red
+    }
+  } catch {
+    Write-Host "✗ Error installing $($Name): $_" -ForegroundColor Red
+  }
+}
 
 function ConvertTo-SentenceCase {
   [CmdletBinding()]
   param(
     [Parameter]
-    [string] $InputSring
+    [string] $InputString
   )
   
   if ([string]::IsNullOrEmpty($InputSring)) {
     return $InputString
   }
 
-  return $InputString.Substring(0,1).ToUpper() + $InputSring.Substring(1).ToLower()
+  return $InputString.Substring(0,1).ToUpper() + $InputString.Substring(1).ToLower()
 }
 
 function Get-InstallDir  {
-  [CmdletBinding()]
-  Param([Parameter][string] $Path)
+  [CmdletBinding()] Param([Parameter][string] $Path)
+
   $InstallDir = ""
-  ConvertTo-SentenceCase -InputSring $Path -OutVariable InstallPath
+  $InstallPath = ConvertTo-SentenceCase -InputSring $Path
 
   $devDrive = Get-PSDrive -PSProvider FileSystem | 
               Where-Object { $_.Name -notin @('C', 'G', 'P') } |
-              Select-Object -First 1.Root
+              Select-Object -First 1
   
   if ($devDrive) {
     $InstallDir = Join-Path $devDrive.Root $InstallPath
@@ -81,54 +101,63 @@ function Get-InstallDir  {
 }
 
 function Install-Applications {
-  Write-Host "Installing applications via Winget..."
-  $Apps = @(
-    @{ Name = "Node Version Manager"; Id = "CoreyButler.NVMforWindows" },
+  Write-Host "`nInstalling applications via Winget..."
+  $opts = @()
+  $coreApps = @(
     @{ Name = "Git"; Id = "Git.Git" },
     @{ Name = "Notepad++"; Id = "Notepad++.Notepad++" },
     @{ Name = "TortoiseSVN"; Id = "TortoiseSVN.TortoiseSVN" },
     @{ Name = "Microsoft ODBC Driver 18 for SQL Server"; Id = "Microsoft.msodbcsql.18" },
-    @{ Name = "LLVM"; Id = "LLVM.LLVM" },
     @{ Name = "Microsoft .NET SDK 8.0"; Id = "Microsoft.DotNet.SDK.8" },
     @{ Name = "Microsoft .NET SDK 9.0"; Id = "Microsoft.DotNet.SDK.9" },
     @{ Name = "Microsoft .NET SDK 10.0"; Id = "Microsoft.DotNet.SDK.10" },
-    @{ Name = "PowerShell"; Id = "Microsoft.PowerShell" },
-    @{ Name = "Windows Terminal Preview"; Id = "Microsoft.WindowsTerminal.Preview" }
-    @{ Name = "SQL Server 2022 Developer"; Id = "Microsoft.SQLServer.2022.Developer" }
+    @{ Name = "Windows Terminal Preview"; Id = "Microsoft.WindowsTerminal.Preview" },
+    @{ Name = "SQL Server 2022 Developer"; Id = "Microsoft.SQLServer.2022.Developer" },
     @{ Name = "SQL Server Management Studio"; Id = "Microsoft.SQLServerManagementStudio.22" }
   )
 
+  # Add Powershell Core to the list of items to install
+  if ($PSVersionTable.PSEdition -ne 'Core') {
+    $coreApps += @{ Name = "PowerShell"; Id = "Microsoft.PowerShell" }
+  }
+
+  # Optional Languages
+  if ($Rust)      { $opts += $OptionalApps["Rust"]      }
+  if ($GoLang)    { $opts += $OptionalApps["Go"]        }
+  if ($Python)    { $opts += $OptionalApps["Python"]    }
+  if ($Node)      { $opts += $OptionalApps["Node"]      }
+  if ($CPlusPlus) { $opts += $OptionalApps["CPlusPlus"] }
+
+  # Optional Editors
+  if ($VSCode) { $opts += $OptionalApps["VSCode"] }
+
+  $Apps = $coreApps + $opts
+
   foreach($app in $Apps) {
-    Write-Host "`nInstalling $($app.Name)..." -ForegroundColor Cyan
-    try {
-      winget install --id $app.Id
-      if ($LASTEXITCODE -eq 0) {
-        Write-Host "✓ $($app.Name) installed successfully" -ForegroundColor Green
-      } else {
-        Write-Host "✗ $($app.Name) installation returned code $LASTEXITCODE" -ForegroundColor Red
-      }
-    } catch {
-      Write-Host "✗ Error installing $($app.Name): $_" -ForegroundColor Red
-    }
+    Install-WithWinget -Id $app.Id -Name $app.Name
   }
 }
 
-function Install-OptionalApplications {
-  [CmdletBinding()]
-  param()
-
-  if ($Rust.IsPresent) {
-    # Install Rust
+function Install-VS {
+  Write-Host "`nInstalling Visual Studio Community 2026"
+  try {
+    winget install --id Microsoft.VisualStudio.Community `
+      --accept-package-agreements --accept-source-agreements `
+      --override "--passive --wait --config .vsconfig"
+  } catch {
+    Write-Host "✗ Installation failed while installing Visual Studio: $_" -ForegroundColor Red
   }
 }
 
+function Install-CommSys {
+  $InstallDir = Get-InstallDir -Path $DefaultDir
+  Write-Host "`nCommSys tools and applications will be installed to: $InstallDir" -ForegroundColor Cyan
+  
+  $Tools = @(
+    @{ Name = "Parsing Tool"; Path = "Tools/Parsing Tool"; Url = "https://svnstore:8443/svn/CommSys/Tools/ParsingTool/Trunk" }
+  )
 
-
-
-
-
-
-
+}
 
 ###########################
 #    START MAIN SCRIPT    #
@@ -139,6 +168,13 @@ function Install-OptionalApplications {
           version control
 #>
 
-$InstallDir = Get-InstallDir -Path $CommSysDir
+# Install General Applications
+Install-Applications
 
-Install-OptionalApplications
+# Install Visual Studio
+Install-VS
+
+# Install CommSys Tools and Applications
+Install-CommSys
+
+Write-Host "`n✓ Bootstrap script completed!" -ForegroundColor Green
