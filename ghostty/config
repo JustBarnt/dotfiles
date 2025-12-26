@@ -1,11 +1,11 @@
 # Fonts
-font-family = "JetBrains Mono Nerd Font"
-font-size = 15
+font-family = "MonoLisa"
+font-family = "Symbols Nerd Font Mono"
+font-size = 12
 adjust-underline-position = 4
 
 # Mouse
 mouse-hide-while-typing = true
-# mouse-scroll-multiplier = 1
 
 # cursor
 cursor-style-blink = false
@@ -13,9 +13,9 @@ cursor-style = block
 cursor-invert-fg-bg = true
 
 # Theme
-#theme = /Users/justbarnt/themes/tokyonight/extras/ghostty/tokyonight_night
+theme = One Half Dark
 background-opacity = 0.95
-window-theme = auto
+window-theme = ghostty
 background-blur = true
 
 # keybindings
@@ -44,8 +44,7 @@ gtk-tabs-location = bottom
 gtk-wide-tabs = false
 window-padding-y = 2,0
 window-padding-balance = true
-window-decoration = auto
-window-theme = ghostty
+window-decoration = false
 
 # Other
 copy-on-select = clipboard
