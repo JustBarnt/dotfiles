@@ -152,10 +152,6 @@ function Install-VS {
 function Install-CommSys {
   $InstallDir = Get-InstallDir -Path $DefaultDir
   Write-Host "`nCommSys tools and applications will be installed to: $InstallDir" -ForegroundColor Cyan
-  
-  $Tools = @(
-    @{ Name = "Parsing Tool"; Path = "Tools/Parsing Tool"; Url = "https://svnstore:8443/svn/CommSys/Tools/ParsingTool/Trunk" }
-  )
 
 }
 
