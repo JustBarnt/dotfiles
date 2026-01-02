@@ -38,35 +38,6 @@ if wezterm.target_triple:find("windows") then
   local pc_name = wezterm.hostname()
   config.window_decorations = "RESIZE|TITLE"
   config.default_prog = { "nu.exe" }
---[[
-  table.insert(config.launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
-
-  if pc_name == "commsys-PC58" then
-    local cmd_args_path = "C:/Program Files/Microsoft Visual Studio/2022/Professional/Common7/Tools/VsDevCmd.bat"
-
-    -- CMD Prompt
-    local cmd_str = "cmd.exe /k %s -arch=%s"
-    table.insert(
-      config.launch_menu,
-      { label = "x64 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") } }
-    )
-    table.insert(
-      config.launch_menu,
-      { label = "x86 Native Tools Developer Command Prompt (2022)", args = { cmd_str:format(cmd_args_path, "x64") } }
-    )
-
-    -- PWSH
-    local pwsh_str = "powershell.exe -NoExit -Command -Invoke-Expression '. %s -arch=%s'"
-    table.insert(
-      config.launch_menu,
-      { label = "x64 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x64") } }
-    )
-    table.insert(
-      config.launch_menu,
-      { label = "x86 Native Tools Developer Powershell (2022)", args = { pwsh_str:format(cmd_args_path, "x86") } }
-    )
-  end
-  --]]
 
   wezterm.on("gui-startup", function(cmd)
     local screen = wezterm.gui.screens().active
