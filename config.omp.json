@@ -1,0 +1,140 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "final_space": true,
+  "terminal_background": "p:termbg",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "shell",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "{{ .Name }} ",
+          "foreground": "#ffffff"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\uedc5 {{ .UserName }} ",
+          "foreground": "#ffffff"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "{{ .Path }} ",
+          "options": {
+            "style": "folder"
+          },
+          "foreground": "p:path"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue725 {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "options": {
+            "branch_icon": "",
+            "fetch_status": true,
+            "status_formats": { 
+              "Unmerged": "⇣%d ",
+              "Deleted": "✘%d ",
+              "Added": "⇡%d ",
+              "Modified": "!%d ",
+              "Untracked": "%d "
+            }
+          },
+          "foreground": "p:git"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "ran in {{ .FormattedMs }} ",
+          "options": {
+            "always_enabled": true
+          },
+          "foreground": "p:time"
+        }
+      ],
+      "newline": true,
+      "force": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "dotnet",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": ".NET {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
+          "foreground": "p:versions"
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue724 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+          "foreground": "p:versions"
+        },
+        {
+          "type": "lua",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue620 {{ .Full }} ",
+          "foreground": "p:versions"
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue719 {{ .Full }} ",
+          "foreground": "p:versions"
+        },
+        {
+          "type": "php",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue73d {{ .Full }} ",
+          "foreground": "p:versions"
+        },
+        {
+          "type": "rust",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue7a8 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+          "cache": {
+            "duration": "168h",
+            "strategy": "folder"
+          },
+          "foreground": "p:versions"
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "powerline_symbol": "\ue0b0",
+          "template": " \uf017 {{ .CurrentDate | date .Format }} ",
+          "options": {
+            "time_format": "15:04"
+          },
+          "foreground": "p:time"
+        }
+      ],
+      "newline": false,
+      "force": true
+    }
+  ],
+  "palette": {
+    "termbg": "#282c34",
+    "path": "#73b8f1",
+    "git": "#c678dd",
+    "text": "#abb2bf",
+    "versions": "#98c379",
+    "time": "#d19a66"
+  }
+}
