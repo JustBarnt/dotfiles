@@ -3,7 +3,7 @@ local M = {}
 
 ---@class config: Config
 function M.setup(config)
-  config.font_size = 12
+  config.font_size = 11
 
   if wezterm.target_triple:find("darwin") then
     config.font_size = 16
