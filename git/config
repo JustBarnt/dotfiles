@@ -16,24 +16,6 @@
   recurse = true
 [fetch]
   recurseSubmodules = on-demand
-[diff]
-  tool = nvimdiff
-[difftool]
-  prompt = false
-[difftool "nvimdiff"]
-  layout = LOCAL,BASE@
-[merge]
-  tool = intellij
-[mergetool]
-  prompt = false
-  keepBackup = false
-[mergetool "nvimdiff"]
-  layout = LOCAL,BASE@,REMOTE
-[mergetool "intellij"]
-  cmd = 'idea' merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
-[init]
-  tool = rider
-  defaultBranch = main
 [commit]
   template = ~/.config/git/gitmessage
   gpgsign = true
@@ -55,3 +37,11 @@
   path = ~/.config/git/aliases
 [includeIf "hasconfig:remote.*.url:https://svnstore:3000/**"]
   path = ~/.config/git/config-work
+[diff]
+	tool = codediff
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE\"
+[merge]
+	tool = codediff
+[mergetool "codediff"]
+	cmd = nvim \"$MERGED\" -c \"CodeDiff merge \\\"$MERGED\\\"\"
