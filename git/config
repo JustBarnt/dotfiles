@@ -40,7 +40,7 @@
 [diff]
 	tool = codediff
 [difftool "codediff"]
-	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE\"
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE
 [merge]
 	tool = codediff
 [mergetool "codediff"]
