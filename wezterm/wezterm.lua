@@ -8,12 +8,13 @@ require("keys").setup(config)
 require("font").setup(config)
 
 config.status_update_interval = 5000
+config.term = "xterm-256color"
 
 -- Base
-config.webgpu_power_preference = "HighPerformance"
+-- config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
+-- config.cursor_blink_ease_in = "Constant"
+-- config.cursor_blink_ease_out = "Constant"
 
 config.enable_kitty_graphics = true;
 
@@ -49,7 +50,6 @@ if wezterm.target_triple:find("windows") then
     gui:set_position((screen.width - width) / 2, (screen.height - height) / 2)
   end)
 else
-  config.term = "wezterm"
   config.window_decorations = "NONE"
 end
 
