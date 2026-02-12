@@ -9,6 +9,7 @@ function M.setup(config)
     config.font_size = 16
   end
 
+  config.custom_block_glyphs = false
   config.freetype_load_target = "Light"
   config.freetype_load_flags = "NO_HINTING|FORCE_AUTOHINT"
   config.font = wezterm.font_with_fallback({

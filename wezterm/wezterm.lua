@@ -16,7 +16,8 @@ config.automatically_reload_config = true
 -- config.cursor_blink_ease_in = "Constant"
 -- config.cursor_blink_ease_out = "Constant"
 
-config.enable_kitty_graphics = true;
+config.enable_kitty_graphics = true
+
 
 -- Colorscheme
 config.color_scheme_dirs = { wezterm.home_dir .. ".config\\wezterm\\colors" }
