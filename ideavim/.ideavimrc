@@ -279,7 +279,7 @@ xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
 " Search & Find
 " ═══════════════════════════════════════════════════════════════════════════
 nmap <leader>/ <Action>(Find)
-nmap g/ <Action>(com.mituuz.fuzzier.FuzzyGrep)
+nmap g/ <Action>(com.mituuz.fuzzier.grep.FuzzyGrep)
 
 " ═══════════════════════════════════════════════════════════════════════════
 " Git Integration
