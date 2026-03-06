@@ -1,0 +1,45 @@
+# asdfasdf
+[colors]
+foreground = "#DCD7B9"
+background = "#363646"
+cursor_bg = "#C8C093"
+cursor_border = "#C8C093"
+cursor_fg = "#1F1F28"
+selection_bg = "#957FB8"
+selection_fg = "#DCD7BA"
+split = "#363646"
+compose_cursor = "#DCD7BA"
+scrollbar_thumb = "#2A2A37"
+
+ansi = ["#16161D", "#C34043", "#76946A", "#C0A36E", "#7E9CD8", "#957FB8", "#6A9589", "#DCD7BA"]
+brights = ["#54546D", "#E46876", "#98BB6C", "#E6C384", "#7FB4CA", "#938AA9", "#7AA89F", "#C8C093"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#2D4F67"
+background = "#363646"
+
+[colors.tab_bar.active_tab]
+fg_color = "#DCD7BA"
+bg_color = "#54546D"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#54546D"
+bg_color = "#2A2A37"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#C8C093"
+bg_color = "#2A2A37"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#C8C093"
+bg_color = "#363646"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#C8C093"
+bg_color = "#363646"
+
+[metadata]
+aliases = []
+author = "rebelot (ported to WezTerm by kanagawa-wave)"
+name = "kanagawa"

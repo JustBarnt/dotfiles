@@ -11,7 +11,8 @@
   "colorize_brackets": false,
   "use_on_type_format": false,
   "which_key": {
-    "enabled": true
+    "enabled": true,
+    "delay_ms": 100
   },
   "auto_update": false,
   "theme": {

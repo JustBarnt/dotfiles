@@ -9,8 +9,9 @@
   {
     // These commands will work in Normal and Visual mode
     // VimControl equates to: vim_mode is normal|visual|operator
-    "context": "VimControl && !menu",
+    "context": "(VimControl && !menu)",
     "bindings": {
+      "space": null,
       "left": "vim::WrappingLeft",
       "right": "vim::WrappingRight",
       "h": "vim::WrappingLeft",

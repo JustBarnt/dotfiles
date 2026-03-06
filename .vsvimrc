@@ -26,7 +26,7 @@ nnoremap <silent> gcc :vsc Edit.ToggleLineComment<CR>
 vnoremap <silent> gcc :vsc Edit.CommentSelection<CR>
 vnoremap <silent> gcu :vsc Edit.UncommentSelection<CR>
 nnoremap <silet> gr :vsc Edit.GoToReference<CR>
-nnoremap <silent> <leader>ff :vsc Edit.GoToAll<CR>
+nnoremap <silent> <leader>ff :vsc Edit.GoToFile<CR>
 nnoremap <silent> <leader>sf :vsc Edit.GoToRecentFile<CR>
 nnoremap <silent> <leader>st :vsc Edit.GoToType<CR>
 nnoremap <silent> <leader>sw :vsc Edit.GoToText<CR>

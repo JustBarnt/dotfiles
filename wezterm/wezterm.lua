@@ -20,8 +20,8 @@ config.enable_kitty_graphics = true
 
 
 -- Colorscheme
-config.color_scheme_dirs = { wezterm.home_dir .. ".config\\wezterm\\colors" }
-config.color_scheme = "onedark"
+config.color_scheme_dirs = { wezterm.home_dir .. ".config/wezterm/colors" }
+config.color_scheme = "kanagawa"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
 config.colors = {
@@ -55,7 +55,6 @@ else
 end
 
 -- Cursor
-config.default_cursor_style = "BlinkingBar"
 config.force_reverse_video_cursor = true
 config.scrollback_lines = 10000
 
