@@ -1,7 +1,7 @@
 # asdfasdf
 [colors]
 foreground = "#DCD7B9"
-background = "#363646"
+background = "#1F1F28"
 cursor_bg = "#C8C093"
 cursor_border = "#C8C093"
 cursor_fg = "#1F1F28"
@@ -16,7 +16,7 @@ brights = ["#54546D", "#E46876", "#98BB6C", "#E6C384", "#7FB4CA", "#938AA9", "#7
 
 [colors.tab_bar]
 inactive_tab_edge = "#2D4F67"
-background = "#363646"
+background = "#1F1F28"
 
 [colors.tab_bar.active_tab]
 fg_color = "#DCD7BA"
@@ -32,12 +32,12 @@ bg_color = "#2A2A37"
 
 [colors.tab_bar.new_tab_hover]
 fg_color = "#C8C093"
-bg_color = "#363646"
+bg_color = "#1F1F28"
 intensity = "Bold"
 
 [colors.tab_bar.new_tab]
 fg_color = "#C8C093"
-bg_color = "#363646"
+bg_color = "#1F1F28"
 
 [metadata]
 aliases = []
