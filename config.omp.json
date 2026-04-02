@@ -71,8 +71,9 @@
       "segments": [
         {
           "type": "dotnet",
-          "style": "plain",
-          "powerline_symbol": "\ue0b0",
+          "extensions": ["*.csproj"],
+          "display_mode": "files",
+          "style": "plain", "powerline_symbol": "\ue0b0",
           "template": ".NET {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
           "foreground": "p:versions"
         },
