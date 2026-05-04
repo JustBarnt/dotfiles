@@ -1,0 +1,45 @@
+# wezterm theme
+[colors]
+foreground = "#DBD0C6"
+background = "#152326"
+cursor_bg = "#DBD0C6"
+cursor_border = "#DBD0C6"
+cursor_fg = "#152326"
+selection_bg = "#38524F"
+selection_fg = "#DBD0C6"
+split = "#86BFD2"
+compose_cursor = "#FFCF99"
+scrollbar_thumb = "#1E3235"
+
+ansi = ["#152326", "#FF5B61", "#9DC6A9", "#FFCF99", "#86BFD2", "#D59CCE", "#79C2B6", "#91A4AD"]
+brights = ["#568270", "#D48588", "#95C2A1", "#FDD9AF", "#A7CBEA", "#D9ADD4", "#87CBB1", "#DBD0C6"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#0F1A1C"
+background = "#152326"
+
+[colors.tab_bar.active_tab]
+fg_color = "#152326"
+bg_color = "#86BFD2"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#568270"
+bg_color = "#1E3235"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#86BFD2"
+bg_color = "#1E3235"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#86BFD2"
+bg_color = "#152326"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#86BFD2"
+bg_color = "#152326"
+
+[metadata]
+aliases = []
+author = ""
+name = "thorn"

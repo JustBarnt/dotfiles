@@ -21,7 +21,7 @@ config.enable_kitty_graphics = true
 
 -- Colorscheme
 config.color_scheme_dirs = { wezterm.home_dir .. ".config/wezterm/colors" }
-config.color_scheme = "tokyonight_night"
+config.color_scheme = "thorn"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
 config.colors = {
