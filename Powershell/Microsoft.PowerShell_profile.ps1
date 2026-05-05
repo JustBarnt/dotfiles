@@ -6,7 +6,6 @@ Import-Module GithubReleases
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 $jiracreds = New-Object System.Management.Automation.PSCredential($ENV:JIRA_USER, (ConvertTo-SecureString $ENV:JIRA_TOKEN -AsPlainText -Force)) 
 
-# enable oh-my-posh
-oh-my-posh init pwsh --config ~/.config/config.omp.json | Invoke-Expression
+Invoke-Expression (&starship init powershell)
 
 Set-Alias vim nvim
