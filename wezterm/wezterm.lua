@@ -21,12 +21,12 @@ config.enable_kitty_graphics = true
 
 -- Colorscheme
 config.color_scheme_dirs = { wezterm.home_dir .. ".config/wezterm/colors" }
-config.color_scheme = "thorn"
+config.color_scheme = "EverforestDarkMedium"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
-config.colors = {
-  indexed = { [241] = "#65bcff" },
-}
+-- config.colors = {
+--   indexed = { [241] = "#65bcff" },
+-- }
 
 config.underline_thickness = 3
 config.cursor_thickness = 4
@@ -65,5 +65,6 @@ config.command_palette_bg_color = "#394b70"
 config.command_palette_fg_color = "#828bb8"
 
 -- UI Settings
+config.window_background_opacity = 0.9
 config.window_padding = { left = 4, right = 4, top = 0, bottom = 0 }
 return config

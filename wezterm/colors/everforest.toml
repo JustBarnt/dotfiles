@@ -1,0 +1,44 @@
+[colors]
+foreground = "#d3c6aa"
+background = "#2d353b"
+cursor_bg = "#d3c6aa"
+cursor_border = "#d3c6aa"
+cursor_fg = "#2d353b"
+selection_bg = "#543a48"
+selection_fg = "#d3c6aa"
+split = "#7fbbb3"
+compose_cursor = "#dbbc7f"
+scrollbar_thumb = "#343f44"
+
+ansi = ["#2d353b", "#e67e80", "#a7c080", "#dbbc7f", "#7fbbb3", "#d699b6", "#83c092", "#d3c6aa"]
+brights = ["#4f585e", "#e67e80", "#a7c080", "#dbbc7f", "#7fbbb3", "#d699b6", "#83c092", "#d3c6aa"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#232a2e"
+background = "#2d353b"
+
+[colors.tab_bar.active_tab]
+fg_color = "#2d353b"
+bg_color = "#7fbbb3"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#859289"
+bg_color = "#343f44"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#7fbbb3"
+bg_color = "#343f44"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#7fbbb3"
+bg_color = "#2d353b"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#7fbbb3"
+bg_color = "#2d353b"
+
+[metadata]
+aliases = []
+author = ""
+name = "EverforestDarkMedium"
