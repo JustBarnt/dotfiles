@@ -1,0 +1,16 @@
+fork = false
+
+[font]
+size = 12
+hinting = "full"
+edging = "antialias"
+
+
+[[font.normal]]
+family = "MonoLisaCustom Nerd Font"
+
+# [box-drawing]
+# mode = "native"
+#
+# [box-drawing.sizes]
+# default = [1,3]
