@@ -1,0 +1,123 @@
+# TUIOS Configuration File
+# This file allows you to customize appearance and keybindings
+#
+# Configuration location: C:\Users\bwilliams\.config\tuios\config.toml
+# Documentation: https://github.com/Gaurav-Gosain/tuios
+# For keybindings documentation, run: tuios keybinds list
+
+# ============================================================================
+# APPEARANCE SETTINGS
+# ============================================================================
+# border_style: Window border style
+#   Options: rounded, normal, thick, double, hidden, block, ascii,
+#            outer-half-block, inner-half-block
+#   Default: rounded
+#
+# dockbar_position: Position of the dockbar
+#   Options: bottom, top, hidden
+#   Default: bottom
+#
+# hide_window_buttons: Hide window control buttons (minimize, maximize, close)
+#   Options: true, false
+#   Default: false
+#
+# scrollback_lines: Number of lines to keep in scrollback buffer
+#   Range: 100 to 1000000
+#   Default: 10000
+#
+# shared_borders: Share borders between adjacent tiled windows
+#   Options: true, false
+#   Default: true
+#
+# theme: Color theme name (e.g., dracula, nord, my-custom-theme)
+#   Leave empty to use standard terminal colors.
+#   CLI flag --theme overrides this. Custom themes: ~/.config/tuios/themes/*.json
+#   Default: (empty - no theme)
+# ============================================================================
+
+[appearance]
+border_style = 'rounded'
+hide_window_buttons = false
+scrollback_lines = 10000
+dockbar_position = 'bottom'
+preferred_shell = 'nu'
+whichkey_position = ''
+window_title_position = ''
+show_clock = true
+show_cpu = false
+show_ram = false
+theme = 'EverforestMediumDark'
+
+[keybindings]
+leader_key = 'ctrl+space'
+
+[keybindings.window_management]
+close_window = ["ctrl+w"]
+minimize_window = ['m']
+new_window = ['ctrl+t', 'n']
+next_window = ['tab']
+prev_window = ['shift+tab']
+rename_window = ['r']
+restore_all = ['M']
+select_window_1 = ['1']
+select_window_2 = ['2']
+select_window_3 = ['3']
+select_window_4 = ['4']
+select_window_5 = ['5']
+select_window_6 = ['6']
+select_window_7 = ['7']
+select_window_8 = ['8']
+select_window_9 = ['9']
+toggle_zoom = ['z']
+
+[keybindings.layout]
+equalize_splits = ['=']
+preselect_down = ['alt+j']
+preselect_left = ['alt+h']
+preselect_right = ['alt+l']
+preselect_up = ['alt+k']
+resize_height_grow = ['}', 'shift+]']
+resize_height_grow_top = [']']
+resize_height_shrink = ['{', 'shift+[']
+resize_height_shrink_top = ['[']
+resize_master_grow = ['>', 'shift+.']
+resize_master_grow_left = ['.']
+resize_master_shrink = ['<', 'shift+,']
+resize_master_shrink_left = [',']
+rotate_split = ['R']
+snap_corner_1 = ['1']
+snap_corner_2 = ['2']
+snap_corner_3 = ['3']
+snap_corner_4 = ['4']
+snap_fullscreen = ['f']
+snap_left = ['h']
+snap_right = ['l']
+split_horizontal = ['-']
+split_vertical = ['|', '\']
+swap_down = ['J', 'ctrl+down']
+swap_left = ['H', 'ctrl+left']
+swap_right = ['L', 'ctrl+right']
+swap_up = ['K', 'ctrl+up']
+toggle_tiling = ['t']
+unsnap = ['u']
+
+[keybindings.mode_control]
+enter_terminal_mode = ['i', 'a']
+enter_window_mode = ['esc']
+quit = ['q']
+toggle_help = ['?']
+
+[keybindings.navigation]
+extend_down = ['shift+down']
+extend_left = ['shift+left']
+extend_right = ['shift+right']
+extend_up = ['shift+up']
+nav_down = ['down']
+nav_left = ['left']
+nav_right = ['right']
+nav_up = ['up']
+
+[keybindings.terminal_mode]
+terminal_exit_mode = ['alt+esc']
+terminal_next_window = ['alt+n']
+terminal_prev_window = ['alt+p']
