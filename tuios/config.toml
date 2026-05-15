@@ -42,6 +42,7 @@ scrollback_lines = 10000
 dockbar_position = 'bottom'
 preferred_shell = 'nu'
 window_title_position = 'hidden'
+shared_borders = false
 show_clock = false
 show_cpu = false
 show_ram = false
