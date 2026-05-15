@@ -1,21 +1,20 @@
 local wezterm = require("wezterm") --[[@as Wezterm]]
 local config = wezterm.config_builder()
 
-require("tabs").setup(config)
+
 require("mouse").setup(config)
-require("links").setup(config)
 require("keys").setup(config)
 require("font").setup(config)
+
+config.use_fancy_tab_bar = false
+config.show_tabs_in_tab_bar = false
+config.show_new_tab_button_in_tab_bar = false
 
 config.status_update_interval = 5000
 config.term = "xterm-256color"
 
 -- Base
--- config.webgpu_power_preference = "HighPerformance"
 config.automatically_reload_config = true
--- config.cursor_blink_ease_in = "Constant"
--- config.cursor_blink_ease_out = "Constant"
-
 config.enable_kitty_graphics = true
 
 
@@ -24,13 +23,7 @@ config.color_scheme_dirs = { wezterm.home_dir .. ".config/wezterm/colors" }
 config.color_scheme = "EverforestDarkMedium"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
--- config.colors = {
---   indexed = { [241] = "#65bcff" },
--- }
-
-config.underline_thickness = 3
-config.cursor_thickness = 4
-config.underline_position = -6
+config.underline_thickness = 2
 
 if wezterm.target_triple:find("darwin") then
   config.dpi = 144
@@ -61,10 +54,8 @@ config.scrollback_lines = 10000
 --- Command Pallete
 config.command_palette_font_size = 13
 config.command_palette_rows = 15
-config.command_palette_bg_color = "#394b70"
-config.command_palette_fg_color = "#828bb8"
 
 -- UI Settings
 config.window_background_opacity = 0.9
-config.window_padding = { left = 4, right = 4, top = 0, bottom = 0 }
+config.window_padding = { left = 2, right = 2, top = 0, bottom = 0 }
 return config
