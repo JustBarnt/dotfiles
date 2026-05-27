@@ -5,10 +5,8 @@ local config = wezterm.config_builder()
 require("mouse").setup(config)
 require("keys").setup(config)
 require("font").setup(config)
-
-config.use_fancy_tab_bar = false
-config.show_tabs_in_tab_bar = false
-config.show_new_tab_button_in_tab_bar = false
+require("links").setup(config)
+require("tabs").setup(config)
 
 config.status_update_interval = 5000
 config.term = "xterm-256color"
