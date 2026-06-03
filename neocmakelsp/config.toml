@@ -1,0 +1,3 @@
+command_case = "upper_case"
+enable_external_cmake_link = true
+
