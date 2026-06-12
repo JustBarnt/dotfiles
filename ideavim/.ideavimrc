@@ -113,10 +113,11 @@ let g:WhichKeyDesc_search_problems = "<leader>sp Show problems"
 let g:WhichKeyDesc_goto_declaration = "gd Go to declaration"
 let g:WhichKeyDesc_goto_type_declaration = "gD Go to type declaration"
 let g:WhichKeyDesc_goto_type_declaration2 = "gT Go to type declaration"
-let g:WhichKeyDesc_goto_implementation = "gi Go to implementation"
+let g:WhichKeyDesc_codeaction = "gra Show Code Actions"
+let g:WhichKeyDesc_goto_implementation = "gri Go to implementation"
 let g:WhichKeyDesc_goto_implementation_rider = "gI Go to implementation (Rider)"
-let g:WhichKeyDesc_goto_symbol = "gs Go to symbol"
-let g:WhichKeyDesc_goto_references = "gr Find references"
+let g:WhichKeyDesc_goto_symbol = "grs Go to symbol"
+let g:WhichKeyDesc_goto_references = "grr Find references"
 let g:WhichKeyDesc_show_hover = "K Show hover info"
 let g:WhichKeyDesc_method_up = "[[ Previous method"
 let g:WhichKeyDesc_method_down = "]] Next method"
@@ -238,9 +239,10 @@ nmap <leader>ft <Action>(ActivateTODOToolWindow)
 nmap gd <Action>(GotoDeclaration)
 nmap gD <Action>(GotoTypeDeclaration)
 nmap gT <Action>(GotoTypeDeclaration)
-nmap gi <Action>(GotoImplementation)
-nmap gs <Action>(GotoSymbol)
-nmap gr <Action>(FindUsages)
+nmap gri <Action>(GotoImplementation)
+nmap grs <Action>(GotoSymbol)
+nmap grr <Action>(FindUsages)
+nmap gra <Action>(ShowIntentionActions)
 nmap grn <Action>(RenameElement)
 nmap K <Action>(ShowHoverInfo)
 nmap [[ <Action>(MethodUp)
