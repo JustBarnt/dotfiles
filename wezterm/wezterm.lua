@@ -18,7 +18,7 @@ config.enable_kitty_graphics = true
 
 -- Colorscheme
 config.color_scheme_dirs = { wezterm.home_dir .. ".config/wezterm/colors" }
-config.color_scheme = "EverforestDarkMedium"
+config.color_scheme = "tokyonight_night"
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
 
 config.underline_thickness = 2
@@ -54,6 +54,6 @@ config.command_palette_font_size = 13
 config.command_palette_rows = 15
 
 -- UI Settings
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.window_padding = { left = 2, right = 2, top = 0, bottom = 0 }
 return config
