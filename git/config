@@ -39,9 +39,19 @@
   path = ~/.config/git/config-work
 [diff]
 	tool = codediff
+	guitool = meld
 [difftool "codediff"]
 	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE
 [merge]
 	tool = codediff
+	guitool = meld
 [mergetool "codediff"]
-	cmd = nvim \"$MERGED\" -c \"CodeDiff merge \\\"$MERGED\\\"\"
+	cmd = nvim \"$MERGED\" -c \"CodeDiff merge /\"$MERGED/\"\"
+[difftool "meld"]
+	path = C:/Program Files/Meld/meld.exe
+	cmd = \"C:/Program Files/Meld/meld.exe\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "meld"]
+	path = C:/Program Files/Meld/meld.exe
+	cmd = \"C:/Program Files/Meld/meld.exe\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\"
+[init]
+	defaultBranch = main
