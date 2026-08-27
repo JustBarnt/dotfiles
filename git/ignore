@@ -4,7 +4,7 @@
 .svn/
 
 node_modules/**
-Vendor/
+; Vendor/
 _Dist/
 
 .DS_STORE
