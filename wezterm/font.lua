@@ -12,7 +12,7 @@ function M.setup(config)
   config.freetype_load_flags = "NO_HINTING|FORCE_AUTOHINT"
   config.font = wezterm.font_with_fallback({
     {
-      family = "LythMono Nerd Font", 
+      family = "MonoLisaCustom Nerd Font", 
       weight = "Medium",
       harfbuzz_features = { 'ss02', 'cv08', 'zero', 'cv15', 'cv06' }
     },
