@@ -14,7 +14,7 @@ function M.setup(config)
     {
       family = "MonoLisaCustom Nerd Font", 
       weight = "Medium",
-      harfbuzz_features = { 'ss02', 'cv08', 'zero', 'cv15', 'cv06' }
+      -- harfbuzz_features = { 'ss02', 'cv08', 'zero', 'cv15', 'cv06' }
     },
     { family = "SymbolsNerdFontMono" }
   })
