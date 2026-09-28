@@ -29,7 +29,7 @@ end
 
 if wezterm.target_triple:find("windows") then
   local pc_name = wezterm.hostname()
-  config.window_decorations = "RESIZE|TITLE"
+  config.window_decorations = "RESIZE"
   config.default_prog = { "nu.exe" }
 
   wezterm.on("gui-startup", function(cmd)
@@ -55,5 +55,5 @@ config.command_palette_rows = 15
 
 -- UI Settings
 config.window_background_opacity = 0.95
-config.window_padding = { left = 2, right = 2, top = 0, bottom = 0 }
+config.window_padding = { left = "5px", right = "5px", top = "5px", bottom = "5px" }
 return config
