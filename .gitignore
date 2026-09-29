@@ -11,3 +11,4 @@ sqls/
 nvim/
 nushell/
 sqlit/queries
+sqlit/connections.json
