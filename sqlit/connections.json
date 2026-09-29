@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "connections": [
+    {
+      "name": "Clips",
+      "db_type": "mssql",
+      "source": null,
+      "connection_url": null,
+      "folder_path": "",
+      "extra_options": {},
+      "options": {
+        "auth_type": "sql",
+        "trusted_connection": false,
+        "tls_mode": "default",
+        "tls_trust_server_certificate": "yes",
+        "ssh_host": "",
+        "ssh_port": "22",
+        "ssh_username": "",
+        "ssh_auth_type": "key",
+        "ssh_key_path": "~/.ssh/id_rsa",
+        "ssh_password": null
+      },
+      "endpoint": {
+        "kind": "tcp",
+        "host": "localhost",
+        "port": "1433",
+        "database": "clips",
+        "username": "sa",
+        "password": null
+      },
+      "tunnel": {
+        "enabled": false
+      }
+    },
+    {
+      "name": "ConnectCic",
+      "db_type": "mssql",
+      "source": null,
+      "connection_url": null,
+      "folder_path": "",
+      "extra_options": {},
+      "options": {
+        "auth_type": "sql",
+        "trusted_connection": false,
+        "tls_mode": "default",
+        "tls_trust_server_certificate": "yes",
+        "ssh_host": "",
+        "ssh_port": "22",
+        "ssh_username": "",
+        "ssh_auth_type": "key",
+        "ssh_key_path": "~/.ssh/id_rsa",
+        "ssh_password": null
+      },
+      "endpoint": {
+        "kind": "tcp",
+        "host": "localhost",
+        "port": "1433",
+        "database": "CommSys",
+        "username": "sa",
+        "password": null
+      },
+      "tunnel": {
+        "enabled": false
+      }
+    },
+    {
+      "name": "Licenses",
+      "db_type": "mssql",
+      "source": null,
+      "connection_url": null,
+      "folder_path": "",
+      "extra_options": {},
+      "options": {
+        "auth_type": "sql",
+        "trusted_connection": false,
+        "tls_mode": "default",
+        "tls_trust_server_certificate": "yes",
+        "ssh_host": "",
+        "ssh_port": "22",
+        "ssh_username": "",
+        "ssh_auth_type": "key",
+        "ssh_key_path": "~/.ssh/id_rsa",
+        "ssh_password": ""
+      },
+      "endpoint": {
+        "kind": "tcp",
+        "host": "DBVM02",
+        "port": "1433",
+        "database": "CommSysLicenses",
+        "username": "license_creator",
+        "password": null
+      },
+      "tunnel": {
+        "enabled": false
+      }
+    }
+  ]
+}

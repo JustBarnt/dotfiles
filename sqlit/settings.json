@@ -1,0 +1,13 @@
+{
+  "theme": "textual-ansi",
+  "expanded_nodes": [
+    "conn:Clips",
+    "conn:ConnectCic",
+    "conn:ConnectCic/folder:tables",
+    "conn:Licenses",
+    "conn:Licenses/folder:tables",
+    "conn:Licenses/folder:tables/table:dbo.license",
+    "conn:Temp SQLite",
+    "conn:Temp SQLite/folder:tables"
+  ]
+}

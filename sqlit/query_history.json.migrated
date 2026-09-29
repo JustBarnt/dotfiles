@@ -1,0 +1,507 @@
+[
+  {
+    "query": "select count(*) from license\nwhere productName = 'ConnectCic'\nand data like '%Interface CA_CLETS_OCATS%'",
+    "timestamp": "2026-03-05T11:24:45.468745",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'ConnectCic'\nand data like '%Interface CA_CLETS_OCATS%'",
+    "timestamp": "2026-03-05T11:16:47.223718",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'ConnectCic'\nand data like '%CA_CLETS_OCATS%'",
+    "timestamp": "2026-03-05T11:16:10.584437",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'ConnectCic'",
+    "timestamp": "2026-03-05T11:15:46.271067",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere CAST(created as DATE) = '2026-02-10'",
+    "timestamp": "2026-02-11T08:57:36.014732",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere CAST(created as DATE) = '2026-02-11'",
+    "timestamp": "2026-02-11T08:57:30.784926",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere created like '2026-02-10%'",
+    "timestamp": "2026-02-11T08:55:04.198615",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere created = '2026-02-10'",
+    "timestamp": "2026-02-11T08:54:50.269264",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select created from license\norder by created DESC",
+    "timestamp": "2026-02-10T16:38:05.230471",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select expires from license\norder by expires DESC",
+    "timestamp": "2026-02-10T16:33:06.180725",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select created, expires from license\norder by created DESC",
+    "timestamp": "2026-02-10T16:29:04.894869",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select created, expires from license",
+    "timestamp": "2026-02-10T16:28:40.204280",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license",
+    "timestamp": "2026-02-10T16:28:26.079695",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'CLIPS'\nand customerName = 'CommSys Inc.'\norder by created DESC",
+    "timestamp": "2026-02-10T11:52:39.903594",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'CLIPS'\nand customerName = 'CommSys Inc.'\norder by created desc",
+    "timestamp": "2026-02-10T11:37:09.300560",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'CLIPS'\nand customerName = 'CommSys Inc.'",
+    "timestamp": "2026-02-10T11:31:38.338463",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'CLIPS'",
+    "timestamp": "2026-02-10T11:29:20.206751",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select DISTINCT productName from license\nwhere productName not in ('DTS Builder', 'DTS Server')",
+    "timestamp": "2026-01-20T15:44:29.516748",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select DISTINCT productName from license",
+    "timestamp": "2026-01-20T15:44:04.874927",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'DTS Server'\norder by created desc",
+    "timestamp": "2026-01-20T15:43:16.084488",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'DTS Server'\norder by created asc",
+    "timestamp": "2026-01-20T15:42:58.019605",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from license\nwhere productName = 'DTS Server'",
+    "timestamp": "2026-01-20T15:42:19.617904",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select data from license\nwhere productId = 4",
+    "timestamp": "2026-01-20T11:09:27.959776",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select data from license\nwhere productId = 2\nand data like '%Forms%Value%'",
+    "timestamp": "2026-01-20T10:59:36.159999",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select data from license\nwhere productId = 2\nand data like '%Forms%'",
+    "timestamp": "2026-01-20T10:32:50.167253",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select data from license\nwhere productId = 2",
+    "timestamp": "2026-01-20T10:32:26.685927",
+    "connection_name": "Licenses"
+  },
+  {
+    "query": "select * from tblConnectCICContextFinder\nwhere interface like 'NY%'",
+    "timestamp": "2026-09-10T15:22:38.492600",
+    "connection_name": "ConnectCic"
+  },
+  {
+    "query": "select * from tblConnectCICContextFinder",
+    "timestamp": "2026-09-10T15:22:29.233322",
+    "connection_name": "ConnectCic"
+  },
+  {
+    "query": "select * from tblConnectCICContextFinder\nwhere interface = 'IA_IOWA'",
+    "timestamp": "2026-08-12T14:46:00.559398",
+    "connection_name": "ConnectCic"
+  },
+  {
+    "query": "select * from tblConnectCICTransactionReturnMining\nwhere returnType = 'NLETS_OR_VEHICLE_REGISTRATION'",
+    "timestamp": "2026-02-12T14:12:48.919810",
+    "connection_name": "ConnectCic"
+  },
+  {
+    "query": "select * from tblConnectCICTransactionReturnMining\nwhere token like '%PO BOX%'",
+    "timestamp": "2026-02-12T13:10:40.861010",
+    "connection_name": "ConnectCic"
+  },
+  {
+    "query": "select * from tblVersion",
+    "timestamp": "2026-01-15T10:18:39.293311",
+    "connection_name": "ConnectCic"
+  },
+  {
+    "query": "delete from tblagencyuser where agencyuserid = 27\n\nselect * from tblagencyuser",
+    "timestamp": "2026-09-25T10:46:30.188278",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblagencyuser",
+    "timestamp": "2026-09-25T10:46:09.393413",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "delete from tblAgencyUser\nwhere agencyUserId = 26\n\nselect * from tblAgencyUser",
+    "timestamp": "2026-09-25T10:20:16.361025",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyUser",
+    "timestamp": "2026-09-25T10:19:51.921736",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "delete from tblSession",
+    "timestamp": "2026-09-24T16:39:19.107866",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblSession",
+    "timestamp": "2026-09-24T16:39:00.659473",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyConfiguration",
+    "timestamp": "2026-09-24T16:27:16.476879",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'WA_WACIC_OFML'\nwhere agencyId = 1",
+    "timestamp": "2026-09-23T13:30:56.340779",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CLETS'\nwhere agencyId = 1",
+    "timestamp": "2026-09-22T14:39:52.058711",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgency",
+    "timestamp": "2026-09-22T14:39:38.146087",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyIp",
+    "timestamp": "2026-08-11T12:25:08.805171",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CLETS'",
+    "timestamp": "2026-08-06T09:16:47.421546",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'WA_WACIC_OFML'",
+    "timestamp": "2026-08-06T09:12:50.300299",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_ASAFE'\nwhere agencyId = 1",
+    "timestamp": "2026-07-27T14:55:28.398558",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CONTRA_COSTA' where agencyId = 1",
+    "timestamp": "2026-07-21T11:48:49.354373",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblagency",
+    "timestamp": "2026-07-21T11:48:33.783415",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICMessageQueue",
+    "timestamp": "2026-06-08T10:06:18.708482",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAGency set interface = 'CA_CLETS'\nwhere agencyId = 1",
+    "timestamp": "2026-05-20T09:24:18.623600",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblPasswordHistory",
+    "timestamp": "2026-05-05T16:55:02.843791",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyConfiguration where agencyId = 1",
+    "timestamp": "2026-05-05T16:46:08.333286",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAGency",
+    "timestamp": "2026-04-30T14:19:09.579138",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'OH_LEADS'\nwhere agencyId = 1",
+    "timestamp": "2026-04-17T14:19:50.635668",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyConfiguration\nwhere agencyId = 1 and path like '%authentication%'",
+    "timestamp": "2026-04-15T10:01:28.747490",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyConfiguration\nwhere agencyId = 1 and path like 'authentication%'",
+    "timestamp": "2026-04-15T10:01:22.768454",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "insert into tblAgencyConfiguration (agencyId, path, value)\nvalues (1, '/config/agency/authentication/createUser', '')",
+    "timestamp": "2026-04-15T10:00:59.098870",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyConfiguration\nwhere agencyId = 1 and path like '/config/agency/authenticate%'",
+    "timestamp": "2026-04-15T10:00:43.222172",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyConfiguration\nwhere agencyId = 1 and path like '/config/agency/authenticate%'\n\n\ndelete from tblAgencyConfiguration\nwhere configurationId = 331",
+    "timestamp": "2026-04-15T10:00:38.853173",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyAudit\norder by created desc",
+    "timestamp": "2026-04-15T09:54:41.352929",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "--\r\n-- This SQL script configures the LDAP settings for a particular CLIPS 2.6+ agency.\r\n-- Any existing authentication settings for the agency will be replaced after running this script.\r\n--\r\n-- Be sure to set the target Agency ID (@agencyId variable) and LDAP settings before running.\r\n--\r\nset nocount on\r\nGO\r\n\r\n-- Declare vars\r\ndeclare @agencyId bigint               -- Agency ID to apply settings to\r\n\r\n-- Target Agency ID; Set this to the desired agency ID\r\nset @agencyId = 1\r\n\r\nbegin transaction\r\n\r\n-- Wipe existing Authentication configuration\r\ndelete from tblAgencyConfiguration\r\nwhere agencyId = @agencyId and path like '/config/agency/authenticate%'\r\n\r\n-- Add new authentication settings\r\ninsert into tblAgencyConfiguration (agencyId, [path], [value])\r\n      select @agencyId, '/config/agency/authenticate/Ldap/serverUrl',    'ldap://ad.commsys.com:389'                       -- Must be of the form 'ldap://HOST:PORT' or 'ldaps://HOST:PORT'\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/serverPort',   ''                       -- Leave blank\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/failoverUrl',  ''                       -- Must be of the form 'ldap://HOST:PORT' or 'ldaps://HOST:PORT'\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/failoverPort', ''                       -- Leave blank\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/bind',         'COMMSYS\\bwilliams'                       -- LDAP Service Account User\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/bindPassword', 'g3ng4r0309!!##'                       -- LDAP Service Account Password\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/root',         ''                       -- Root LDAP DN to bind to when searching for users\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/filter',       ''                       -- LDAP filter which restricts the users searched when looking for a user login\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/protocol',     '3'                      -- Don't change this.\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/referrals',    '0'                      -- Don't change this unless needed. Allows LDAP referrals to other LDAP servers\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/manageUsers',  '1'                      -- Set to 0 to disable CLIPS user management UIs\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/userField',    'samaccountname'         -- Don't change this if we're talking to ActiveDirectory\r\nunion select @agencyId, '/config/agency/authenticate/Ldap/captureFields/memberships',  'memberof' -- Uncomment this to allow capturing of AD groups as CLIPS permission groups\r\n-- union select @agencyId, '/config/agency/authenticate/Ldap/sysAdminGroup',''                       -- Uncomment to this to allow System Administrators to be identified by the\r\n                                                                                                    -- specified AD group. REQUIRES captureFields to be enabled.\r\n--union select @agencyId, '/config/agency/authenticate/createUser', '' \t\t\t\t\t\t\t\t-- Uncomment this section to allow User Creation through LDAP\r\n\r\ncommit transaction\r\n\r\nset nocount off\r\nGO",
+    "timestamp": "2026-04-15T09:50:19.139551",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere fieldBaseTag like '[a-z][a-z][0-9]'\n\n\nupdate tblAgency set interface = 'SD_SDLETS_OFML' where agencyId = 1",
+    "timestamp": "2026-04-15T09:19:05.007841",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere fieldBaseTag like '[a-z][a-z][0-9]'\n\n\nupdate tblAgency set interface 'SD_SDLETS_OFML' where agencyId = 1",
+    "timestamp": "2026-04-15T09:18:59.777121",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere fieldBaseTag like '[a-z][a-z][0-9]'",
+    "timestamp": "2026-04-15T09:18:36.443182",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere fieldBaseTag like 'DS%'",
+    "timestamp": "2026-04-15T09:15:26.959831",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere interface = 'CA_CLETS' and fieldBaseTag like 'DS%'",
+    "timestamp": "2026-04-15T09:15:12.848360",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere interface = 'CA_CLETS' and fieldTag like 'DS%'",
+    "timestamp": "2026-04-15T09:15:03.130898",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere interface = 'CA_CLETS' and fieldTag like '%DS2%'",
+    "timestamp": "2026-04-15T09:14:51.893650",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere interface = 'CA_CLETS' and fieldBaseTag like '%DS2%'",
+    "timestamp": "2026-04-15T09:14:40.853078",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CLETS' where agencyId = 1\nselect * from tblAgency",
+    "timestamp": "2026-04-15T09:14:01.647736",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCicFormStage\nwhere interface = 'IA_IOWA' \nand fieldBaseTag is not null\nand formname = '315'",
+    "timestamp": "2026-03-25T12:42:07.047182",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCicFormStage\nwhere interface = 'IA_IOWA' \nand fieldBaseTag is not null",
+    "timestamp": "2026-03-25T12:41:56.644821",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'IA_IOWA' where agencyId = 1",
+    "timestamp": "2026-03-25T12:40:03.068932",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblBinding",
+    "timestamp": "2026-03-19T15:37:21.136402",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblBinding\nwhere interface = 'CA_CLETS'",
+    "timestamp": "2026-03-19T15:25:59.234452",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAGency set interface = 'CA_CLETS' where agencyId = 1",
+    "timestamp": "2026-03-17T10:15:29.638509",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCicFormStage\nwhere interface = 'CA_ASAFE'\nand formName = 'F06'",
+    "timestamp": "2026-03-13T14:11:42.214122",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "-- CA_CLETS has forms W01-W09 with prefill mappings\nselect * from tblPrefillMap\nwhere interface = 'CA_CLETS'\nand formName = 'W01'",
+    "timestamp": "2026-03-05T09:51:11.148406",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "-- CA_CLETS has forms W01-W09 with prefill mappings\nselect DISTINCT formName from tblPrefillMap\nwhere interface = 'CA_CLETS'\n\n\nselect * from tblPrefillMap\nwhere interface = 'CA_CLETS'\nand formName = 'W01'",
+    "timestamp": "2026-03-05T09:50:11.699832",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select DISTINCT formName from tblPrefillMap\nwhere interface = 'CA_CLETS'",
+    "timestamp": "2026-03-05T09:49:17.469475",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblPrefillMap\nwhere interface = 'CA_CLETS'\nand formName like 'W%'",
+    "timestamp": "2026-03-05T09:17:29.023565",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblPrefillMap\nwhere interface = 'CA_CLETS'\nand formName like 'W%'\nand tag in ('WarrantTypeCode', 'CriminalIdNumber')",
+    "timestamp": "2026-03-05T09:17:26.612757",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblPrefillMap\nwhere interface = 'CA_CLETS'\nand formName = 'W01'",
+    "timestamp": "2026-03-05T09:00:28.050273",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblAgencyAudit",
+    "timestamp": "2026-03-04T15:33:52.466503",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCicFormStage\nwhere formName like 'W6%'\nand interface = 'CA_CLETS'\nand fieldBaseTag = 'WNO'",
+    "timestamp": "2026-02-25T14:51:46.030811",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage\nwhere interface = 'CA_CLETS'\nand formName = 'W69'",
+    "timestamp": "2026-02-25T14:02:18.502165",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_SANTA_CLARA_CJIC' where agencyId = 1\n\nselect * from tblAgency",
+    "timestamp": "2026-02-19T11:58:13.017417",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_JDIC_CLETS' where agencyId = 1\n\nselect * from tblAgency",
+    "timestamp": "2026-02-19T11:50:45.384934",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CONTRA_COSTA' where agencyId = 1\n\nselect * from tblAgency",
+    "timestamp": "2026-02-19T11:38:51.735571",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CLETS_ALEM' where agencyId = 1\n\nselect * from tblAgency",
+    "timestamp": "2026-02-19T11:34:22.502663",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_CLETS_ALEM' where agencyId = 1",
+    "timestamp": "2026-02-19T11:34:05.417971",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "update tblAgency set interface = 'CA_ASAFE' where agencyId = 1",
+    "timestamp": "2026-02-19T11:17:52.834529",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblCode \nwhere codeTypeId = (select codeTypeId from tblCodeType\n                    where interface = 'CA_CLETS'\n                    and type = 'F01-PEM-SEM')",
+    "timestamp": "2026-02-18T15:00:20.439359",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblCodeType\nwhere interface = 'CA_CLETS'\nand type = 'F01-PEM-SEM'",
+    "timestamp": "2026-02-18T14:59:36.583364",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblCodeType\nwhere interface = 'CA_CLETS'",
+    "timestamp": "2026-02-18T13:00:35.814388",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblCodeType\nwhere interface = 'CA_CLETS' and [type] = 'F01-PEM-SEM'",
+    "timestamp": "2026-02-18T13:00:31.272610",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "set nocount on\nGO\n\ndeclare @agencyId bigint\n\nset @agencyId = 1\n\nbegin transaction\n\n-- Wipe existing Authentication configuration\ndelete from tblAgencyConfiguration\nwhere agencyId = @agencyId and path like '/config/agency/authenticate%'\n\n-- Add new authentication settings\ninsert into tblAgencyConfiguration (agencyId, [path], [value])\n      select @agencyId, '/config/agency/authenticate/Ldap/serverUrl',    'ldap://ad.commsys.com'                       -- Must be of the form 'ldap://HOST:PORT' or 'ldaps://HOST:PORT'\nunion select @agencyId, '/config/agency/authenticate/Ldap/serverPort',   ''                       -- Leave blank\nunion select @agencyId, '/config/agency/authenticate/Ldap/failoverUrl',  'ldap://ad.commsys.com'                       -- Must be of the form 'ldap://HOST:PORT' or 'ldaps://HOST:PORT'\nunion select @agencyId, '/config/agency/authenticate/Ldap/failoverPort', ''                       -- Leave blank\nunion select @agencyId, '/config/agency/authenticate/Ldap/bind',         'bwilliams'                       -- LDAP Service Account User\nunion select @agencyId, '/config/agency/authenticate/Ldap/bindPassword', 'g3ng4r0309!!'                       -- LDAP Service Account Password\nunion select @agencyId, '/config/agency/authenticate/Ldap/root',         'DC=ad, DC=commsys, DC=com'                       -- Root LDAP DN to bind to when searching for users\nunion select @agencyId, '/config/agency/authenticate/Ldap/filter',       ''                       -- LDAP filter which restricts the users searched when looking for a user login\nunion select @agencyId, '/config/agency/authenticate/Ldap/protocol',     '3'                      -- Don't change this.\nunion select @agencyId, '/config/agency/authenticate/Ldap/referrals',    '0'                      -- Don't change this unless needed. Allows LDAP referrals to other LDAP servers\nunion select @agencyId, '/config/agency/authenticate/Ldap/manageUsers',  '1'                      -- Set to 0 to disable CLIPS user management UIs\nunion select @agencyId, '/config/agency/authenticate/Ldap/userField',    'samaccountname'         -- Don't change this if we're talking to ActiveDirectory\nunion select @agencyId, '/config/agency/authenticate/Ldap/captureFields/memberships',  'memberof' -- Uncomment this to allow capturing of AD groups as CLIPS permission groups\n-- union select @agencyId, '/config/agency/authenticate/Ldap/sysAdminGroup','Development Group'                       -- Uncomment to this to allow System Administrators to be identified by the\n                                                                                                    -- specified AD group. REQUIRES captureFields to be enabled.\n-- union select @agencyId, '/config/agency/authenticate/createUser', '' \t\t\t\t\t\t\t\t-- Uncomment this section to allow User Creation through LDAP\n\ncommit transaction\n\nset nocount off\nGO",
+    "timestamp": "2026-02-10T15:34:45.927400",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblCodeType",
+    "timestamp": "2026-01-23T16:23:42.939731",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblCode",
+    "timestamp": "2026-01-23T16:22:45.758957",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblVersion",
+    "timestamp": "2026-01-22T09:24:43.485399",
+    "connection_name": "Clips"
+  },
+  {
+    "query": "select * from tblConnectCICFormStage",
+    "timestamp": "2026-01-15T10:22:27.721120",
+    "connection_name": "Clips"
+  }
+]
