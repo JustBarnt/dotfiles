@@ -10,7 +10,7 @@
           "shift+;"
         ],
         "undo": "ctrl+z",
-        "redo": "ctrl+y"
+        "redo": "ctrl+r"
       },
       "navigation": {
         "focus_explorer": "e",

@@ -12,3 +12,6 @@ nvim/
 nushell/
 sqlit/queries
 sqlit/connections.json
+cagent/
+gh/
+tea/
