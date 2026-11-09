@@ -1,4 +1,3 @@
-
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.41/schema.json",
   "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
@@ -51,4 +50,3 @@
     }
   ]
 }
-
