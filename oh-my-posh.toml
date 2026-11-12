@@ -1,0 +1,387 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+# Port of ~/.config/starship.toml to Oh My Posh (config version 4, tested against oh-my-posh 32.0.0).
+# Starship styles map to inline tags: bold=<b>, italic=<i>, dimmed=<d>; starship "purple" = ANSI magenta.
+
+version = 4
+final_space = false   # the character segment emits its own trailing space, like `format = "$symbol "`
+
+# starship [username] aliases = { "bwilliams" = "justbarnt" }
+[maps.user_name]
+bwilliams = "justbarnt"
+
+# starship continuation_prompt = "[├─ ](dimmed white)"
+[secondary_prompt]
+foreground = "white"
+background = "transparent"
+template = "<d>├─ </d>"
+
+# Transient prompt (not in starship.toml): after you hit Enter, the full two-line prompt collapses
+# to just the character glyph, still colored by the exit code. In nu, OMP sets TRANSIENT_PROMPT_COMMAND
+# automatically whenever this table is present.
+[transient_prompt]
+newline = true   # keep the add_newline spacing between commands
+template = '{{ if gt .Code 0 }}<red><b></b></>{{ else }}<green><b></b></>{{ end }} '
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Line 1: $shell $username $directory $git_branch $git_status $git_metrics $cmd_duration
+# ─────────────────────────────────────────────────────────────────────────────
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true   # add_newline = true
+
+  # [shell] disabled = false — starship default indicators and "white bold" style
+  [[blocks.segments]]
+  type = "shell"
+  style = "plain"
+  foreground = "white"
+  template = "<b>{{ .Name }}</b> "
+    [blocks.segments.options.mapped_shell_names]
+    bash = "bsh"
+    fish = "fsh"
+    zsh = "zsh"
+    pwsh = "psh"
+    powershell = "psh"
+    ion = "ion"
+    elvish = "esh"
+    tcsh = "tsh"
+    nu = "nu"
+    xonsh = "xsh"
+    cmd = "cmd"
+
+  # [username] show_always = true, format = "[ $user]($style) ", style = "bold italic"
+  [[blocks.segments]]
+  type = "session"
+  style = "plain"
+  template = "<b><i> {{ .UserName }}</i></b> "
+
+  # [directory] defaults: truncation_length = 3, truncate_to_repo = true, style = "cyan bold",
+  # read_only = " " in "red", home_symbol = "~", OS-native separators.
+  [[blocks.segments]]
+  type = "path"
+  style = "plain"
+  foreground = "cyan"
+  template = '''
+{{- $sep := "/" -}}{{- if eq .OS "windows" -}}{{- $sep = "\\" -}}{{- end -}}
+{{- $p := .Path -}}
+{{- if .Segments.Contains "Git" -}}
+  {{- if ne (.Format .Segments.Git.Dir) "~" -}}
+    {{- $p = .Segments.Git.RepoName -}}
+    {{- if .Segments.Git.RelativeDir -}}{{- $p = print $p $sep (.Format .Segments.Git.RelativeDir) -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $parts := splitList $sep $p -}}
+{{- if gt (len $parts) 3 -}}{{- $p = join $sep (slice $parts (sub (len $parts) 3)) -}}{{- end -}}
+<b>{{ $p }}</b>{{ if not .Writable }}<red> </>{{ end }} '''
+    [blocks.segments.options]
+    style = "full"
+    home_icon = "~"
+
+  # [git_branch] + [git_status] in one git segment (one `git status` call instead of two)
+  [[blocks.segments]]
+  type = "git"
+  style = "plain"
+  foreground = "magenta"
+  template = '''
+{{- $b := .Ref -}}{{- if .Detached -}}{{- $b = "HEAD" -}}{{- end -}}
+{{- if gt (len $b) 20 -}}{{- $b = print (trunc 20 $b) "…" -}}{{- end -}}
+{{- $r := regexReplaceAll "^[^/]+/" .Upstream "" -}}
+{{- if gt (len $r) 20 -}}{{- $r = print (trunc 20 $r) "…" -}}{{- end -}}
+<b> {{ $b }}{{ if and $r (ne $r $b) }}:{{ $r }}{{ end }}</b>{{ " " }}
+{{- $s := "" -}}
+{{- if and (gt .Ahead 0) (gt .Behind 0) -}}{{- $s = printf "⇕⇡ %d⇣%d" .Ahead .Behind -}}
+{{- else if gt .Ahead 0 -}}{{- $s = printf "⇡ %d" .Ahead -}}
+{{- else if gt .Behind 0 -}}{{- $s = printf "⇣ %d" .Behind -}}{{- end -}}
+{{- $staged := add .Staging.Added .Staging.Modified -}}
+{{- if gt $staged 0 -}}{{- $s = printf "%s+%d" $s $staged -}}{{- end -}}
+{{- $modified := add .Working.Modified .Working.Added -}}
+{{- if gt $modified 0 -}}{{- $s = printf "%s!%d" $s $modified -}}{{- end -}}
+{{- if gt .Working.Untracked 0 -}}{{- $s = printf "%s?%d" $s .Working.Untracked -}}{{- end -}}
+{{- $deleted := add .Working.Deleted .Staging.Deleted -}}
+{{- if gt $deleted 0 -}}{{- $s = printf "%s✘ %d" $s $deleted -}}{{- end -}}
+{{- if gt (add .Working.Unmerged .Staging.Unmerged) 0 -}}{{- $s = print $s "=" -}}{{- end -}}
+{{- if gt .StashCount 0 -}}{{- $s = print $s "≡" -}}{{- end -}}
+{{- if $s -}}<red><b>[{{ $s }}]</b></>{{ " " }}{{- end -}}'''
+
+  # [git_metrics] only_nonzero_diffs = true — no native OMP equivalent, so this drives the
+  # generic `language` segment: it runs `git diff HEAD --shortstat` and the regex puts
+  # insertions in .Major and deletions in .Minor. Custom tools are never cached, so the
+  # numbers stay live. Remove this block if you'd rather not spawn an extra git per prompt.
+  [[blocks.segments]]
+  type = "language"
+  style = "plain"
+  template = '{{ if not .Error }}{{ if and .Major (ne .Major "0") }}<green><b>+{{ .Major }}</b></> {{ end }}{{ if and .Minor (ne .Minor "0") }}<red><b>-{{ .Minor }}</b></> {{ end }}{{ end }}'
+    [blocks.segments.options]
+    name = "git_metrics"
+    display_mode = "files"
+    project_files = [".git"]
+    home_enabled = true
+      [[blocks.segments.options.tools]]
+      name = "git_shortstat"
+      executable = "git"
+      args = ["--no-optional-locks", "diff", "HEAD", "--shortstat"]
+      regex = 'changed(?:, (?P<major>\d+) insertions?\(\+\))?(?:, (?P<minor>\d+) deletions?\(-\))?'
+
+  # [cmd_duration] format = "ran in [$duration]($style) ", defaults min_time = 2000, "yellow bold".
+  # Duration is rebuilt from .Ms to match starship's humanized format exactly (1h5s, 2m13s, 4s).
+  [[blocks.segments]]
+  type = "executiontime"
+  style = "plain"
+  template = '''
+{{- $t := div .Ms 1000 -}}
+{{- $d := div $t 86400 -}}{{- $h := mod (div $t 3600) 24 -}}{{- $m := mod (div $t 60) 60 -}}{{- $sec := mod $t 60 -}}
+ran in <yellow><b>{{ if gt $d 0 }}{{ $d }}d{{ end }}{{ if gt $h 0 }}{{ $h }}h{{ end }}{{ if gt $m 0 }}{{ $m }}m{{ end }}{{ if gt $sec 0 }}{{ $sec }}s{{ end }}</b></> '''
+    [blocks.segments.options]
+    threshold = 2000
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Line 2: $character
+# ─────────────────────────────────────────────────────────────────────────────
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+  [[blocks.segments]]
+  type = "text"
+  style = "plain"
+  template = '{{ if gt .Code 0 }}<red><b></b></>{{ else }}<green><b></b></>{{ end }} '
+
+# ─────────────────────────────────────────────────────────────────────────────
+# right_format: $c $cpp $cmake $dotnet $golang $lua $nodejs $php $python $rust $battery $time
+# (rprompt = the shell's native right prompt; your nu config already renders it on the last line)
+# ─────────────────────────────────────────────────────────────────────────────
+[[blocks]]
+type = "rprompt"
+
+  # [c] — starship runs cc, then gcc, then clang and names the compiler from the output.
+  # The tool's version_url_template is used only to carry that name into .URL.
+  [[blocks.segments]]
+  type = "language"
+  style = "plain"
+  foreground = "149"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }}{{ if .URL }}-{{ .URL }}{{ end }} {{ end }}</b>'
+    [blocks.segments.options]
+    name = "c"
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.c", "*.h"]
+      [[blocks.segments.options.tools]]
+      name = "cc_gcc"
+      executable = "cc"
+      args = ["--version"]
+      regex = '(?s)(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$).*Free Software Foundation'
+      version_url_template = "gcc"
+      [[blocks.segments.options.tools]]
+      name = "cc_clang"
+      executable = "cc"
+      args = ["--version"]
+      regex = '(?s)clang.*?(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      version_url_template = "clang"
+      [[blocks.segments.options.tools]]
+      name = "cc_other"
+      executable = "cc"
+      args = ["--version"]
+      regex = '(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      [[blocks.segments.options.tools]]
+      name = "gcc_gcc"
+      executable = "gcc"
+      args = ["--version"]
+      regex = '(?s)(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$).*Free Software Foundation'
+      version_url_template = "gcc"
+      [[blocks.segments.options.tools]]
+      name = "gcc_clang"
+      executable = "gcc"
+      args = ["--version"]
+      regex = '(?s)clang.*?(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      version_url_template = "clang"
+      [[blocks.segments.options.tools]]
+      name = "gcc_other"
+      executable = "gcc"
+      args = ["--version"]
+      regex = '(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      [[blocks.segments.options.tools]]
+      name = "clang_clang"
+      executable = "clang"
+      args = ["--version"]
+      regex = '(?s)clang.*?(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      version_url_template = "clang"
+      [[blocks.segments.options.tools]]
+      name = "clang_other"
+      executable = "clang"
+      args = ["--version"]
+      regex = '(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+
+  # [cpp] — same logic with c++ / g++ / clang++
+  [[blocks.segments]]
+  type = "language"
+  style = "plain"
+  foreground = "149"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }}{{ if .URL }}-{{ .URL }}{{ end }} {{ end }}</b>'
+    [blocks.segments.options]
+    name = "cpp"
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.cpp", "*.cc", "*.cxx", "*.c++", "*.hpp", "*.hh", "*.hxx", "*.h++", "*.tcc"]
+      [[blocks.segments.options.tools]]
+      name = "cxx_gcc"
+      executable = "c++"
+      args = ["--version"]
+      regex = '(?s)(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$).*Free Software Foundation'
+      version_url_template = "g++"
+      [[blocks.segments.options.tools]]
+      name = "cxx_clang"
+      executable = "c++"
+      args = ["--version"]
+      regex = '(?s)clang.*?(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      version_url_template = "clang++"
+      [[blocks.segments.options.tools]]
+      name = "cxx_other"
+      executable = "c++"
+      args = ["--version"]
+      regex = '(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      [[blocks.segments.options.tools]]
+      name = "gxx_gcc"
+      executable = "g++"
+      args = ["--version"]
+      regex = '(?s)(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$).*Free Software Foundation'
+      version_url_template = "g++"
+      [[blocks.segments.options.tools]]
+      name = "gxx_clang"
+      executable = "g++"
+      args = ["--version"]
+      regex = '(?s)clang.*?(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      version_url_template = "clang++"
+      [[blocks.segments.options.tools]]
+      name = "gxx_other"
+      executable = "g++"
+      args = ["--version"]
+      regex = '(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      [[blocks.segments.options.tools]]
+      name = "clangxx_clang"
+      executable = "clang++"
+      args = ["--version"]
+      regex = '(?s)clang.*?(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+      version_url_template = "clang++"
+      [[blocks.segments.options.tools]]
+      name = "clangxx_other"
+      executable = "clang++"
+      args = ["--version"]
+      regex = '(?:^|\s)(?P<version>(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+))(?:\s|$)'
+
+  # [cmake]
+  [[blocks.segments]]
+  type = "cmake"
+  style = "plain"
+  foreground = "blue"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["CMakeLists.txt", "CMakeCache.txt"]
+
+  # [dotnet]
+  [[blocks.segments]]
+  type = "dotnet"
+  style = "plain"
+  foreground = "blue"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.csproj", "*.fsproj", "*.xproj", "global.json", "project.json", "Directory.Build.props", "Directory.Build.targets", "Packages.props"]
+
+  # [golang]
+  [[blocks.segments]]
+  type = "go"
+  style = "plain"
+  foreground = "cyan"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.go", "go.mod", "go.sum", "go.work", "glide.yaml", "Gopkg.yml", "Gopkg.lock", ".go-version"]
+    folders = ["Godeps"]
+
+  # [lua]
+  [[blocks.segments]]
+  type = "lua"
+  style = "plain"
+  foreground = "blue"
+  template = '<b>󰢱 {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.lua", ".lua-version"]
+    folders = ["lua"]
+
+  # [nodejs]
+  [[blocks.segments]]
+  type = "node"
+  style = "plain"
+  foreground = "green"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.js", "*.mjs", "*.cjs", "*.ts", "*.mts", "*.cts", "package.json", ".node-version", ".nvmrc"]
+    folders = ["node_modules"]
+
+  # [php]
+  [[blocks.segments]]
+  type = "php"
+  style = "plain"
+  foreground = "147"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.php", "composer.json", ".php-version"]
+
+  # [python] — "context" also shows it whenever a virtualenv is active (starship: detect_env_vars = ["VIRTUAL_ENV"])
+  [[blocks.segments]]
+  type = "python"
+  style = "plain"
+  foreground = "yellow"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}{{ if .Venv }}({{ .Venv }}) {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "context"
+    home_enabled = true
+    extensions = ["*.py", "*.ipynb", "requirements.txt", ".python-version", "pyproject.toml", "Pipfile", "tox.ini", "setup.py", "__init__.py"]
+
+  # [rust]
+  [[blocks.segments]]
+  type = "rust"
+  style = "plain"
+  foreground = "red"
+  template = '<b> {{ if not .Error }}{{ .Major }}.{{ .Minor }} {{ end }}</b>'
+    [blocks.segments.options]
+    display_mode = "files"
+    home_enabled = true
+    extensions = ["*.rs", "Cargo.toml"]
+
+  # [battery] — starship uses the first display rule with percentage <= threshold; above 70% it's hidden
+  [[blocks.segments]]
+  type = "battery"
+  style = "plain"
+  template = '''
+{{- $i := .Icon -}}
+{{- if eq .State.String "Empty" -}}{{- $i = "󰂎 " -}}{{- else if or (eq .State.String "Unknown") (eq .State.String "Not Charging") -}}{{- $i = "󰁽 " -}}{{- end -}}
+{{- if le .Percentage 20 -}}<#e06c75><b><i>{{ .Percentage }}% {{ $i }}</i></b></>{{ " " }}
+{{- else if le .Percentage 60 -}}<#c678dd><i><d>{{ .Percentage }}% {{ $i }}</d></i></>{{ " " }}
+{{- else if le .Percentage 70 -}}<#e5c07b><i><d>{{ .Percentage }}% {{ $i }}</d></i></>{{ " " }}
+{{- end -}}'''
+    [blocks.segments.options]
+    charged_icon = "󰁹 "
+    charging_icon = "󰂄 "
+    discharging_icon = "󰂃 "
+    not_charging_icon = "󰁽 "
+
+  # [time] disabled = false, time_format = "%R" (24h HH:MM), default style "bold yellow"
+  [[blocks.segments]]
+  type = "time"
+  style = "plain"
+  foreground = "yellow"
+  template = ' <b>{{ .CurrentDate | date .Format }}</b>'
+    [blocks.segments.options]
+    time_format = "15:04"
