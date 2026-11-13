@@ -2,7 +2,7 @@
   "theme": "textual-ansi",
   "expanded_nodes": [
     "conn:Clips",
-    "conn:Clips/folder:tables",
+    "conn:ClipsDevX",
     "conn:ConnectCic",
     "conn:ConnectCic/folder:tables",
     "conn:ConnectCic/folder:tables/table:dbo.tblConnectCICHit",

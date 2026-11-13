@@ -220,7 +220,7 @@ nmap H <Action>(PreviousTab)
 " ═══════════════════════════════════════════════════════════════════════════
 " File Explorer (Project Tool Window)
 " ═══════════════════════════════════════════════════════════════════════════
-nmap <leader>ee <Action>(ActivateProjectToolWindow)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
 
 " ═══════════════════════════════════════════════════════════════════════════
 " Fuzzy Finding & Search (Telescope-style)

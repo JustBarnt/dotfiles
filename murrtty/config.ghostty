@@ -66,3 +66,6 @@ grapheme-width-method = unicode
 window-padding-x = 5
 window-padding-y = 5
 window-padding-balance = false
+background-opacity = 0.95
+window-decoration = auto
+window-inherit-font-size = true
